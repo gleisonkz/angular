@@ -1,93 +1,284 @@
-# Tour of Heroes app and tutorial
+# Getting started with Angular
 
-<div class="callout is-helpful">
+Welcome to Angular!
 
-<header>Getting Started</header>
+This tutorial introduces you to the essentials of Angular by walking you through building an e-commerce site with a catalog, shopping cart, and check-out form.
 
-In this tutorial, you build your own application from the ground up, providing experience with the typical development process, as well as an introduction to basic app-design concepts, tools, and terminology.
+To help you get started right away, this tutorial uses a ready-made application that you can examine and modify interactively on [StackBlitz](https://stackblitz.com) &mdash;without having to [set up a local work environment](guide/setup-local "Setup guide"). StackBlitz is a browser-based development environment where you can create, save, and share projects using a variety of technologies.
 
-If you're completely new to Angular, you might want to try the [**Try it now**](start) quick-start application first.
-It is based on a ready-made  partially-completed project, which you can examine and modify in the StackBlitz interactive development environment, where you can see the results in real time.
+## Prerequisites
 
-The "Try it" tutorial covers the same major topics &mdash;components, template syntax, routing, services, and accessing data using HTTP&mdash; in a condensed format, following the most current best practices.
+To get the most out of this tutorial you should already have a basic understanding of the following.
 
-</div>
+*   [HTML](https://developer.mozilla.org/docs/Learn/HTML "Learning HTML: Guides and tutorials")
+*   [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript "JavaScript")
+*   [TypeScript](https://www.typescriptlang.org/ "The TypeScript language")
 
-This *Tour of Heroes* tutorial shows you how to set up your local development environment and develop an application using the [Angular CLI tool](cli "CLI command reference"), and provides an introduction to the fundamentals of Angular.
+<a id="components"></a>
 
-The *Tour of Heroes* application that you build helps a staffing agency manage its stable of heroes. The application has many of the features you'd expect to find in any data-driven application. The finished application acquires and displays a list of heroes, edits a selected hero's detail, and navigates among different views of heroic data.
+## Take a tour of the example application
 
-You will find references to and expansions of this application domain in many of the examples used throughout the Angular documentation, but you don't necessarily need to work through this tutorial to understand those examples.
+You build Angular applications with components. Components define areas of responsibility in the UI that let you reuse sets of UI functionality.
 
-By the end of this tutorial you will be able to do the following:
+A component consists of three things:
 
-*   Use built-in Angular [directives](guide/glossary#directive "Directives definition") to show and hide elements and display lists of hero data
-*   Create Angular [components](guide/glossary#component "Components definition") to display hero details and show an array of heroes
-*   Use one-way [data binding](guide/glossary#data-binding "Data binding definition") for read-only data
-*   Add editable fields to update a model with two-way data binding
-*   Bind component methods to user events, like keystrokes and clicks
-*   Enable users to select a hero from a master list and edit that hero in the details view
-*   Format data with [pipes](guide/glossary#pipe "Pipe definition")
-*   Create a shared [service](guide/glossary#service "Service definition") to assemble the heroes
-*   Use [routing](guide/glossary#router "Router definition") to navigate among different views and their components
+|                           | Details                         |
+|:------------------------- |:------------------------------- |
+| A component class         | Handles data and functionality. |
+| An HTML template          | Determines the UI.              |
+| Component-specific styles | Define the look and feel.       |
 
-You'll learn enough Angular to get started and gain confidence that Angular can do whatever you need it to do.
+This guide demonstrates building an application with the following components.
 
-<div class="callout is-helpful">
-
-<header>Solution</header>
-
-After completing all tutorial steps, the final application will look like this:
-<live-example name="toh-pt6"></live-example>.
-
-</div>
-
-## What you'll build
-
-Here's a visual idea of where this tutorial leads, beginning with the "Dashboard" view and the most heroic heroes:
+| Components                   | Details                                                                 |
+|:---------------------------- |:----------------------------------------------------------------------- |
+| `<app-root>`           | The first component to load and the container for the other components. |
+| `<app-top-bar>`        | The store name and checkout button.                                     |
+| `<app-product-list>`   | The product list.                                                       |
+| `<app-product-alerts>` | A component that contains the application's alerts.                     |
 
 <div class="lightbox">
 
-<img alt="Output of heroes dashboard" src="generated/images/guide/toh/heroes-dashboard-1.png">
+<img alt="Online store with three components" src="generated/images/guide/start/app-components.png">
 
 </div>
 
-You can click the two links above the dashboard \("Dashboard" and "Heroes"\) to navigate between this Dashboard view and a Heroes view.
+For more information about components, see [Introduction to Components](guide/architecture-components "Introduction to Components and Templates").
 
-If you click the dashboard hero "Magneta," the router opens a "Hero Details" view where you can change the hero's name.
+<a id="new-project"></a>
+
+## Create the sample project
+
+To create the sample project, generate the <live-example name="getting-started-v0" noDownload>ready-made sample project in StackBlitz</live-example>. To save your work:
+
+1.  Log into StackBlitz.
+1.  Fork the project you generated.
+1.  Save periodically.
 
 <div class="lightbox">
 
-<img alt="Details of hero in app" src="generated/images/guide/toh/hero-details-1.png">
+<img alt="Fork the project" src="generated/images/guide/start/fork-the-project.png">
 
 </div>
 
-Clicking the "Back" button returns you to the Dashboard. Links at the top take you to either of the main views. If you click "Heroes," the application displays the "Heroes" master list view.
+In StackBlitz, the preview pane on the right shows the starting state of the example application. The preview features two areas:
+
+*   A top bar with the store name, `My Store`, and a checkout button
+*   A header for a product list, `Products`
 
 <div class="lightbox">
 
-<img alt="Output of heroes list app" src="generated/images/guide/toh/heroes-list-2.png">
+<img alt="Starter online store application" src="generated/images/guide/start/new-app-all.gif">
 
 </div>
 
-When you click a different hero name, the read-only mini detail beneath the list reflects the new choice.
+The project section on the left shows the source files that make up the application, including the infrastructure and configuration files.
 
-You can click the "View Details" button to drill into the editable details of the selected hero.
+When you generate the StackBlitz example applications that accompany the tutorials, StackBlitz creates the starter files and mock data for you. The files you use throughout the tutorial are in the `src` folder.
 
-The following diagram captures all of the navigation options.
+For more information on how to use StackBlitz, see the [StackBlitz documentation](https://developer.stackblitz.com/docs/platform).
+
+<a id="product-list"></a>
+
+## Create the product list
+
+In this section, you'll update the application to display a list of products. You'll use predefined product data from the `products.ts` file and methods from the `product-list.component.ts` file. This section guides you through editing the HTML, also known as the template.
+
+1.  In the `product-list` folder, open the template file `product-list.component.html`.
+
+1.  Add an `*ngFor` structural directive on a `<div>`, as follows.
+
+    <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html" region="ngfor"></code-example>
+
+    With `*ngFor`, the `<div>` repeats for each product in the list.
+
+    Structural directives shape or reshape the DOM's structure, by adding, removing, and manipulating elements. For more information about structural directives, see [Structural directives](guide/structural-directives).
+
+1.  Inside the `<div>`, add an `<h3>` and `{{ product.name }}`. The `{{ product.name }}` statement is an example of Angular's interpolation syntax. Interpolation `{{ }}` lets you render the property value as text.
+
+    <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html" region="interpolation"></code-example>
+
+    The preview pane updates to display the name of each product in the list.
+
+    <div class="lightbox">
+
+    <img alt="Product names added to list" src="generated/images/guide/start/template-syntax-product-names.png">
+
+    </div>
+
+1.  To make each product name a link to product details, add the `<a>` element around `{{ product.name }}`.
+
+1.  Set the title to be the product's name by using the property binding `[ ]` syntax, as follows:
+
+    <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html"></code-example>
+
+    In the preview pane, hover over a product name to see the bound name property value, which is the product name plus the word "details". Property binding `[ ]` lets you use the property value in a template expression.
+
+    <div class="lightbox">
+
+    <img alt="Product name anchor text is product name property" src="generated/images/guide/start/template-syntax-product-anchor.png">
+
+    </div>
+
+1.  Add the product descriptions. On a `<p>` element, use an `*ngIf` directive so that Angular only creates the `<p>` element if the current product has a description.
+
+    <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.3.html"></code-example>
+
+    The application now displays the name and description of each product in the list. Notice that the final product does not have a description paragraph. Angular doesn't create the `<p>` element because the product's description property is empty.
+
+    <div class="lightbox">
+
+    <img alt="Product descriptions added to list" src="generated/images/guide/start/template-syntax-product-description.png">
+
+    </div>
+
+1.  Add a button so users can share a product. Bind the button's `click` event to the `share()` method in `product-list.component.ts`. Event binding uses a set of parentheses, `( )`, around the event, as in the `(click)` event on the  `<button>` element.
+
+    <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.4.html"></code-example>
+
+    Each product now has a **Share** button.
+
+    <div class="lightbox">
+
+    <img alt="Share button added for each product" src="generated/images/guide/start/template-syntax-product-share-button.png">
+
+    </div>
+
+    Clicking the **Share** button triggers an alert that states, "The product has been shared!".
+
+    <div class="lightbox">
+
+    <img alt="Alert box indicating product has been shared" src="generated/images/guide/start/template-syntax-product-share-alert.png">
+
+    </div>
+
+In editing the template, you have explored some of the most popular features of Angular templates. For more information, see [Introduction to components and templates](guide/architecture-components#template-syntax "Template Syntax").
+
+<a id="passing-data-in"></a>
+
+## Pass data to a child component
+
+Currently, the product list displays the name and description of each product. The `ProductListComponent` also defines a `products` property that contains imported data for each product from the `products` array in `products.ts`.
+
+The next step is to create a new alert feature that uses product data from the `ProductListComponent`. The alert checks the product's price, and, if the price is greater than &dollar;700, displays a **Notify Me** button that lets users sign up for notifications when the product goes on sale.
+
+This section walks you through creating a child component, `ProductAlertsComponent` that can receive data from its parent component, `ProductListComponent`.
+
+1.  Click on the plus sign above the current terminal to create a new terminal to run the command to generate the component.
+
+    <div class="lightbox">
+
+    <img alt="StackBlitz command to generate component" src="generated/images/guide/start/create-new-terminal.png">
+
+    </div>
+
+1.  In the new terminal, generate a new component named `product-alerts` by running the following command.
+
+    <code-example format="shell" language="shell">
+
+    ng generate component product-alerts
+
+    </code-example>
+
+    The generator creates starter files for the three parts of the component:
+
+    *   `product-alerts.component.ts`
+    *   `product-alerts.component.html`
+    *   `product-alerts.component.css`
+
+1.  Open `product-alerts.component.ts`. The `@Component()` decorator indicates that the following class is a component. `@Component()` also provides metadata about the component, including its selector, templates, and styles.
+
+    <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="as-generated"></code-example>
+
+    Key features in the `@Component()` are as follows:
+
+    *   The `selector`, `app-product-alerts`, identifies the component. By convention, Angular component selectors begin with the prefix `app-`, followed by the component name.
+
+    *   The template and style filenames reference the component's HTML and CSS
+    *   The `@Component()` definition also exports the class, `ProductAlertsComponent`, which handles functionality for the component
+
+1.  To set up `ProductAlertsComponent` to receive product data, first import `Input` from `@angular/core`.
+
+    <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="imports"></code-example>
+
+1.  In the `ProductAlertsComponent` class definition, define a property named `product` with an `@Input()` decorator. The `@Input()` decorator indicates that the property value passes in from the component's parent, `ProductListComponent`.
+
+    <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="input-decorator"></code-example>
+
+1.  Open `product-alerts.component.html` and replace the placeholder paragraph with a **Notify Me** button that appears if the product price is over &dollar;700.
+
+    <code-example header="src/app/product-alerts/product-alerts.component.html" path="getting-started/src/app/product-alerts/product-alerts.component.1.html"></code-example>
+
+1.  The generator automatically added the `ProductAlertsComponent` to the `AppModule` to make it available to other components in the application.
+
+    <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="declare-product-alerts"></code-example>
+
+1.  Finally, to display `ProductAlertsComponent` as a child of `ProductListComponent`, add the `<app-product-alerts>` element to `product-list.component.html`. Pass the current product as input to the component using property binding.
+
+    <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.5.html" region="app-product-alerts"></code-example>
+
+The new product alert component takes a product as input from the product list. With that input, it shows or hides the **Notify Me** button, based on the price of the product. The Phone XL price is over &dollar;700, so the **Notify Me** button appears on that product.
 
 <div class="lightbox">
 
-<img alt="View navigations" src="generated/images/guide/toh/nav-diagram.png">
+<img alt="Product alert button added to products over $700" src="generated/images/guide/start/product-alert-button.png">
 
 </div>
 
-Here's the application in action:
+<a id="output"></a>
 
-<div class="lightbox">
+## Pass data to a parent component
 
-<img alt="Tour of Heroes in Action" src="generated/images/guide/toh/toh-anim.gif">
+To make the **Notify Me** button work, the child component needs to notify and pass the data to the parent component. The `ProductAlertsComponent` needs to emit an event when the user clicks **Notify Me** and the `ProductListComponent` needs to respond to the event.
+
+<div class="alert is-helpful">
+
+In new components, the Angular Generator includes an empty `constructor()`, the `OnInit` interface, and the `ngOnInit()` method.
+Since these steps don't use them, the following code examples omit them for brevity.
 
 </div>
 
-@reviewed 2022-05-16
+1.  In `product-alerts.component.ts`, import `Output` and `EventEmitter` from `@angular/core`.
+
+    <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.ts" region="imports"></code-example>
+
+1.  In the component class, define a property named `notify` with an `@Output()` decorator and an instance of `EventEmitter()`. Configuring `ProductAlertsComponent` with an `@Output()` allows the `ProductAlertsComponent` to emit an event when the value of the `notify` property changes.
+
+    <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.ts" region="input-output"></code-example>
+
+1.  In `product-alerts.component.html`, update the **Notify Me** button with an event binding to call the `notify.emit()` method.
+
+    <code-example header="src/app/product-alerts/product-alerts.component.html" path="getting-started/src/app/product-alerts/product-alerts.component.html"></code-example>
+
+1.  Define the behavior that happens when the user clicks the button. The parent, `ProductListComponent` &mdash;not the `ProductAlertsComponent`&mdash; acts when the child raises the event. In  `product-list.component.ts`, define an `onNotify()` method, similar to the `share()` method.
+
+    <code-example header="src/app/product-list/product-list.component.ts" path="getting-started/src/app/product-list/product-list.component.ts" region="on-notify"></code-example>
+
+1.  Update the `ProductListComponent` to receive data from the `ProductAlertsComponent`.
+
+    In `product-list.component.html`, bind `<app-product-alerts>`  to the `onNotify()` method of the product list component. `<app-product-alerts>` is what displays the **Notify Me** button.
+
+    <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.6.html" region="on-notify"></code-example>
+
+1.  Click the **Notify Me** button to trigger an alert which reads, "You will be notified when the product goes on sale".
+
+    <div class="lightbox">
+
+    <img alt="Product alert notification confirmation dialog" src="generated/images/guide/start/product-alert-notification.png">
+
+    </div>
+
+For more information on communication between components, see [Component Interaction](guide/component-interaction "Component interaction").
+
+<a id="whats-next"></a>
+
+## What's next
+
+In this section, you've created an application that iterates through data and features components that communicate with each other.
+
+To continue exploring Angular and developing this application:
+
+*   Continue to [In-app navigation](start/start-routing "Getting started: In-app navigation") to create a product details page.
+*   Skip ahead to [Deployment](start/start-deployment "Getting started: Deployment") to move to local development, or deploy your application to Firebase or your own server.
+
+@reviewed 2022-02-28
