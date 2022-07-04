@@ -2,4 +2,4 @@ files:
   - source: /aio/content/**/
     ignore:
       - /aio/content/examples
-    translation: content-pt-BR/%original_file_name%
+    translation: /aio/content-%language%/%original_file_name%
