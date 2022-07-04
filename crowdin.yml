@@ -1,0 +1,3 @@
+files:
+  - source: /aio/content/**/
+    translation: content-pt-BR/%original_file_name%
