@@ -1,33 +1,36 @@
-# Special Elements
+# Contributors page
 
-Each sub-directory below this contains documentation that describes "special elements". These are elements that can appear in templates that have special meaning and behaviour in the Angular framework.
+We have an official accounting of who is on the Angular Team \(see https://angular.io/about?group=Angular\), who are "trusted collaborators" \(see https://angular.io/about?group=Collaborators\), and so on.
 
-Each element should have a markdown file with the same file name as the element's tag name \(for example, `ng-container.md`\). The file should be stored in a directory whose name is that of the Angular package under which this element should appear in the docs \(usually `core`\).
+The `contributors.json` should be maintained to keep our "org chart" in a single consistent place.
 
-## Short description
+## GDE listings
 
-The file should contain a "short description" of the element. This is the first paragraph in the file.
+There are two pages:
 
-## Long description
+*   https://developers.google.com/experts/all/technology/angular (Googlers: source at http://google3/googledata/devsite/content/en/experts/all/technology/angular.html) which is maintained by Dawid Ostrowski based on a spreadsheet https://docs.google.com/spreadsheets/d/1_Ls2Kle7NxPBIG8f3OEVZ4gJZ8OCTtBxGYwMPb1TUVE/edit#gid=0.
+    <!-- gkalpak: That URL doesn't seem to work any more. New URL: https://developers.google.com/programs/experts/directory/ (?) -->
 
-All the paragraphs after the short description are collected as an additional longer description.
+*   Ours: https://angular.io/about?group=GDE which is derived from `contributors.json`.
 
-## Element attributes
+## About the data
 
-If the special element accepts one or more attributes that have special meaning to Angular, then these should be documented using the `@elementAttribute` tag. These tags should come after the description.
+*   Keys in `contributors.json` should be GitHub handles. \(Most currently are, but not all.\) This will allow us to use GitHub as the default source for things like name, avatar, etc.
 
-The format of this tag is:
+*   Keys are sorted in alphabetical order, please keep the sorting order when adding new entries.
+*   Pictures are stored in `aio/content/images/bios/<picture-filename>`.
 
-```typescript
-@elementAttribute attr="value"
+## Processing the data
 
-Description of the attribute and value.
-```
+Install https://stedolan.github.io/jq/ which is amazing.
 
-<!-- links -->
+<code-example format="shell" language="shell">
 
-<!-- external links -->
+for handle in &dollar;(jq keys[] --raw-output &lt; aio/content/marketing/contributors.json)
+do echo -e "\n&dollar;handle\n---------\n"; curl --silent -H "Authorization: token &dollar;{TOKEN}" https://api.github.com/users/&dollar;handle \
+ &verbar; jq ".message,.name,.company,.blog,.bio" --raw-output
+done
 
-<!-- end links -->
+</code-example>
 
-@reviewed 2022-02-28
+Relevant scripts are stored in `aio/scripts/contributors/`.
