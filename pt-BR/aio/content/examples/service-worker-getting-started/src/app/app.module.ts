@@ -1,16 +1,18 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {ServiceWorkerModule} from '@angular/service-worker';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
 
-import {environment} from '../environments/environment';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
-import {AppComponent} from './app.component';
-import {CheckForUpdateService} from './check-for-update.service';
-import {LogUpdateService} from './log-update.service';
-import {PromptUpdateService} from './prompt-update.service';
+import { CheckForUpdateService } from './check-for-update.service';
+import { LogUpdateService } from './log-update.service';
+import { PromptUpdateService } from './prompt-update.service';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
@@ -22,5 +24,4 @@ import {PromptUpdateService} from './prompt-update.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

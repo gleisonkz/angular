@@ -1,6 +1,7 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Accessibility example e2e tests', () => {
+
   beforeEach(() => browser.get(''));
 
   it('should display Accessibility Example', async () => {
@@ -12,4 +13,5 @@ describe('Accessibility example e2e tests', () => {
     expect(await element(by.css('input')).getAttribute('value')).toEqual('16');
     expect(await element(by.css('app-example-progressbar div')).getCssValue('width')).toBe('48px');
   });
+
 });

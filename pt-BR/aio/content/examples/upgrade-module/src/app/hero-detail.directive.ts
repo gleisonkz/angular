@@ -3,7 +3,10 @@ export function heroDetailDirective() {
   return {
     restrict: 'E',
     scope: {},
-    bindToController: {hero: '=', deleted: '&'},
+    bindToController: {
+      hero: '=',
+      deleted: '&'
+    },
     template: `
       <h2>{{$ctrl.hero.name}} details!</h2>
       <div><label>id: </label>{{$ctrl.hero.id}}</div>

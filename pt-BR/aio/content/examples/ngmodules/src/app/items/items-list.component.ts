@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import {Item, ItemService} from './items.service';
+import { Item, ItemService } from './items.service';
 
 @Component({
   template: `
@@ -17,4 +17,6 @@ export class ItemsListComponent {
   constructor(private itemService: ItemService) {
     this.items = this.itemService.getItems();
   }
+
 }
+

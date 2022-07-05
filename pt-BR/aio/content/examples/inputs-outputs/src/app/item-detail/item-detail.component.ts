@@ -1,6 +1,6 @@
 // #docplaster
 // #docregion use-input
-import {Component, Input} from '@angular/core';  // First, import Input
+import { Component, Input } from '@angular/core'; // First, import Input
 // #enddocregion use-input
 
 @Component({
@@ -11,6 +11,6 @@ import {Component, Input} from '@angular/core';  // First, import Input
 
 // #docregion use-input
 export class ItemDetailComponent {
-  @Input() item = '';  // decorate the property with @Input()
+  @Input() item = ''; // decorate the property with @Input()
 }
 // #enddocregion use-input

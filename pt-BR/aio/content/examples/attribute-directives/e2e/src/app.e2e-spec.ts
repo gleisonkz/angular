@@ -1,6 +1,7 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Attribute directives', () => {
+
   const title = 'My First Attribute Directive';
 
   beforeAll(() => browser.get(''));

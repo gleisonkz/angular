@@ -1,13 +1,19 @@
-import {HttpClient, HttpErrorResponse, HttpEvent, HttpEventType, HttpProgressEvent, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {of} from 'rxjs';
-import {catchError, last, map, tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import {
+  HttpClient, HttpEvent, HttpEventType, HttpProgressEvent,
+  HttpRequest, HttpResponse, HttpErrorResponse
+} from '@angular/common/http';
 
-import {MessageService} from '../message.service';
+import { of } from 'rxjs';
+import { catchError, last, map, tap } from 'rxjs/operators';
+
+import { MessageService } from '../message.service';
 
 @Injectable()
 export class UploaderService {
-  constructor(private http: HttpClient, private messenger: MessageService) {}
+  constructor(
+    private http: HttpClient,
+    private messenger: MessageService) {}
 
   // If uploading multiple files, change to:
   // upload(files: FileList) {
@@ -18,9 +24,7 @@ export class UploaderService {
   // }
 
   upload(file: File) {
-    if (!file) {
-      return of<string>();
-    }
+    if (!file) { return of<string>(); }
 
     // COULD HAVE WRITTEN:
     // return this.http.post('/upload/file', file, {
@@ -32,16 +36,20 @@ export class UploaderService {
     // The `reportProgress` option tells HttpClient to listen and return
     // XHR progress events.
     // #docregion upload-request
-    const req = new HttpRequest('POST', '/upload/file', file, {reportProgress: true});
+    const req = new HttpRequest('POST', '/upload/file', file, {
+      reportProgress: true
+    });
     // #enddocregion upload-request
 
     // #docregion upload-body
     // The `HttpClient.request` API produces a raw event stream
     // which includes start (sent), progress, and response events.
     return this.http.request(req).pipe(
-        map(event => this.getEventMessage(event, file)), tap(message => this.showProgress(message)),
-        last(),  // return last (completed) message to caller
-        catchError(this.handleError(file)));
+      map(event => this.getEventMessage(event, file)),
+      tap(message => this.showProgress(message)),
+      last(), // return last (completed) message to caller
+      catchError(this.handleError(file))
+    );
     // #enddocregion upload-body
   }
 
@@ -79,11 +87,11 @@ export class UploaderService {
 
     return (error: HttpErrorResponse) => {
       // TODO: send the error to remote logging infrastructure
-      console.error(error);  // log to console instead
+      console.error(error); // log to console instead
 
       const message = (error.error instanceof Error) ?
-          error.error.message :
-          `server returned code ${error.status} with body "${error.error}"`;
+        error.error.message :
+       `server returned code ${error.status} with body "${error.error}"`;
 
       this.messenger.add(`${userMessage} ${message}`);
 

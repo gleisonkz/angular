@@ -1,10 +1,9 @@
 // #docplaster
 // #docregion
-import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
-import {Component, HostBinding, OnInit} from '@angular/core';
-
-import {Hero} from './hero';
-import {HEROES} from './mock-heroes';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { trigger, transition, animate, style, query, stagger } from '@angular/animations';
+import { HEROES } from './mock-heroes';
+import { Hero } from './hero';
 
 // #docregion filter-animations
 @Component({
@@ -51,15 +50,14 @@ import {HEROES} from './mock-heroes';
   ]
 })
 export class HeroListPageComponent implements OnInit {
-  // #enddocregion filter-animations
-  @HostBinding('@pageAnimations') public animatePage = true;
+// #enddocregion filter-animations
+  @HostBinding('@pageAnimations')
+  public animatePage = true;
 
-  // #docregion filter-animations
+// #docregion filter-animations
   heroesTotal = -1;
 
-  get heroes() {
-    return this._heroes;
-  }
+  get heroes() { return this._heroes; }
   private _heroes: Hero[] = [];
 
   ngOnInit() {

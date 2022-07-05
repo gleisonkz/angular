@@ -1,10 +1,13 @@
 // #docplaster
 // #docregion , proto
-import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+// #enddocregion proto
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+
 // #docregion rxjs-imports
-import {Observable, throwError} from 'rxjs';
-import {catchError, retry} from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 // #enddocregion rxjs-imports
 
 // #docregion config-interface
@@ -24,22 +27,22 @@ export class ConfigService {
 
   // #enddocregion getConfig_1
   // #docregion proto
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   // #enddocregion proto
 
   // #docregion getConfig, getConfig_1, getConfig_2, getConfig_3
   getConfig() {
-    // #enddocregion getConfig_1, getConfig_2, getConfig_3
+  // #enddocregion getConfig_1, getConfig_2, getConfig_3
     return this.http.get<Config>(this.configUrl)
-        .pipe(
-            retry(3),                     // retry a failed request up to 3 times
-            catchError(this.handleError)  // then handle the error
-        );
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(this.handleError) // then handle the error
+      );
   }
   // #enddocregion getConfig
 
   getConfig_1() {
-    // #docregion getConfig_1
+  // #docregion getConfig_1
     return this.http.get<Config>(this.configUrl);
   }
   // #enddocregion getConfig_1
@@ -53,13 +56,17 @@ export class ConfigService {
 
   getConfig_3() {
     // #docregion getConfig_3
-    return this.http.get<Config>(this.configUrl).pipe(catchError(this.handleError));
+    return this.http.get<Config>(this.configUrl)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
   // #enddocregion getConfig_3
 
   // #docregion getConfigResponse
   getConfigResponse(): Observable<HttpResponse<Config>> {
-    return this.http.get<Config>(this.configUrl, {observe: 'response'});
+    return this.http.get<Config>(
+      this.configUrl, { observe: 'response' });
   }
   // #enddocregion getConfigResponse
 
@@ -71,7 +78,8 @@ export class ConfigService {
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong.
-      console.error(`Backend returned code ${error.status}, body was: `, error.error);
+      console.error(
+        `Backend returned code ${error.status}, body was: `, error.error);
     }
     // Return an observable with a user-facing error message.
     return throwError(() => new Error('Something bad happened; please try again later.'));
@@ -79,9 +87,12 @@ export class ConfigService {
   // #enddocregion handleError
 
   makeIntentionalError() {
-    return this.http.get('not/a/real/url').pipe(catchError(this.handleError));
+    return this.http.get('not/a/real/url')
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  // #docregion proto
+// #docregion proto
 }
 // #enddocregion proto

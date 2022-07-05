@@ -1,7 +1,7 @@
 // #docplaster
 // #docregion create-control
-import {Component} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-name-editor',
@@ -10,13 +10,13 @@ import {FormControl} from '@angular/forms';
 })
 export class NameEditorComponent {
   name = new FormControl('');
-  // #enddocregion create-control
+// #enddocregion create-control
 
-  // #docregion update-value
+// #docregion update-value
   updateName() {
     this.name.setValue('Nancy');
   }
-  // #enddocregion update-value
-  // #docregion create-control
+// #enddocregion update-value
+// #docregion create-control
 }
 // #enddocregion create-control

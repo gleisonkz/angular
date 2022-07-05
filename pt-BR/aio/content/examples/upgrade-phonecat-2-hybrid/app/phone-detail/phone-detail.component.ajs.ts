@@ -1,6 +1,6 @@
 // #docregion
 declare const angular: angular.IAngularStatic;
-import {Phone, PhoneData} from '../core/phone/phone.service';
+import { Phone, PhoneData } from '../core/phone/phone.service';
 
 class PhoneDetailController {
   phone: PhoneData;
@@ -20,7 +20,9 @@ class PhoneDetailController {
   }
 }
 
-angular.module('phoneDetail').component('phoneDetail', {
-  templateUrl: 'phone-detail/phone-detail.template.html',
-  controller: PhoneDetailController
-});
+angular.
+  module('phoneDetail').
+  component('phoneDetail', {
+    templateUrl: 'phone-detail/phone-detail.template.html',
+    controller: PhoneDetailController
+  });

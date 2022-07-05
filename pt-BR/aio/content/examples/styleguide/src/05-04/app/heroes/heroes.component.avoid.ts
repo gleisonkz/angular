@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import {Hero, HeroService} from './shared';
+import { Hero, HeroService } from './shared';
 
 // #docregion example
 /* avoid */

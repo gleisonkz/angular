@@ -1,8 +1,11 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 
-@Component(
-    {selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
 export class AppComponent {
   // #docregion item-image
   itemImageUrl = '../assets/phone.png';
@@ -16,7 +19,10 @@ export class AppComponent {
   // #enddocregion parent-data-type
 
   // #docregion pass-object
-  currentItems = [{id: 21, name: 'phone'}];
+  currentItems = [{
+    id: 21,
+    name: 'phone'
+  }];
   // #enddocregion pass-object
 
   interpolationTitle = 'Interpolation';

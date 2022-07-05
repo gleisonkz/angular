@@ -1,18 +1,33 @@
 /* eslint-disable @angular-eslint/no-conflicting-lifecycle */
 // #docregion
-import {AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  DoCheck,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges
+} from '@angular/core';
 
-import {LoggerService} from './logger.service';
-import {PeekABooDirective} from './peek-a-boo.directive';
+import { LoggerService } from './logger.service';
+import { PeekABooDirective } from './peek-a-boo.directive';
 
-@Component({selector: 'peek-a-boo', template: '<p>Now you see my hero, {{name}}</p>'})
+@Component({
+  selector: 'peek-a-boo',
+  template: '<p>Now you see my hero, {{name}}</p>'
+})
 // Don't HAVE to mention the Lifecycle Hook interfaces
 // unless we want typing and tool support.
-export class PeekABooComponent extends PeekABooDirective implements OnChanges, OnInit, DoCheck,
-                                                                    AfterContentInit,
-                                                                    AfterContentChecked,
-                                                                    AfterViewInit, AfterViewChecked,
-                                                                    OnDestroy {
+export class PeekABooComponent extends PeekABooDirective implements
+             OnChanges, OnInit, DoCheck,
+             AfterContentInit, AfterContentChecked,
+             AfterViewInit, AfterViewChecked,
+             OnDestroy {
   @Input() name = '';
 
   private verb = 'initialized';
@@ -36,36 +51,24 @@ export class PeekABooComponent extends PeekABooDirective implements OnChanges, O
       }
     }
     this.logIt(`OnChanges: ${changesMsgs.join('; ')}`);
-    this.verb = 'changed';  // next time it will be a change
+    this.verb = 'changed'; // next time it will be a change
   }
 
   // Beware! Called frequently!
   // Called in every change detection cycle anywhere on the page
-  ngDoCheck() {
-    this.logIt('DoCheck');
-  }
+  ngDoCheck() { this.logIt('DoCheck'); }
 
-  ngAfterContentInit() {
-    this.logIt('AfterContentInit');
-  }
+  ngAfterContentInit() { this.logIt('AfterContentInit');  }
 
   // Beware! Called frequently!
   // Called in every change detection cycle anywhere on the page
-  ngAfterContentChecked() {
-    this.logIt('AfterContentChecked');
-  }
+  ngAfterContentChecked() { this.logIt('AfterContentChecked'); }
 
-  ngAfterViewInit() {
-    this.logIt('AfterViewInit');
-  }
+  ngAfterViewInit() { this.logIt('AfterViewInit'); }
 
   // Beware! Called frequently!
   // Called in every change detection cycle anywhere on the page
-  ngAfterViewChecked() {
-    this.logIt('AfterViewChecked');
-  }
+  ngAfterViewChecked() { this.logIt('AfterViewChecked'); }
 
-  ngOnDestroy() {
-    this.logIt('OnDestroy');
-  }
+  ngOnDestroy() { this.logIt('OnDestroy'); }
 }

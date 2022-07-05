@@ -1,6 +1,6 @@
 // #docregion
-import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 export interface SpinnerState {
   show: boolean;
@@ -12,13 +12,13 @@ export class SpinnerService {
 
   spinnerState = this.spinnerSubject.asObservable();
 
-  constructor() {}
+  constructor() { }
 
   show() {
-    this.spinnerSubject.next({show: true});
+    this.spinnerSubject.next({ show: true });
   }
 
   hide() {
-    this.spinnerSubject.next({show: false});
+    this.spinnerSubject.next({ show: false });
   }
 }

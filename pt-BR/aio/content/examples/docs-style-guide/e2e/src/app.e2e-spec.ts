@@ -1,4 +1,4 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Docs Style Guide', () => {
   const title = 'Authors Style Guide Sample';

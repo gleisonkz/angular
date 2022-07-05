@@ -1,6 +1,7 @@
-import {browser, by, element} from 'protractor';
+import { browser, by, element } from 'protractor';
 
 describe('Hierarchical dependency injection', () => {
+
   beforeAll(() => browser.get(''));
 
   describe('Heroes Scenario', () => {
@@ -9,16 +10,13 @@ describe('Hierarchical dependency injection', () => {
       income: '',
 
       // queries
-      heroEl: element.all(by.css('app-heroes-list li button')).get(0),     // first hero
-      heroCardEl: element(by.css('app-heroes-list app-hero-tax-return')),  // first hero tax-return
+      heroEl: element.all(by.css('app-heroes-list li button')).get(0), // first hero
+      heroCardEl: element(by.css('app-heroes-list app-hero-tax-return')), // first hero tax-return
       taxReturnNameEl: element.all(by.css('app-heroes-list app-hero-tax-return #name')).get(0),
       incomeInputEl: element.all(by.css('app-heroes-list app-hero-tax-return input')).get(0),
-      cancelButtonEl:
-          element(by.cssContainingText('app-heroes-list app-hero-tax-return button', 'Cancel')),
-      closeButtonEl:
-          element(by.cssContainingText('app-heroes-list app-hero-tax-return button', 'Close')),
-      saveButtonEl:
-          element(by.cssContainingText('app-heroes-list app-hero-tax-return button', 'Save'))
+      cancelButtonEl: element(by.cssContainingText('app-heroes-list app-hero-tax-return button', 'Cancel')),
+      closeButtonEl: element(by.cssContainingText('app-heroes-list app-hero-tax-return button', 'Close')),
+      saveButtonEl: element(by.cssContainingText('app-heroes-list app-hero-tax-return button', 'Save'))
     };
 
     it('should list multiple heroes', async () => {
@@ -35,7 +33,7 @@ describe('Hierarchical dependency injection', () => {
       expect(await page.heroCardEl.isDisplayed()).toBe(true);
     });
 
-    it('hero tax-return should have first hero\'s name', async () => {
+    it("hero tax-return should have first hero's name", async () => {
       // Not `page.tax-returnNameInputEl.getAttribute('value')` although later that is essential
       expect(await page.taxReturnNameEl.getText()).toEqual(page.heroName);
     });
@@ -46,8 +44,7 @@ describe('Hierarchical dependency injection', () => {
       expect(await page.incomeInputEl.getAttribute('value')).toBe('777', 'income should be 777');
 
       await page.cancelButtonEl.click();
-      expect(await page.incomeInputEl.getAttribute('value'))
-          .not.toBe('777', 'income should not be 777');
+      expect(await page.incomeInputEl.getAttribute('value')).not.toBe('777', 'income should not be 777');
     });
 
     it('should be able to save change', async () => {
@@ -56,14 +53,14 @@ describe('Hierarchical dependency injection', () => {
       expect(await page.incomeInputEl.getAttribute('value')).toBe('999', 'income should be 999');
 
       await page.saveButtonEl.click();
-      expect(await page.incomeInputEl.getAttribute('value'))
-          .toBe('999', 'income should still be 999');
+      expect(await page.incomeInputEl.getAttribute('value')).toBe('999', 'income should still be 999');
     });
 
     it('should be able to close tax-return', async () => {
       await page.saveButtonEl.click();
       expect(await element.all(by.css('app-heroes-list li app-hero-tax-return')).count()).toBe(0);
     });
+
   });
 
   describe('Villains Scenario', () => {
@@ -73,6 +70,7 @@ describe('Hierarchical dependency injection', () => {
   });
 
   describe('Cars Scenario', () => {
+
     it('A-component should use expected services', async () => {
       expect(await element(by.css('a-car')).getText()).toContain('C1-E1-T1');
     });

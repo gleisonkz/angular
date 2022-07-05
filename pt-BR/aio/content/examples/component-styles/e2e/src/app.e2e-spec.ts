@@ -1,6 +1,7 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Component Style Tests', () => {
+
   beforeAll(() => browser.get(''));
 
   it('scopes component styles to component view', async () => {
@@ -30,10 +31,8 @@ describe('Component Style Tests', () => {
   it('processes template inline styles', async () => {
     const button = element(by.css('app-hero-controls button'));
     const externalButton = element(by.css('body > button'));
-    expect(await button.getCssValue('backgroundColor'))
-        .toEqual('rgba(255, 255, 255, 1)');  // #ffffff
-    expect(await externalButton.getCssValue('backgroundColor'))
-        .not.toEqual('rgba(255, 255, 255, 1)');
+    expect(await button.getCssValue('backgroundColor')).toEqual('rgba(255, 255, 255, 1)'); // #ffffff
+    expect(await externalButton.getCssValue('backgroundColor')).not.toEqual('rgba(255, 255, 255, 1)');
   });
 
   it('processes template <link>s', async () => {
@@ -43,4 +42,5 @@ describe('Component Style Tests', () => {
     expect(await li.getCssValue('listStyleType')).toEqual('square');
     expect(await externalLi.getCssValue('listStyleType')).not.toEqual('square');
   });
+
 });

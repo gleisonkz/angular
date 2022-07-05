@@ -1,7 +1,6 @@
-import {Component, Input} from '@angular/core';
-
-import {Item} from '../item';
-import {ITEMS} from '../mock-items';
+import { Component, Input } from '@angular/core';
+import { ITEMS } from '../mock-items';
+import { Item } from '../item';
 
 @Component({
   selector: 'app-item-list',
@@ -13,5 +12,6 @@ export class ItemListComponent {
   // #docregion item-input
   @Input() items: Item[] = [];
   // #enddocregion item-input
-  constructor() {}
+  constructor() { }
+
 }

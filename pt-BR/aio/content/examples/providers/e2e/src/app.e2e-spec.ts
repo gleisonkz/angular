@@ -1,6 +1,5 @@
-import {by, element} from 'protractor';
-
-import {AppPage} from './app.po';
+import { element, by } from 'protractor';
+import { AppPage } from './app.po';
 
 describe('providers App', () => {
   let page: AppPage;
@@ -20,4 +19,5 @@ describe('providers App', () => {
     expect(await items.get(0).getText()).toBe('1 Maria');
     expect(await items.get(9).getText()).toBe('10 Seth');
   });
+
 });

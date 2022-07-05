@@ -1,11 +1,10 @@
 // #docplaster
 // #docregion
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes, UrlSegment} from '@angular/router';
-
-import {AngularJSComponent} from './angular-js/angular-js.component';
-import {App404Component} from './app404/app404.component';
-import {HomeComponent} from './home/home.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule, UrlSegment } from '@angular/router';
+import { AngularJSComponent } from './angular-js/angular-js.component';
+import { HomeComponent } from './home/home.component';
+import { App404Component } from './app404/app404.component';
 
 // Match any URL that starts with `users`
 // #docregion matcher
@@ -16,15 +15,17 @@ export function isAngularJSUrl(url: UrlSegment[]) {
 
 export const routes: Routes = [
   // Routes rendered by Angular
-  {path: '', component: HomeComponent},
+  { path: '', component: HomeComponent },
 
   // AngularJS routes
-  {matcher: isAngularJSUrl, component: AngularJSComponent},
+  { matcher: isAngularJSUrl, component: AngularJSComponent },
 
   // Catch-all route
-  {path: '**', component: App404Component}
+  { path: '**', component: App404Component }
 ];
 
-@NgModule({imports: [RouterModule.forRoot(routes)], exports: [RouterModule]})
-export class AppRoutingModule {
-}
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

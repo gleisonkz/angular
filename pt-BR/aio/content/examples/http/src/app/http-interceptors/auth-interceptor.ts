@@ -1,12 +1,15 @@
 // #docplaster
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
+import {
+  HttpEvent, HttpInterceptor, HttpHandler, HttpRequest
+} from '@angular/common/http';
 
 // #docregion
-import {AuthService} from '../auth.service';
+import { AuthService } from '../auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+
   constructor(private auth: AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
@@ -26,7 +29,7 @@ export class AuthInterceptor implements HttpInterceptor {
     */
     // #docregion set-header-shortcut
     // Clone the request and set the new header in one step.
-    const authReq = req.clone({setHeaders: {Authorization: authToken}});
+    const authReq = req.clone({ setHeaders: { Authorization: authToken } });
     // #enddocregion set-header-shortcut
     // #docregion
 

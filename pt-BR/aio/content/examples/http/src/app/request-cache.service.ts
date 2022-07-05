@@ -1,7 +1,7 @@
-import {HttpRequest, HttpResponse} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpRequest, HttpResponse } from '@angular/common/http';
 
-import {MessageService} from './message.service';
+import { MessageService } from './message.service';
 
 export interface RequestCacheEntry {
   url: string;
@@ -10,19 +10,20 @@ export interface RequestCacheEntry {
 }
 
 export abstract class RequestCache {
-  abstract get(req: HttpRequest<any>): HttpResponse<any>|undefined;
+  abstract get(req: HttpRequest<any>): HttpResponse<any> | undefined;
   abstract put(req: HttpRequest<any>, response: HttpResponse<any>): void;
 }
 
-const maxAge = 30000;  // maximum cache age (ms)
+const maxAge = 30000; // maximum cache age (ms)
 
 @Injectable()
 export class RequestCacheWithMap implements RequestCache {
+
   cache = new Map<string, RequestCacheEntry>();
 
-  constructor(private messenger: MessageService) {}
+  constructor(private messenger: MessageService) { }
 
-  get(req: HttpRequest<any>): HttpResponse<any>|undefined {
+  get(req: HttpRequest<any>): HttpResponse<any> | undefined {
     const url = req.urlWithParams;
     const cached = this.cache.get(url);
 
@@ -32,7 +33,8 @@ export class RequestCacheWithMap implements RequestCache {
 
     const isExpired = cached.lastRead < (Date.now() - maxAge);
     const expired = isExpired ? 'expired ' : '';
-    this.messenger.add(`Found ${expired}cached response for "${url}".`);
+    this.messenger.add(
+      `Found ${expired}cached response for "${url}".`);
     return isExpired ? undefined : cached.response;
   }
 
@@ -40,7 +42,7 @@ export class RequestCacheWithMap implements RequestCache {
     const url = req.urlWithParams;
     this.messenger.add(`Caching response from "${url}".`);
 
-    const newEntry = {url, response, lastRead: Date.now()};
+    const newEntry = { url, response, lastRead: Date.now() };
     this.cache.set(url, newEntry);
 
     // remove expired cache entries

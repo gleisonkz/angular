@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-zippy-basic',
@@ -7,5 +7,4 @@ import {Component} from '@angular/core';
     <ng-content></ng-content>
   `
 })
-export class ZippyBasicComponent {
-}
+export class ZippyBasicComponent {}

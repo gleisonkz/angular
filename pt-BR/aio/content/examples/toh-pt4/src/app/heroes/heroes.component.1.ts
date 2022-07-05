@@ -1,9 +1,9 @@
-import {Observable} from 'rxjs';
-
-import {Hero} from '../hero';
-import {HeroService} from '../hero.service';
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
+import { Observable } from 'rxjs';
 
 class DummyHeroesComponent {
+
   heroes: Observable<Hero[]>;
   // #docregion ctor
   constructor(private heroService: HeroService) {}
@@ -16,3 +16,4 @@ class DummyHeroesComponent {
   }
   // #enddocregion getHeroes
 }
+

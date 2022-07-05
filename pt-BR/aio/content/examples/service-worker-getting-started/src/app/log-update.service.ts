@@ -1,9 +1,10 @@
-import {Injectable} from '@angular/core';
-import {SwUpdate, VersionReadyEvent} from '@angular/service-worker';
+import { Injectable } from '@angular/core';
+import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
 
 // #docregion sw-update
 @Injectable()
 export class LogUpdateService {
+
   constructor(updates: SwUpdate) {
     updates.versionUpdates.subscribe(evt => {
       switch (evt.type) {

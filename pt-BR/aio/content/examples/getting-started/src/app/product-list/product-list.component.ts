@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {products} from '../products';
+import { products } from '../products';
 
 @Component({
   selector: 'app-product-list',
@@ -9,6 +9,7 @@ import {products} from '../products';
 })
 // #docregion on-notify
 export class ProductListComponent {
+
   products = [...products];
 
   share() {

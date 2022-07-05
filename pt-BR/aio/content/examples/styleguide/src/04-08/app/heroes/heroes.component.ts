@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-@Component({selector: 'toh-heroes', templateUrl: './heroes.component.html'})
+@Component({
+  selector: 'toh-heroes',
+  templateUrl: './heroes.component.html'
+})
 export class HeroesComponent implements OnInit {
-  constructor() { /* ... */
-  }
+  constructor() { /* ... */ }
 
-  ngOnInit() { /* ... */
-  }
+  ngOnInit() { /* ... */ }
 }

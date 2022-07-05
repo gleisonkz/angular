@@ -1,14 +1,15 @@
-import {browser, by, element} from 'protractor';
-import {logging} from 'selenium-webdriver';
+import { browser, element, by } from 'protractor';
+import { logging } from 'selenium-webdriver';
 
 describe('Binding syntax e2e tests', () => {
+
   beforeEach(() => browser.get(''));
 
 
   // helper function used to test what's logged to the console
   async function logChecker(contents: string) {
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    const messages = logs.filter(({message}) => message.indexOf(contents) !== -1 ? true : false);
+    const messages = logs.filter(({ message }) => message.indexOf(contents) !== -1 ? true : false);
     expect(messages.length).toBeGreaterThan(0);
   }
 
@@ -22,8 +23,7 @@ describe('Binding syntax e2e tests', () => {
   });
 
   it('should display HTML attributes and DOM properties', async () => {
-    expect(await element.all(by.css('h2')).get(1).getText())
-        .toBe('HTML attributes and DOM properties');
+    expect(await element.all(by.css('h2')).get(1).getText()).toBe('HTML attributes and DOM properties');
   });
 
   it('should display 1. Use the inspector...', async () => {
@@ -31,8 +31,7 @@ describe('Binding syntax e2e tests', () => {
   });
 
   it('should display Disabled property vs. attribute', async () => {
-    expect(await element.all(by.css('h3')).get(0).getText())
-        .toBe('Disabled property vs. attribute');
+    expect(await element.all(by.css('h3')).get(0).getText()).toBe('Disabled property vs. attribute');
   });
 
 

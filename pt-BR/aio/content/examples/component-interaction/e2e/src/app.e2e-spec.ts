@@ -1,6 +1,7 @@
-import {browser, by, element} from 'protractor';
+import { browser, by, element } from 'protractor';
 
 describe('Component Communication Cookbook Tests', () => {
+
   beforeEach(() => browser.get(browser.baseUrl));
 
   describe('Parent-to-child communication', () => {
@@ -65,7 +66,7 @@ describe('Component Communication Cookbook Tests', () => {
       expect(await actual.logs.get(0).getText()).toBe(initialLog);
     });
 
-    it('should set expected values after clicking \'Minor\' twice', async () => {
+    it("should set expected values after clicking 'Minor' twice", async () => {
       const repoTag = element(by.tagName('app-version-parent'));
       const newMinorButton = repoTag.all(by.tagName('button')).get(0);
 
@@ -82,7 +83,7 @@ describe('Component Communication Cookbook Tests', () => {
       expect(await actual.logs.get(2).getText()).toBe(logAfter2Minor);
     });
 
-    it('should set expected values after clicking \'Major\' once', async () => {
+    it("should set expected values after clicking 'Major' once", async () => {
       const repoTag = element(by.tagName('app-version-parent'));
       const newMajorButton = repoTag.all(by.tagName('button')).get(1);
 
@@ -123,8 +124,8 @@ describe('Component Communication Cookbook Tests', () => {
 
     it('should process Agree vote', async () => {
       const voteLabel = element(by.tagName('app-vote-taker')).element(by.tagName('h3'));
-      const agreeButton1 =
-          element.all(by.tagName('app-voter')).get(0).all(by.tagName('button')).get(0);
+      const agreeButton1 = element.all(by.tagName('app-voter')).get(0)
+        .all(by.tagName('button')).get(0);
 
       await agreeButton1.click();
 
@@ -133,8 +134,8 @@ describe('Component Communication Cookbook Tests', () => {
 
     it('should process Disagree vote', async () => {
       const voteLabel = element(by.tagName('app-vote-taker')).element(by.tagName('h3'));
-      const agreeButton1 =
-          element.all(by.tagName('app-voter')).get(1).all(by.tagName('button')).get(1);
+      const agreeButton1 = element.all(by.tagName('app-voter')).get(1)
+        .all(by.tagName('button')).get(1);
 
       await agreeButton1.click();
 
@@ -234,4 +235,5 @@ describe('Component Communication Cookbook Tests', () => {
     // ...
     // #enddocregion bidirectional-service
   });
+
 });

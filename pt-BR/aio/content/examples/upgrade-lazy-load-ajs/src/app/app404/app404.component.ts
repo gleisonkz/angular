@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-app404',
@@ -6,7 +6,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app404.component.css']
 })
 export class App404Component implements OnInit {
-  constructor() {}
 
-  ngOnInit() {}
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }

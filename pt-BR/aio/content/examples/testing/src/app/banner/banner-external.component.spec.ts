@@ -1,7 +1,7 @@
 // #docplaster
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {BannerComponent} from './banner-external.component';
+import { BannerComponent } from './banner-external.component';
 
 describe('BannerComponent (external files)', () => {
   let component: BannerComponent;
@@ -12,8 +12,8 @@ describe('BannerComponent (external files)', () => {
     // #docregion setup-may-fail
     beforeEach(async () => {
       await TestBed.configureTestingModule({
-        declarations: [BannerComponent],
-      });  // missing call to compileComponents()
+        declarations: [ BannerComponent ],
+      }); // missing call to compileComponents()
       fixture = TestBed.createComponent(BannerComponent);
     });
     // #enddocregion setup-may-fail
@@ -26,11 +26,9 @@ describe('BannerComponent (external files)', () => {
   describe('Two beforeEach', () => {
     // #docregion async-before-each
     beforeEach(async () => {
-      await TestBed
-          .configureTestingModule({
-            declarations: [BannerComponent],
-          })
-          .compileComponents();  // compile template and css
+      await TestBed.configureTestingModule({
+        declarations: [ BannerComponent ],
+      }).compileComponents();  // compile template and css
     });
     // #enddocregion async-before-each
 
@@ -49,11 +47,9 @@ describe('BannerComponent (external files)', () => {
   describe('One beforeEach', () => {
     // #docregion one-before-each
     beforeEach(async () => {
-      await TestBed
-          .configureTestingModule({
-            declarations: [BannerComponent],
-          })
-          .compileComponents();
+      await TestBed.configureTestingModule({
+        declarations: [ BannerComponent ],
+      }).compileComponents();
       fixture = TestBed.createComponent(BannerComponent);
       component = fixture.componentInstance;
       h1 = fixture.nativeElement.querySelector('h1');

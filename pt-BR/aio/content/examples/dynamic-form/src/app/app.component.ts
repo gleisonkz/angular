@@ -1,9 +1,9 @@
 // #docregion
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Component } from '@angular/core';
 
-import {QuestionBase} from './question-base';
-import {QuestionService} from './question.service';
+import { QuestionService } from './question.service';
+import { QuestionBase } from './question-base';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ import {QuestionService} from './question.service';
       <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
     </div>
   `,
-  providers: [QuestionService]
+  providers:  [QuestionService]
 })
 export class AppComponent {
   questions$: Observable<QuestionBase<any>[]>;

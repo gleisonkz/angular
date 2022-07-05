@@ -1,10 +1,14 @@
 // #docregion
-import {OnInit} from '@angular/core';
+import { OnInit } from '@angular/core';
 // #docregion example
 /* avoid */
 
 export class ToastComponent implements OnInit {
-  private defaults = {title: '', message: 'May the Force be with you'};
+
+  private defaults = {
+    title: '',
+    message: 'May the Force be with you'
+  };
   message: string;
   title: string;
   private toastElement: any;

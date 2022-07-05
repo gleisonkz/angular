@@ -1,7 +1,7 @@
 // #docregion
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import {Hero} from '../model/hero';
+import { Hero } from '../model/hero';
 
 // #docregion component
 @Component({
@@ -11,14 +11,12 @@ import {Hero} from '../model/hero';
       {{hero.name | uppercase}}
     </button>
   `,
-  styleUrls: ['./dashboard-hero.component.css']
+  styleUrls: [ './dashboard-hero.component.css' ]
 })
 // #docregion class
 export class DashboardHeroComponent {
   @Input() hero!: Hero;
   @Output() selected = new EventEmitter<Hero>();
-  click() {
-    this.selected.emit(this.hero);
-  }
+  click() { this.selected.emit(this.hero); }
 }
 // #enddocregion component, class

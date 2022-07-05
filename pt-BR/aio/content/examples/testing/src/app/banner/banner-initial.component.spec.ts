@@ -1,15 +1,15 @@
 // #docplaster
 // #docregion import-debug-element
-import {DebugElement} from '@angular/core';
+import { DebugElement } from '@angular/core';
 // #enddocregion import-debug-element
 // #docregion v1
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+
 // #enddocregion v1
 // #docregion import-by
-import {By} from '@angular/platform-browser';
-
+import { By } from '@angular/platform-browser';
 // #enddocregion import-by
-import {BannerComponent} from './banner-initial.component';
+import { BannerComponent } from './banner-initial.component';
 
 /*
 // #docregion v1

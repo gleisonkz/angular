@@ -1,4 +1,4 @@
-import {browser, by, element, ElementFinder} from 'protractor';
+import { browser, element, by, ElementFinder } from 'protractor';
 
 const expectedH1 = 'Tour of Heroes';
 const expectedTitle = `${expectedH1}`;
@@ -13,7 +13,10 @@ class Hero {
     const id = await detail.all(by.css('div')).first().getText();
     // Get name from the h2
     const name = await detail.element(by.css('h2')).getText();
-    return new Hero(+id.slice(id.indexOf(' ') + 1), name.substring(0, name.lastIndexOf(' ')));
+    return new Hero(
+      +id.slice(id.indexOf(' ') + 1),
+      name.substring(0, name.lastIndexOf(' '))
+    );
   }
 }
 
@@ -24,7 +27,8 @@ async function addToHeroName(text: string): Promise<void> {
 }
 
 describe('Tutorial part 1', () => {
-  const expectedHero = {id: 1, name: 'Windstorm'};
+
+  const expectedHero = { id: 1, name: 'Windstorm' };
 
   beforeAll(() => browser.get(''));
 
@@ -52,8 +56,11 @@ describe('Tutorial part 1', () => {
     expect(hero.id).toEqual(expectedHero.id);
     expect(hero.name).toEqual(newName.toUpperCase());
   });
+
 });
 
 function getPageElts() {
-  return {heroDetail: element(by.css('app-root'))};
+  return {
+    heroDetail: element(by.css('app-root'))
+  };
 }

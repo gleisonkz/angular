@@ -1,9 +1,11 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import {LoggerService} from './logger.service';
-import {UserService} from './user.service';
+import { LoggerService } from './logger.service';
+import { UserService } from './user.service';
 
-@Injectable({providedIn: 'root'})
+@Injectable({
+  providedIn: 'root'
+})
 export class UserContextService {
   name = '';
   role = '';

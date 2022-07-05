@@ -1,12 +1,12 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Pipes', () => {
+
   beforeAll(() => browser.get(''));
 
   it('should open correctly', async () => {
     expect(await element.all(by.tagName('h1')).get(0).getText()).toEqual('Pipes');
-    expect(await element(by.css('app-hero-birthday p')).getText())
-        .toEqual(`The hero's birthday is Apr 15, 1988`);
+    expect(await element(by.css('app-hero-birthday p')).getText()).toEqual(`The hero's birthday is Apr 15, 1988`);
   });
 
   it('should show 4 heroes', async () => {
@@ -14,17 +14,13 @@ describe('Pipes', () => {
   });
 
   it('should show a familiar hero in json', async () => {
-    expect(await element(by.cssContainingText('app-hero-list p', 'Heroes as JSON')).getText())
-        .toContain('Bombasto');
+    expect(await element(by.cssContainingText('app-hero-list p', 'Heroes as JSON')).getText()).toContain('Bombasto');
   });
 
   it('should show alternate birthday formats', async () => {
-    expect(
-        await element(by.cssContainingText('app-root > p', `The hero's birthday is Apr 15, 1988`))
-            .isDisplayed())
+    expect(await element(by.cssContainingText('app-root > p', `The hero's birthday is Apr 15, 1988`)).isDisplayed())
         .toBe(true);
-    expect(await element(by.cssContainingText('app-root > p', `The hero's birthday is 04/15/88`))
-               .isDisplayed())
+    expect(await element(by.cssContainingText('app-root > p', `The hero's birthday is 04/15/88`)).isDisplayed())
         .toBe(true);
   });
 
@@ -73,10 +69,8 @@ describe('Pipes', () => {
     const resetEle = element(by.css('app-flying-heroes button'));
     const flyingHeroesEle = element.all(by.css('app-flying-heroes #flyers div'));
 
-    expect(await canFlyCheckEle.getAttribute('checked'))
-        .toEqual('true', 'should default to "can fly"');
-    expect(await mutateCheckEle.getAttribute('checked'))
-        .toEqual('true', 'should default to mutating array');
+    expect(await canFlyCheckEle.getAttribute('checked')).toEqual('true', 'should default to "can fly"');
+    expect(await mutateCheckEle.getAttribute('checked')).toEqual('true', 'should default to mutating array');
     expect(await flyingHeroesEle.count()).toEqual(2, 'only two of the original heroes can fly');
 
     await nameEle.sendKeys('test1\n');
@@ -99,19 +93,16 @@ describe('Pipes', () => {
     const mutateCheckEle = element(by.css('app-flying-heroes-impure #mutate'));
     const flyingHeroesEle = element.all(by.css('app-flying-heroes-impure #flyers div'));
 
-    expect(await canFlyCheckEle.getAttribute('checked'))
-        .toEqual('true', 'should default to "can fly"');
-    expect(await mutateCheckEle.getAttribute('checked'))
-        .toEqual('true', 'should default to mutating array');
+    expect(await canFlyCheckEle.getAttribute('checked')).toEqual('true', 'should default to "can fly"');
+    expect(await mutateCheckEle.getAttribute('checked')).toEqual('true', 'should default to mutating array');
     expect(await flyingHeroesEle.count()).toEqual(2, 'only two of the original heroes can fly');
 
     await nameEle.sendKeys('test1\n');
-    expect(await flyingHeroesEle.count())
-        .toEqual(3, 'new flying hero should show in mutating array');
+    expect(await flyingHeroesEle.count()).toEqual(3, 'new flying hero should show in mutating array');
   });
 
   it('should show an async hero message', async () => {
-    expect(await element.all(by.tagName('app-hero-async-message')).get(0).getText())
-        .toContain('hero');
+    expect(await element.all(by.tagName('app-hero-async-message')).get(0).getText()).toContain('hero');
   });
+
 });

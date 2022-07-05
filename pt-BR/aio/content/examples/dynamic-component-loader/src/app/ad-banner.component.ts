@@ -1,9 +1,9 @@
 // #docregion
-import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
-import {AdItem} from './ad-item';
-import {AdComponent} from './ad.component';
-import {AdDirective} from './ad.directive';
+import { AdDirective } from './ad.directive';
+import { AdItem } from './ad-item';
+import { AdComponent } from './ad.component';
 
 @Component({
   selector: 'app-ad-banner',

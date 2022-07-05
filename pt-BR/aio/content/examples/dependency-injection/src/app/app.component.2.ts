@@ -1,6 +1,6 @@
-import {Component, Inject} from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
-import {APP_CONFIG, AppConfig} from './app.config';
+import { APP_CONFIG, AppConfig } from './app.config';
 
 @Component({
   selector: 'app-root',

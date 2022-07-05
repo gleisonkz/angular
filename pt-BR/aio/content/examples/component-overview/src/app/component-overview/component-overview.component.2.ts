@@ -1,5 +1,5 @@
 // #docplaster
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 // #docregion templatebacktick
 @Component({
@@ -11,4 +11,6 @@ import {Component} from '@angular/core';
 })
 // #enddocregion templatebacktick
 export class ComponentOverviewComponent {
+
 }
+

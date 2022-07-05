@@ -1,5 +1,5 @@
 // #docplaster
-import {of} from 'rxjs';
+import { of } from 'rxjs';
 
 export function docRegionObserver(console: Console) {
   // #docregion observer
@@ -27,8 +27,9 @@ export function docRegionObserver(console: Console) {
 
   // #docregion sub_fn
   myObservable.subscribe(
-      x => console.log('Observer got a next value: ' + x),
-      err => console.error('Observer got an error: ' + err),
-      () => console.log('Observer got a complete notification'));
+    x => console.log('Observer got a next value: ' + x),
+    err => console.error('Observer got an error: ' + err),
+    () => console.log('Observer got a complete notification')
+  );
   // #enddocregion sub_fn
 }

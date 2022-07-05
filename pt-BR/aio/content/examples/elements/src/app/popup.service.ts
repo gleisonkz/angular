@@ -1,15 +1,14 @@
 
-import {ApplicationRef, ComponentFactoryResolver, Injectable, Injector} from '@angular/core';
-import {NgElement, WithProperties} from '@angular/elements';
-
-import {PopupComponent} from './popup.component';
+import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
+import { NgElement, WithProperties } from '@angular/elements';
+import { PopupComponent } from './popup.component';
 
 
 @Injectable()
 export class PopupService {
-  constructor(
-      private injector: Injector, private applicationRef: ApplicationRef,
-      private componentFactoryResolver: ComponentFactoryResolver) {}
+  constructor(private injector: Injector,
+              private applicationRef: ApplicationRef,
+              private componentFactoryResolver: ComponentFactoryResolver) {}
 
   // Previous dynamic-loading method required you to set up infrastructure
   // before adding the popup to the DOM.
@@ -40,8 +39,7 @@ export class PopupService {
   // This uses the new custom-element method to add the popup to the DOM.
   showAsElement(message: string) {
     // Create element
-    const popupEl: NgElement&WithProperties<PopupComponent> =
-        document.createElement('popup-element') as any;
+    const popupEl: NgElement & WithProperties<PopupComponent> = document.createElement('popup-element') as any;
 
     // Listen to the close event
     popupEl.addEventListener('closed', () => document.body.removeChild(popupEl));

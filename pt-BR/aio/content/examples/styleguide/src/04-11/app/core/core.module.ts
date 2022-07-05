@@ -1,11 +1,11 @@
 // #docregion
-import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {LoggerService} from './logger.service';
-import {NavComponent} from './nav/nav.component';
-import {SpinnerComponent} from './spinner/spinner.component';
-import {SpinnerService} from './spinner/spinner.service';
+import { LoggerService } from './logger.service';
+import { NavComponent } from './nav/nav.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { SpinnerService } from './spinner/spinner.service';
 
 @NgModule({
   imports: [
@@ -15,5 +15,5 @@ import {SpinnerService} from './spinner/spinner.service';
   declarations: [NavComponent, SpinnerComponent],
   providers: [LoggerService, SpinnerService]
 })
-export class CoreModule {
-}
+export class CoreModule { }
+

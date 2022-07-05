@@ -1,5 +1,5 @@
 // #docregion
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 @Component({
   template: `
   <h2 highlight="skyblue">About</h2>
@@ -7,5 +7,4 @@ import {Component} from '@angular/core';
   <twain-quote></twain-quote>
   `
 })
-export class AboutComponent {
-}
+export class AboutComponent { }

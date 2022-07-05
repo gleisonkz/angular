@@ -1,9 +1,7 @@
 // #docregion
-import {Component, OnInit} from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 // #docregion import-message-service
-import {MessageService} from '../message.service';
-
+import { MessageService } from '../message.service';
 // #enddocregion import-message-service
 
 @Component({
@@ -12,9 +10,12 @@ import {MessageService} from '../message.service';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
+
   // #docregion ctor
   constructor(public messageService: MessageService) {}
   // #enddocregion ctor
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
 }

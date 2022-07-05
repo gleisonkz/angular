@@ -1,9 +1,9 @@
 // #docregion
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import {Hero, HeroTaxReturn} from './hero';
-import {HeroesService} from './heroes.service';
+import { Hero, HeroTaxReturn } from './hero';
+import { HeroesService } from './heroes.service';
 
 @Component({
   selector: 'app-heroes-list',
@@ -39,7 +39,8 @@ export class HeroesListComponent {
   }
 
   showTaxReturn(hero: Hero) {
-    this.heroesService.getTaxReturn(hero).subscribe(htr => {
+    this.heroesService.getTaxReturn(hero)
+    .subscribe(htr => {
       // show if not currently shown
       if (!this.selectedTaxReturns.find(tr => tr.id === htr.id)) {
         this.selectedTaxReturns.push(htr);

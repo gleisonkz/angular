@@ -1,5 +1,5 @@
-import {resolve} from 'path';
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
+import { resolve } from 'path';
 
 const page = {
   configClearButton: element.all(by.css('app-config > div button')).get(2),
@@ -93,8 +93,7 @@ describe('Http Tests', () => {
       await page.configGetResponseButton.click();
       await checkLogForMessage('GET "assets/config.json"');
       expect(await page.configSpan.getText()).toContain('Response headers:');
-      expect(await page.configSpan.getText())
-          .toContain('content-type: application/json; charset=utf-8');
+      expect(await page.configSpan.getText()).toContain('content-type: application/json; charset=utf-8');
     });
 
     it('can clear the configuration log', async () => {
@@ -107,8 +106,7 @@ describe('Http Tests', () => {
     it('throws an error for a non valid url', async () => {
       await page.configErrorButton.click();
       await checkLogForMessage('GET "not/a/real/url"');
-      expect(await page.configErrorMessage.getText())
-          .toContain('"Something bad happened; please try again later."');
+      expect(await page.configErrorMessage.getText()).toContain('"Something bad happened; please try again later."');
     });
   });
 
@@ -117,14 +115,12 @@ describe('Http Tests', () => {
       await page.downloadButton.click();
       await checkLogForMessage('DownloaderService downloaded "assets/textfile.txt"');
       await checkLogForMessage('GET "assets/textfile.txt"');
-      expect(await page.downloadMessage.getText())
-          .toContain('Contents: "This is the downloaded text file "');
+      expect(await page.downloadMessage.getText()).toContain('Contents: "This is the downloaded text file "');
     });
 
     it('can clear the log of the download', async () => {
       await page.downloadButton.click();
-      expect(await page.downloadMessage.getText())
-          .toContain('Contents: "This is the downloaded text file "');
+      expect(await page.downloadMessage.getText()).toContain('Contents: "This is the downloaded text file "');
       await page.downloadClearButton.click();
       expect(await page.downloadMessage.isPresent()).toBeFalsy();
     });
@@ -136,8 +132,8 @@ describe('Http Tests', () => {
       const url = resolve(__dirname, filename);
       await page.uploadInput.sendKeys(url);
       await checkLogForMessage('POST "/upload/file" succeeded in');
-      expect(await page.uploadMessage.getText())
-          .toContain(`File "${filename}" was completely uploaded!`);
+      expect(await page.uploadMessage.getText()).toContain(
+        `File "${filename}" was completely uploaded!`);
     });
   });
 
@@ -145,7 +141,8 @@ describe('Http Tests', () => {
     it('can search for package and find in cache', async () => {
       const packageName = 'angular';
       await page.searchInput.sendKeys(packageName);
-      await checkLogForMessage('Caching response from "/packages/query?name=angular".');
+      await checkLogForMessage(
+        'Caching response from "/packages/query?name=angular".');
       expect(await page.searchListItems.count()).toBeGreaterThan(1, 'angular items');
 
       await page.searchInput.clear();
@@ -154,7 +151,8 @@ describe('Http Tests', () => {
 
       await page.searchInput.clear();
       await page.searchInput.sendKeys(packageName);
-      await checkLogForMessage('Found cached response for "/packages/query?name=angular"');
+      await checkLogForMessage(
+        'Found cached response for "/packages/query?name=angular"');
     });
   });
 });

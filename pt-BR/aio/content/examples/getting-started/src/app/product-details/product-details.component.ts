@@ -1,11 +1,10 @@
 // #docplaster
 // #docregion cart-service
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import {CartService} from '../cart.service';
-import {Product, products} from '../products';
-
+import { Product, products } from '../products';
+import { CartService } from '../cart.service';
 // #enddocregion cart-service
 
 @Component({
@@ -15,12 +14,16 @@ import {Product, products} from '../products';
 })
 // #docregion inject-cart-service, add-to-cart
 export class ProductDetailsComponent implements OnInit {
-  // #enddocregion add-to-cart, inject-cart-service
-  product: Product|undefined;
 
-  // #docregion inject-cart-service
-  constructor(private route: ActivatedRoute, private cartService: CartService) {}
-  // #enddocregion inject-cart-service
+// #enddocregion add-to-cart, inject-cart-service
+  product: Product | undefined;
+
+// #docregion inject-cart-service
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) { }
+// #enddocregion inject-cart-service
 
   ngOnInit() {
     // First get the product id from the current route.
@@ -31,10 +34,10 @@ export class ProductDetailsComponent implements OnInit {
     this.product = products.find(product => product.id === productIdFromRoute);
   }
 
-  // #docregion add-to-cart
+// #docregion add-to-cart
   addToCart(product: Product) {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
   }
-  // #docregion inject-cart-service
+// #docregion inject-cart-service
 }

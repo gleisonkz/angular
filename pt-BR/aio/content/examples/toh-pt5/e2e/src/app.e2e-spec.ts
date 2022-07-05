@@ -1,11 +1,8 @@
-import {browser, by, element, ElementFinder} from 'protractor';
+import { browser, element, by, ElementFinder } from 'protractor';
 
 const expectedH1 = 'Tour of Heroes';
 const expectedTitle = `${expectedH1}`;
-const targetHero = {
-  id: 16,
-  name: 'RubberMan'
-};
+const targetHero = { id: 16, name: 'RubberMan' };
 const targetHeroDashboardIndex = 3;
 const nameSuffix = 'X';
 const newHeroName = targetHero.name + nameSuffix;
@@ -18,8 +15,8 @@ class Hero {
   // Get hero from s formatted as '<id> <name>'.
   static fromString(s: string): Hero {
     return new Hero(
-        +s.substring(0, s.indexOf(' ')),
-        s.slice(s.indexOf(' ') + 1),
+      +s.substring(0, s.indexOf(' ')),
+      s.slice(s.indexOf(' ') + 1),
     );
   }
 
@@ -29,11 +26,15 @@ class Hero {
     const id = await detail.all(by.css('div')).first().getText();
     // Get name from the h2
     const name = await detail.element(by.css('h2')).getText();
-    return {id: +id.slice(id.indexOf(' ') + 1), name: name.substring(0, name.lastIndexOf(' '))};
+    return {
+      id: +id.slice(id.indexOf(' ') + 1),
+      name: name.substring(0, name.lastIndexOf(' '))
+    };
   }
 }
 
 describe('Tutorial part 5', () => {
+
   beforeAll(() => browser.get(''));
 
   function getPageElts() {
@@ -54,8 +55,9 @@ describe('Tutorial part 5', () => {
   }
 
   describe('Initial page', () => {
+
     it(`has title '${expectedTitle}'`, async () => {
-      expect(await browser.getTitle()).toEqual(expectedTitle);
+        expect(await browser.getTitle()).toEqual(expectedTitle);
     });
 
     it(`has h1 '${expectedH1}'`, async () => {
@@ -72,9 +74,11 @@ describe('Tutorial part 5', () => {
       const page = getPageElts();
       expect(await page.appDashboard.isPresent()).toBeTruthy();
     });
+
   });
 
   describe('Dashboard tests', () => {
+
     beforeAll(() => browser.get(''));
 
     it('has top heroes', async () => {
@@ -91,9 +95,11 @@ describe('Tutorial part 5', () => {
       const targetHeroElt = getPageElts().topHeroes.get(targetHeroDashboardIndex);
       expect(await targetHeroElt.getText()).toEqual(newHeroName);
     });
+
   });
 
   describe('Heroes tests', () => {
+
     beforeAll(() => browser.get(''));
 
     it('can switch to Heroes view', async () => {
@@ -120,6 +126,7 @@ describe('Tutorial part 5', () => {
       const expectedText = `${targetHero.id} ${newHeroName}`;
       expect(await getHeroLiEltById(targetHero.id).getText()).toEqual(expectedText);
     });
+
   });
 
   async function dashboardSelectTargetHero() {
@@ -143,6 +150,7 @@ describe('Tutorial part 5', () => {
     expect(hero.id).toEqual(targetHero.id);
     expect(hero.name).toEqual(newHeroName.toUpperCase());
   }
+
 });
 
 async function addToHeroName(text: string): Promise<void> {

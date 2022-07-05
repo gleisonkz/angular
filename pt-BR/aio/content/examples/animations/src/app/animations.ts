@@ -1,8 +1,14 @@
-import {animate, animateChild, animation, group, query, style, transition, trigger} from '@angular/animations';
+import {
+  animation, trigger, animateChild, group,
+  transition, animate, style, query
+} from '@angular/animations';
 
 export const transitionAnimation = animation([
-  style(
-      {height: '{{ height }}', opacity: '{{ opacity }}', backgroundColor: '{{ backgroundColor }}'}),
+  style({
+    height: '{{ height }}',
+    opacity: '{{ opacity }}',
+    backgroundColor: '{{ backgroundColor }}'
+  }),
   animate('{{ time }}')
 ]);
 
@@ -62,4 +68,4 @@ export const slideInAnimation =
     ])
     // #enddocregion query
   ]);
-// #enddocregion route-animations
+  // #enddocregion route-animations

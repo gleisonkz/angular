@@ -1,10 +1,15 @@
-import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
+import { LazyLoaderService } from '../lazy-loader.service';
 
-import {LazyLoaderService} from '../lazy-loader.service';
-
-@Component({selector: 'app-angular-js', template: '<div ng-view></div>'})
+@Component({
+  selector: 'app-angular-js',
+  template: '<div ng-view></div>'
+})
 export class AngularJSComponent implements OnInit, OnDestroy {
-  constructor(private lazyLoader: LazyLoaderService, private elRef: ElementRef) {}
+  constructor(
+    private lazyLoader: LazyLoaderService,
+    private elRef: ElementRef
+  ) {}
 
   ngOnInit() {
     this.lazyLoader.load(this.elRef.nativeElement);

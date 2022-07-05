@@ -1,7 +1,10 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 // #docregion example
-@Component({selector: 'toh-hero', template: `...`})
+@Component({
+  selector: 'toh-hero',
+  template: `...`
+})
 export class HeroComponent {
   // The exclamation mark suppresses errors that a property is
   // not initialized.

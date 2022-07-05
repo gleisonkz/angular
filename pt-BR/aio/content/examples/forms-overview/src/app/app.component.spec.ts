@@ -1,8 +1,8 @@
-import {TestBed, waitForAsync} from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
-import {AppComponent} from './app.component';
-import {ReactiveModule} from './reactive/reactive.module';
-import {TemplateModule} from './template/template.module';
+import { AppComponent } from './app.component';
+import { ReactiveModule } from './reactive/reactive.module';
+import { TemplateModule } from './template/template.module';
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {

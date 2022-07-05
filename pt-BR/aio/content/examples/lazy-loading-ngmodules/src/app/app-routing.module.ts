@@ -1,6 +1,6 @@
 // #docplaster
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 
 // #docregion const-routes, routes-customers, routes-customers-orders
@@ -24,6 +24,11 @@ const routes: Routes = [
 ];
 // #enddocregion const-routes, routes-customers, routes-customers-orders
 
-@NgModule({imports: [RouterModule.forRoot(routes)], exports: [RouterModule], providers: []})
-export class AppRoutingModule {
-}
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [RouterModule],
+  providers: []
+})
+export class AppRoutingModule { }

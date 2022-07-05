@@ -1,5 +1,5 @@
 // #docregion
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,4 @@ import {Component} from '@angular/core';
              <hr>
              <app-hero-form-reactive></app-hero-form-reactive>`
 })
-export class AppComponent {
-}
+export class AppComponent { }

@@ -1,4 +1,4 @@
-import {browser, By, element} from 'protractor';
+import { browser, element, By } from 'protractor';
 
 describe('Security E2E Tests', () => {
   beforeAll(() => browser.get(''));

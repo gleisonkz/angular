@@ -4,7 +4,7 @@
   we need to indent the imports with the function below.
 */
 // #docregion promise
-import {from, Observable} from 'rxjs';
+  import { from, Observable } from 'rxjs';
 
 // #enddocregion promise
 
@@ -14,15 +14,9 @@ export function docRegionPromise<T>(console: Console, fetch: (url: string) => Ob
   const data = from(fetch('/api/endpoint'));
   // Subscribe to begin listening for async result
   data.subscribe({
-    next(response) {
-      console.log(response);
-    },
-    error(err) {
-      console.error('Error: ' + err);
-    },
-    complete() {
-      console.log('Completed');
-    }
+    next(response) { console.log(response); },
+    error(err) { console.error('Error: ' + err); },
+    complete() { console.log('Completed'); }
   });
 
   // #enddocregion promise

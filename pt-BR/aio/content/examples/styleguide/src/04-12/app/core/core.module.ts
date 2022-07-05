@@ -1,10 +1,10 @@
 // #docregion
-import {CommonModule} from '@angular/common';
-import {NgModule, Optional, SkipSelf} from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {LoggerService} from './logger.service';
-import {throwIfAlreadyLoaded} from './module-import-guard';
-import {NavComponent} from './nav/nav.component';
+import { LoggerService } from './logger.service';
+import { NavComponent } from './nav/nav.component';
+import { throwIfAlreadyLoaded } from './module-import-guard';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import {NavComponent} from './nav/nav.component';
   providers: [LoggerService]
 })
 export class CoreModule {
-  constructor(@Optional() @SkipSelf() parentModule?: CoreModule) {
+  constructor( @Optional() @SkipSelf() parentModule?: CoreModule) {
     throwIfAlreadyLoaded(parentModule, 'CoreModule');
   }
 }

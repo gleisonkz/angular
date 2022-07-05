@@ -1,6 +1,7 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Forms Tests', () => {
+
   beforeEach(() => browser.get(''));
 
   it('should display correct title', async () => {

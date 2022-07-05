@@ -1,8 +1,8 @@
 // #docplaster
 // #docregion without-toBlob-macrotask
-import {fakeAsync, TestBed, tick} from '@angular/core/testing';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 
-import {CanvasComponent} from './canvas.component';
+import { CanvasComponent } from './canvas.component';
 
 describe('CanvasComponent', () => {
   // #enddocregion without-toBlob-macrotask

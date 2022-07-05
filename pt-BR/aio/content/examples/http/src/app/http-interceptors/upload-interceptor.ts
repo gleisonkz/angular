@@ -1,6 +1,11 @@
-import {HttpEvent, HttpEventType, HttpHandler, HttpInterceptor, HttpProgressEvent, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import {
+  HttpEvent, HttpInterceptor, HttpHandler,
+  HttpRequest, HttpResponse,
+  HttpEventType, HttpProgressEvent
+} from '@angular/common/http';
+
+import { Observable } from 'rxjs';
 
 /** Simulate server replying to file upload request */
 @Injectable()
@@ -9,7 +14,7 @@ export class UploadInterceptor implements HttpInterceptor {
     if (req.url.indexOf('/upload/file') === -1) {
       return next.handle(req);
     }
-    const delay = 300;  // TODO: inject delay?
+    const delay = 300; // TODO: inject delay?
     return createUploadEvents(delay);
   }
 }
@@ -31,23 +36,26 @@ function createUploadEvents(delay: number) {
       // N.B.: Cannot use setInterval or rxjs delay (which uses setInterval)
       // because e2e test won't complete. A zone thing?
       // Use setTimeout and tail recursion instead.
-      setTimeout(() => {
-        loaded += chunkSize;
+        setTimeout(() => {
+          loaded += chunkSize;
 
-        if (loaded >= total) {
-          const doneResponse = new HttpResponse({
-            status: 201,  // OK but no body;
-          });
-          observer.next(doneResponse);
-          observer.complete();
-          return;
-        }
+          if (loaded >= total) {
+            const doneResponse = new HttpResponse({
+              status: 201, // OK but no body;
+            });
+            observer.next(doneResponse);
+            observer.complete();
+            return;
+          }
 
-        const progressEvent:
-            HttpProgressEvent = {type: HttpEventType.UploadProgress, loaded, total};
-        observer.next(progressEvent);
-        uploadLoop(loaded);
-      }, delay);
+          const progressEvent: HttpProgressEvent = {
+            type: HttpEventType.UploadProgress,
+            loaded,
+            total
+          };
+          observer.next(progressEvent);
+          uploadLoop(loaded);
+        }, delay);
     }
   });
 }

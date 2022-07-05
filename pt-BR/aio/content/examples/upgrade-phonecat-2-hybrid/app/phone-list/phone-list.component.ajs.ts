@@ -1,6 +1,6 @@
 // #docregion
 declare const angular: angular.IAngularStatic;
-import {Phone, PhoneData} from '../core/phone/phone.service';
+import { Phone, PhoneData } from '../core/phone/phone.service';
 
 class PhoneListController {
   phones: PhoneData[];
@@ -13,9 +13,12 @@ class PhoneListController {
     });
     this.orderProp = 'age';
   }
+
 }
 
-angular.module('phoneList').component('phoneList', {
-  templateUrl: 'app/phone-list/phone-list.template.html',
-  controller: PhoneListController
-});
+angular.
+  module('phoneList').
+  component('phoneList', {
+    templateUrl: 'app/phone-list/phone-list.template.html',
+    controller: PhoneListController
+  });

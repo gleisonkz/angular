@@ -1,5 +1,5 @@
 // #docregion
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-container',
@@ -8,5 +8,4 @@ import {Component} from '@angular/core';
     <hero-detail></hero-detail>
   `
 })
-export class ContainerComponent {
-}
+export class ContainerComponent { }

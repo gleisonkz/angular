@@ -1,6 +1,6 @@
 // #docplaster
 
-import {Observable, Observer} from 'rxjs';
+import { Observable, Observer } from 'rxjs';
 
 export function docRegionDelaySequence(console: Console) {
   // #docregion delay_sequence
@@ -35,12 +35,8 @@ export function docRegionDelaySequence(console: Console) {
   const sequence = new Observable(sequenceSubscriber);
 
   sequence.subscribe({
-    next(num) {
-      console.log(num);
-    },
-    complete() {
-      console.log('Finished sequence');
-    }
+    next(num) { console.log(num); },
+    complete() { console.log('Finished sequence'); }
   });
 
   // Logs:
@@ -55,23 +51,15 @@ export function docRegionDelaySequence(console: Console) {
 
   // Subscribe starts the clock, and will emit after 1 second
   sequence.subscribe({
-    next(num) {
-      console.log('1st subscribe: ' + num);
-    },
-    complete() {
-      console.log('1st sequence finished.');
-    }
+    next(num) { console.log('1st subscribe: ' + num); },
+    complete() { console.log('1st sequence finished.'); }
   });
 
   // After 1/2 second, subscribe again.
   setTimeout(() => {
     sequence.subscribe({
-      next(num) {
-        console.log('2nd subscribe: ' + num);
-      },
-      complete() {
-        console.log('2nd sequence finished.');
-      }
+      next(num) { console.log('2nd subscribe: ' + num); },
+      complete() { console.log('2nd sequence finished.'); }
     });
   }, 500);
 
@@ -153,23 +141,15 @@ export function docRegionMulticastSequence(console: Console, runSequence: boolea
 
   // Subscribe starts the clock, and begins to emit after 1 second
   multicastSequence.subscribe({
-    next(num) {
-      console.log('1st subscribe: ' + num);
-    },
-    complete() {
-      console.log('1st sequence finished.');
-    }
+    next(num) { console.log('1st subscribe: ' + num); },
+    complete() { console.log('1st sequence finished.'); }
   });
 
   // After 1 1/2 seconds, subscribe again (should "miss" the first value).
   setTimeout(() => {
     multicastSequence.subscribe({
-      next(num) {
-        console.log('2nd subscribe: ' + num);
-      },
-      complete() {
-        console.log('2nd sequence finished.');
-      }
+      next(num) { console.log('2nd subscribe: ' + num); },
+      complete() { console.log('2nd sequence finished.'); }
     });
   }, 1500);
 

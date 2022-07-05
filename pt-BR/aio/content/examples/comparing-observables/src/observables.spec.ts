@@ -1,4 +1,4 @@
-import {docRegionChain, docRegionObservable, docRegionUnsubscribe} from './observables';
+import { docRegionChain, docRegionObservable, docRegionUnsubscribe } from './observables';
 
 describe('observables', () => {
   it('should print 2', (doneFn: DoneFn) => {

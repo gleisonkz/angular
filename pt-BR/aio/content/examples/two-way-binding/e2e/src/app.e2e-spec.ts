@@ -1,6 +1,7 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Two-way binding e2e tests', () => {
+
   beforeEach(() => browser.get(''));
 
   const minusButton = element.all(by.css('button')).get(0);
@@ -35,4 +36,5 @@ describe('Two-way binding e2e tests', () => {
   it('should display De-sugared two-way binding', async () => {
     expect(await element(by.css('h2')).getText()).toEqual('De-sugared two-way binding');
   });
+
 });

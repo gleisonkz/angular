@@ -1,8 +1,9 @@
 // #docregion
-import {Injectable} from '@angular/core';
-import {of} from 'rxjs';
+import { Injectable } from '@angular/core';
 
-import {Hero} from './hero.model';
+import { of } from 'rxjs';
+
+import { Hero } from './hero.model';
 
 @Injectable()
 export class HeroService {

@@ -1,12 +1,17 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {CarService, CarService2, CarService3, EngineService, EngineService2, TiresService} from './car.services';
+import {
+  CarService, CarService2, CarService3,
+  EngineService, EngineService2, TiresService
+} from './car.services';
 
 ////////// CCarComponent ////////////
 @Component({
   selector: 'c-car',
   template: '<div>C: {{description}}</div>',
-  providers: [{provide: CarService, useClass: CarService3}]
+  providers: [
+    { provide: CarService, useClass: CarService3 }
+  ]
 })
 export class CCarComponent {
   description: string;
@@ -23,7 +28,8 @@ export class CCarComponent {
     <c-car></c-car>
   `,
   providers: [
-    {provide: CarService, useClass: CarService2}, {provide: EngineService, useClass: EngineService2}
+    { provide: CarService,    useClass: CarService2 },
+    { provide: EngineService, useClass: EngineService2 }
   ]
 })
 export class BCarComponent {
@@ -53,12 +59,16 @@ export class ACarComponent {
   <h3>Cars</h3>
   <a-car></a-car>`
 })
-export class CarsComponent {
-}
+export class CarsComponent { }
 
 ////////////////
 
-export const carComponents = [CarsComponent, ACarComponent, BCarComponent, CCarComponent];
+export const carComponents = [
+  CarsComponent,
+  ACarComponent, BCarComponent, CCarComponent
+];
 
 // generic car-related services
-export const carServices = [CarService, EngineService, TiresService];
+export const carServices = [
+ CarService, EngineService, TiresService
+];

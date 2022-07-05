@@ -1,11 +1,11 @@
 /* eslint-disable @angular-eslint/use-pipe-transform-interface */
 // #docregion
 // #docregion pure
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
-import {Hero} from './heroes';
+import { Hero } from './heroes';
 
-@Pipe({name: 'flyingHeroes'})
+@Pipe({ name: 'flyingHeroes' })
 export class FlyingHeroesPipe implements PipeTransform {
   transform(allHeroes: Hero[]) {
     // #docregion filter
@@ -18,8 +18,10 @@ export class FlyingHeroesPipe implements PipeTransform {
 /////// Identical except for the pure flag
 // #docregion impure
 // #docregion pipe-decorator
-@Pipe({name: 'flyingHeroesImpure', pure: false})
+@Pipe({
+  name: 'flyingHeroesImpure',
+  pure: false
+})
 // #enddocregion pipe-decorator
-export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {
-}
+export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
 // #enddocregion impure

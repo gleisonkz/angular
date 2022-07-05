@@ -1,9 +1,12 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {CUSTOMERS} from './customers';
+import { CUSTOMERS } from './customers';
 
-@Component(
-    {selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
 export class AppComponent {
   customers = CUSTOMERS;
   // #docregion customer
@@ -18,7 +21,7 @@ export class AppComponent {
 
 
 
-  getVal(): number {
-    return 2;
-  }
+  getVal(): number { return 2; }
+
+
 }

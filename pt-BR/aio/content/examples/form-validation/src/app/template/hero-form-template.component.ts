@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-hero-form-template',
@@ -6,7 +6,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./hero-form-template.component.css'],
 })
 export class HeroFormTemplateComponent {
+
   powers = ['Really Smart', 'Super Flexible', 'Weather Changer'];
 
   hero = {name: 'Dr.', alterEgo: 'Dr. What', power: this.powers[0]};
+
 }

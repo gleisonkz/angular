@@ -1,20 +1,20 @@
 // #docplaster
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';  // CLI imports router
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 
 // #docregion child-routes
 const routes: Routes = [
   {
     path: 'first-component',
-    component: FirstComponent,  // this is the component with the <router-outlet> in the template
+    component: FirstComponent, // this is the component with the <router-outlet> in the template
     children: [
       {
-        path: 'child-a',             // child route path
-        component: ChildAComponent,  // child route component that the router renders
+        path: 'child-a', // child route path
+        component: ChildAComponent, // child route component that the router renders
       },
       {
         path: 'child-b',
-        component: ChildBComponent,  // another child route component that the router renders
+        component: ChildBComponent, // another child route component that the router renders
       },
     ],
   },
@@ -22,6 +22,10 @@ const routes: Routes = [
 // #enddocregion child-routes
 
 
-@NgModule({imports: [RouterModule.forRoot(routes)], exports: [RouterModule]})
-export class AppRoutingModule {
-}
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+

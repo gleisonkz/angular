@@ -1,9 +1,9 @@
 // #docplaster
 // #docregion
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {HeroService} from './hero.service';
-import {LoggerService} from './logger.service';
+import { HeroService } from './hero.service';
+import { LoggerService } from './logger.service';
 
 //////// HeroBiosComponent ////
 // #docregion simple
@@ -16,11 +16,11 @@ import {LoggerService} from './logger.service';
   providers: [HeroService]
 })
 export class HeroBiosComponent {
-  // #enddocregion simple
+// #enddocregion simple
   constructor(logger: LoggerService) {
     logger.logInfo('Creating HeroBiosComponent');
   }
-  // #docregion simple
+// #docregion simple
 }
 // #enddocregion simple
 

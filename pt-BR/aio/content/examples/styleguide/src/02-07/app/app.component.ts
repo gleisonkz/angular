@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'sg-app',
@@ -7,5 +7,4 @@ import {Component} from '@angular/core';
     <admin-users></admin-users>
   `
 })
-export class AppComponent {
-}
+export class AppComponent { }

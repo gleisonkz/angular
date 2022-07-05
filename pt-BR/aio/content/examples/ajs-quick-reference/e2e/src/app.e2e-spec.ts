@@ -1,6 +1,7 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('AngularJS to Angular Quick Reference Tests', () => {
+
   beforeAll(() => browser.get(''));
 
   it('should display no poster images after bootstrap', async () => {
@@ -12,11 +13,7 @@ describe('AngularJS to Angular Quick Reference Tests', () => {
     const expectedSamples: any[] = [
       {row: 0, column: 0, element: 'img', attr: 'src', value: 'images/hero.png', contains: true},
       {row: 0, column: 2, value: 'Celeritas'},
-      {
-        row: 1,
-        column: 3,
-        matches: /Dec 1[678], 2015/
-      },  // absorb timezone dif; we care about date format
+      {row: 1, column: 3, matches: /Dec 1[678], 2015/}, // absorb timezone dif; we care about date format
       {row: 1, column: 5, value: '$14.95'},
       {row: 2, column: 4, value: 'PG-13'},
       {row: 2, column: 7, value: '100%'},
@@ -26,14 +23,17 @@ describe('AngularJS to Angular Quick Reference Tests', () => {
     // Go through the samples
     const movieRows = getMovieRows();
     for (const sample of expectedSamples) {
-      const tableCell = movieRows.get(sample.row).all(by.tagName('td')).get(sample.column);
+      const tableCell = movieRows.get(sample.row)
+        .all(by.tagName('td')).get(sample.column);
       // Check the cell or its nested element
-      const elementToCheck =
-          sample.element ? tableCell.element(by.tagName(sample.element)) : tableCell;
+      const elementToCheck = sample.element
+        ? tableCell.element(by.tagName(sample.element))
+        : tableCell;
 
       // Check element attribute or text
-      const valueToCheck = sample.attr ? await elementToCheck.getAttribute(sample.attr) :
-                                         await elementToCheck.getText();
+      const valueToCheck = sample.attr
+        ? await elementToCheck.getAttribute(sample.attr)
+        : await elementToCheck.getText();
 
       // Test for equals/contains/match
       if (sample.contains) {
@@ -89,7 +89,7 @@ describe('AngularJS to Angular Quick Reference Tests', () => {
     return element.all(by.css('app-movie-list tbody > tr'));
   }
 
-  async function testFavoriteHero(heroName: string|null, expectedLabel: string) {
+  async function testFavoriteHero(heroName: string | null, expectedLabel: string) {
     const movieListComp = element(by.tagName('app-movie-list'));
     const heroInput = movieListComp.element(by.tagName('input'));
     const favoriteHeroLabel = movieListComp.element(by.tagName('h3'));

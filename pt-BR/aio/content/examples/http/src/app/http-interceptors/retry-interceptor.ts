@@ -1,5 +1,13 @@
 // #docplaster
-import {HttpClient, HttpContext, HttpContextToken, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest,} from '@angular/common/http';
+import {
+  HttpClient,
+  HttpContext,
+  HttpContextToken,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+} from '@angular/common/http';
 import {Observable} from 'rxjs';
 /*
 // #docregion reading-context
@@ -37,9 +45,9 @@ export class RetryInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
         // #enddocregion reading-context
         tap({
-          // An error has occurred, so increment this request's ERROR_COUNT.
-          error: () => req.context.set(ERROR_COUNT, req.context.get(ERROR_COUNT) + 1)
-        }),
+              // An error has occurred, so increment this request's ERROR_COUNT.
+             error: () => req.context.set(ERROR_COUNT, req.context.get(ERROR_COUNT) + 1)
+            }),
         // #docregion reading-context
         // Retry the request a configurable number of times.
         retry(retryCount),

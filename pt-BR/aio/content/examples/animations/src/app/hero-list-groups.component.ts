@@ -1,7 +1,19 @@
-import {animate, group, state, style, transition, trigger} from '@angular/animations';
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  group
+} from '@angular/animations';
 
-import {Hero} from './hero';
+import { Hero } from './hero';
 
 @Component({
   selector: 'app-hero-list-groups',
@@ -51,11 +63,11 @@ import {Hero} from './hero';
   // #enddocregion animationdef
 })
 export class HeroListGroupsComponent {
-  @Input() heroes: Hero[] = [];
+   @Input() heroes: Hero[] = [];
 
-  @Output() remove = new EventEmitter<number>();
+   @Output() remove = new EventEmitter<number>();
 
-  removeHero(id: number) {
-    this.remove.emit(id);
-  }
+   removeHero(id: number) {
+     this.remove.emit(id);
+   }
 }

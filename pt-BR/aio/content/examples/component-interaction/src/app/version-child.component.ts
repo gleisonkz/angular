@@ -1,6 +1,6 @@
 /* eslint-disable guard-for-in */
 // #docregion
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-version-child',

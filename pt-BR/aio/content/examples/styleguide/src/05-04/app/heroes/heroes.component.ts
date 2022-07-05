@@ -1,13 +1,13 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import {Hero, HeroService} from './shared';
+import { Hero, HeroService } from './shared';
 
 // #docregion example
 @Component({
   selector: 'toh-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  styleUrls:  ['./heroes.component.css']
 })
 export class HeroesComponent {
   heroes: Observable<Hero[]>;

@@ -1,11 +1,11 @@
 // #docplaster
 // #docregion
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
-import {DialogService} from '../../dialog.service';
-import {Crisis} from '../crisis';
+import { Crisis } from '../crisis';
+import { DialogService } from '../../dialog.service';
 
 @Component({
   selector: 'app-crisis-detail',
@@ -17,17 +17,21 @@ export class CrisisDetailComponent implements OnInit {
   editName = '';
 
   constructor(
-      private route: ActivatedRoute, private router: Router, public dialogService: DialogService) {}
+    private route: ActivatedRoute,
+    private router: Router,
+    public dialogService: DialogService
+  ) {}
 
-  // #docregion ngOnInit
+// #docregion ngOnInit
   ngOnInit() {
-    this.route.data.subscribe(data => {
-      const crisis: Crisis = data['crisis'];
-      this.editName = crisis.name;
-      this.crisis = crisis;
-    });
+    this.route.data
+      .subscribe(data => {
+        const crisis: Crisis = data['crisis'];
+        this.editName = crisis.name;
+        this.crisis = crisis;
+      });
   }
-  // #enddocregion ngOnInit
+// #enddocregion ngOnInit
 
   // #docregion cancel-save
   cancel() {
@@ -41,7 +45,7 @@ export class CrisisDetailComponent implements OnInit {
   // #enddocregion cancel-save
 
   // #docregion canDeactivate
-  canDeactivate(): Observable<boolean>|boolean {
+  canDeactivate(): Observable<boolean> | boolean {
     // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged
     if (!this.crisis || this.crisis.name === this.editName) {
       return true;
@@ -57,9 +61,9 @@ export class CrisisDetailComponent implements OnInit {
     // Pass along the crisis id if available
     // so that the CrisisListComponent can select that crisis.
     // Add a totally useless `foo` parameter for kicks.
-    // #docregion gotoCrises-navigate
+  // #docregion gotoCrises-navigate
     // Relative navigation back to the crises
-    this.router.navigate(['../', {id: crisisId, foo: 'foo'}], {relativeTo: this.route});
-    // #enddocregion gotoCrises-navigate
+    this.router.navigate(['../', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });
+  // #enddocregion gotoCrises-navigate
   }
 }

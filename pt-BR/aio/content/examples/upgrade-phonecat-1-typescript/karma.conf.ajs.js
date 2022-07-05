@@ -1,4 +1,4 @@
-// jshint strict: false
+//jshint strict: false
 module.exports = function(config) {
   config.set({
 
@@ -9,8 +9,11 @@ module.exports = function(config) {
       'https://code.angularjs.org/1.5.5/angular-animate.js',
       'https://code.angularjs.org/1.5.5/angular-resource.js',
       'https://code.angularjs.org/1.5.5/angular-route.js',
-      'https://code.angularjs.org/1.5.5/angular-mocks.js', '**/*.module.js', '*!(.module|.spec).js',
-      '!(bower_components)/**/*!(.module|.spec).js', '**/*.spec.js'
+      'https://code.angularjs.org/1.5.5/angular-mocks.js',
+      '**/*.module.js',
+      '*!(.module|.spec).js',
+      '!(bower_components)/**/*!(.module|.spec).js',
+      '**/*.spec.js'
     ],
 
     // This is needed, because the AngularJS files are loaded from `https://code.angularjs.org/`.
@@ -28,7 +31,11 @@ module.exports = function(config) {
 
     browsers: ['Chrome', 'Firefox'],
 
-    plugins: ['karma-chrome-launcher', 'karma-firefox-launcher', 'karma-jasmine']
+    plugins: [
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-jasmine'
+    ]
 
   });
 };

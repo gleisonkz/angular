@@ -1,5 +1,5 @@
 // #docregion
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-voter',
@@ -10,7 +10,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   `
 })
 export class VoterComponent {
-  @Input() name = '';
+  @Input()  name = '';
   @Output() voted = new EventEmitter<boolean>();
   didVote = false;
 

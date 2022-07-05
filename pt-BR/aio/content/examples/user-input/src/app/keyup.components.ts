@@ -1,22 +1,22 @@
 /* eslint-disable @angular-eslint/component-class-suffix */
 // #docplaster
 // #docregion
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-key-up1',
-  // #docregion key-up-component-1-template
+// #docregion key-up-component-1-template
   template: `
     <input (keyup)="onKey($event)">
     <p>{{values}}</p>
   `
-  // #enddocregion key-up-component-1-template
+// #enddocregion key-up-component-1-template
 })
 // #docregion key-up-component-1-class, key-up-component-1-class-no-type
 export class KeyUpComponent_v1 {
   values = '';
 
-  // #enddocregion key-up-component-1-class, key-up-component-1-class-no-type
+// #enddocregion key-up-component-1-class, key-up-component-1-class-no-type
   /*
   // #docregion key-up-component-1-class-no-type
   onKey(event: any) { // without type info
@@ -26,10 +26,10 @@ export class KeyUpComponent_v1 {
   */
   // #docregion key-up-component-1-class
 
-  onKey(event: KeyboardEvent) {  // with type info
+  onKey(event: KeyboardEvent) { // with type info
     this.values += (event.target as HTMLInputElement).value + ' | ';
   }
-  // #docregion key-up-component-1-class-no-type
+// #docregion key-up-component-1-class-no-type
 }
 // #enddocregion key-up-component-1-class, key-up-component-1-class-no-type
 
@@ -63,9 +63,7 @@ export class KeyUpComponent_v2 {
 })
 export class KeyUpComponent_v3 {
   value = '';
-  onEnter(value: string) {
-    this.value = value;
-  }
+  onEnter(value: string) { this.value = value; }
 }
 // #enddocregion key-up-component-3
 
@@ -84,8 +82,6 @@ export class KeyUpComponent_v3 {
 })
 export class KeyUpComponent_v4 {
   value = '';
-  update(value: string) {
-    this.value = value;
-  }
+  update(value: string) { this.value = value; }
 }
 // #enddocregion key-up-component-4

@@ -1,8 +1,8 @@
 // #docplaster
 // #docregion , v1, final
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {Hero} from '../hero';
+import { Hero } from '../hero';
 
 @Component({
   selector: 'app-hero-form',
@@ -10,16 +10,16 @@ import {Hero} from '../hero';
   styleUrls: ['./hero-form.component.css']
 })
 export class HeroFormComponent {
-  powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
+
+  powers = ['Really Smart', 'Super Flexible',
+            'Super Hot', 'Weather Changer'];
 
   model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
 
   // #docregion submitted
   submitted = false;
 
-  onSubmit() {
-    this.submitted = true;
-  }
+  onSubmit() { this.submitted = true; }
   // #enddocregion submitted
 
   // #enddocregion final
@@ -33,8 +33,10 @@ export class HeroFormComponent {
 
   skyDog(): Hero {
     // #docregion SkyDog
-    const myHero = new Hero(42, 'SkyDog', 'Fetch any object at any distance', 'Leslie Rollover');
-    console.log('My hero is called ' + myHero.name);  // "My hero is called SkyDog"
+    const myHero =  new Hero(42, 'SkyDog',
+                           'Fetch any object at any distance',
+                           'Leslie Rollover');
+    console.log('My hero is called ' + myHero.name); // "My hero is called SkyDog"
     // #enddocregion SkyDog
     return myHero;
   }
@@ -44,7 +46,8 @@ export class HeroFormComponent {
   // Reveal in html:
   //   Name via form.controls = {{showFormControls(heroForm)}}
   showFormControls(form: any) {
-    return form && form.controls.name && form.controls.name.value;  // Dr. IQ
+    return form && form.controls.name &&
+    form.controls.name.value; // Dr. IQ
   }
 
   /////////////////////////////

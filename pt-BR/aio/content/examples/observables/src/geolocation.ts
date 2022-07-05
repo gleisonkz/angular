@@ -1,5 +1,5 @@
 // TODO: Add unit tests for this file.
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 // #docregion
 
 // Create an Observable that will start listening to geolocation updates
@@ -9,13 +9,11 @@ const locations = new Observable((observer) => {
 
   // Simple geolocation API check provides values to publish
   if ('geolocation' in navigator) {
-    watchId = navigator.geolocation.watchPosition(
-        (position: GeolocationPosition) => {
-          observer.next(position);
-        },
-        (error: GeolocationPositionError) => {
-          observer.error(error);
-        });
+    watchId = navigator.geolocation.watchPosition((position: GeolocationPosition) => {
+      observer.next(position);
+    }, (error: GeolocationPositionError) => {
+      observer.error(error);
+    });
   } else {
     observer.error('Geolocation not available');
   }

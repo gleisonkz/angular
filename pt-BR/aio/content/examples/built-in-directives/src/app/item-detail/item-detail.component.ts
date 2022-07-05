@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import {Item} from '../item';
+import { Item } from '../item';
 
 @Component({
   selector: 'app-item-detail',
@@ -8,7 +8,10 @@ import {Item} from '../item';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent {
+
+
   @Input() item!: Item;
 
-  constructor() {}
+  constructor() { }
+
 }

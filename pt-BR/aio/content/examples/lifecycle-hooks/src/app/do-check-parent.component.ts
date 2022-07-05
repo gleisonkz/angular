@@ -1,9 +1,12 @@
-import {Component, ViewChild} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
-import {DoCheckComponent} from './do-check.component';
-import {Hero} from './hero';
+import { DoCheckComponent } from './do-check.component';
+import { Hero } from './hero';
 
-@Component({selector: 'do-check-parent', templateUrl: './do-check-parent.component.html'})
+@Component({
+  selector: 'do-check-parent',
+  templateUrl: './do-check-parent.component.html'
+})
 export class DoCheckParentComponent {
   hero!: Hero;
   power = '';

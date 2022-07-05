@@ -1,14 +1,21 @@
 // #docplaster
-import {Component, ContentChild, Injector, Input, OnInit, ReflectiveInjector, StaticProvider, TemplateRef} from '@angular/core';
-import {FormControl,} from '@angular/forms';
-
-@Component(
-    {selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
+import { Component, ContentChild, Injector, Input, OnInit, StaticProvider, TemplateRef } from '@angular/core';
+import { ReflectiveInjector } from '@angular/core';
+import {
+  FormControl,
+} from '@angular/forms';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
 export class AppComponent implements OnInit {
   title = 'example';
   value = 'initial value';
   control: FormControl = new FormControl('');
-  options = ['repeat-value'];
+  options = [
+    'repeat-value'
+  ];
 
   /*
   // #docregion template-with-input-deprecated
@@ -17,8 +24,8 @@ export class AppComponent implements OnInit {
   */
 
   // #docregion template-with-input
-  @Input() tpl!: TemplateRef<any>;
-  @ContentChild(TemplateRef) inlineTemplate!: TemplateRef<any>;
+  @Input() tpl !: TemplateRef<any>;
+  @ContentChild(TemplateRef) inlineTemplate !: TemplateRef<any>;
   // #enddocregion template-with-input
 
   ngOnInit() {
@@ -41,7 +48,7 @@ export class AppComponent implements OnInit {
 
 class InjectorExample {}
 
-const Provider = [InjectorExample];
+const Provider  = [InjectorExample];
 const providers: StaticProvider[] = [Provider];
 
 // #docregion reflective-injector-deprecated-example

@@ -1,20 +1,22 @@
 // #docplaster
 // #docregion auth, preload
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 // #docregion animations-module
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-// #enddocregion auth, animations-module
-import {Router} from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {AppRoutingModule} from './app-routing.module';
+// #enddocregion auth, animations-module
+import { Router } from '@angular/router';
+
 // #docregion auth
-import {AppComponent} from './app.component';
-import {AuthModule} from './auth/auth.module';
-import {ComposeMessageComponent} from './compose-message/compose-message.component';
-import {HeroesModule} from './heroes/heroes.module';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import { AppComponent } from './app.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { HeroesModule } from './heroes/heroes.module';
+import { AuthModule } from './auth/auth.module';
 
 // #docregion animations-module
 @NgModule({
@@ -24,17 +26,24 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
     // #docregion animations-module
     BrowserAnimationsModule,
     // #enddocregion animations-module
-    FormsModule, HeroesModule, AuthModule, AppRoutingModule,
+    FormsModule,
+    HeroesModule,
+    AuthModule,
+    AppRoutingModule,
     // #docregion animations-module
   ],
   // #enddocregion animations-module
-  declarations: [AppComponent, ComposeMessageComponent, PageNotFoundComponent],
-  bootstrap: [AppComponent]
-  // #docregion animations-module
+  declarations: [
+    AppComponent,
+    ComposeMessageComponent,
+    PageNotFoundComponent
+  ],
+  bootstrap: [ AppComponent ]
+// #docregion animations-module
 })
 // #enddocregion animations-module
 export class AppModule {
-  // #enddocregion preload, auth
+// #enddocregion preload, auth
   // Diagnostic only: inspect router configuration
   constructor(router: Router) {
     // Use a custom replacer to display function names in the route configs
@@ -42,6 +51,6 @@ export class AppModule {
 
     // console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
   }
-  // #docregion preload, auth
+// #docregion preload, auth
 }
 // #enddocregion preload, auth

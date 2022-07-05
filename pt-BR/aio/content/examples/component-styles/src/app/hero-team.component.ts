@@ -1,6 +1,5 @@
-import {Component, Input} from '@angular/core';
-
-import {Hero} from './hero';
+import { Component, Input } from '@angular/core';
+import { Hero } from './hero';
 
 // #docregion stylelink
 @Component({

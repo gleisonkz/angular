@@ -1,9 +1,9 @@
 // export for convenience.
-// #docregion activated-route-stub
-import {convertToParamMap, ParamMap, Params} from '@angular/router';
-import {ReplaySubject} from 'rxjs';
+export { ActivatedRoute } from '@angular/router';
 
-export {ActivatedRoute} from '@angular/router';
+// #docregion activated-route-stub
+import { convertToParamMap, ParamMap, Params } from '@angular/router';
+import { ReplaySubject } from 'rxjs';
 
 /**
  * An ActivateRoute test double with a `paramMap` observable.

@@ -1,7 +1,6 @@
 // #docregion
-import {Component} from '@angular/core';
-
-import {Hero} from '../hero';
+import { Component } from '@angular/core';
+import { Hero } from '../hero';
 
 @Component({
   selector: 'my-container',

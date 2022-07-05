@@ -1,9 +1,12 @@
 // #docplaster
 // #docregion
-import {Directive, ElementRef, HostListener, Input} from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
-@Directive({selector: '[appHighlight]'})
+@Directive({
+  selector: '[appHighlight]'
+})
 export class HighlightDirective {
+
   @Input('appHighlight') highlightColor = '';
 
   private el: HTMLElement;
@@ -12,13 +15,11 @@ export class HighlightDirective {
     this.el = el.nativeElement;
   }
 
-  @HostListener('mouseenter')
-  onMouseEnter() {
+  @HostListener('mouseenter') onMouseEnter() {
     this.highlight(this.highlightColor || 'cyan');
   }
 
-  @HostListener('mouseleave')
-  onMouseLeave() {
+  @HostListener('mouseleave') onMouseLeave() {
     this.highlight('');
   }
 

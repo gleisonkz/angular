@@ -1,7 +1,7 @@
 // #docregion
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {Hero, HeroArena, HeroService} from './heroes';
+import { HeroArena, HeroService, Hero } from './heroes';
 
 @Component({
   selector: 'toh-app',
@@ -11,7 +11,7 @@ import {Hero, HeroArena, HeroService} from './heroes';
 export class AppComponent implements OnInit {
   heroes: Hero[] = [];
 
-  constructor(private heroArena: HeroArena) {}
+  constructor(private heroArena: HeroArena) { }
 
   ngOnInit() {
     this.heroArena.getParticipants().subscribe(heroes => this.heroes = heroes);

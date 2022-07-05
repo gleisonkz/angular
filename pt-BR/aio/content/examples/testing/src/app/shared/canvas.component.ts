@@ -4,10 +4,9 @@
 // Either import in `polyfills.ts` (if used in more than one places in the app) or in the component
 // file using `HTMLCanvasElement` (if it is only used in a single file).
 import 'zone.js/plugins/zone-patch-canvas';
-
 // #enddocregion import-canvas-patch
 // #docregion main
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'sample-canvas',

@@ -1,9 +1,9 @@
 // #docplaster
 // #docregion
-import {Component, Host, Optional} from '@angular/core';
+import { Component, Host, Optional } from '@angular/core';
 
-import {HeroCacheService} from './hero-cache.service';
-import {LoggerService} from './logger.service';
+import { HeroCacheService } from './hero-cache.service';
+import { LoggerService } from './logger.service';
 
 // #docregion component
 @Component({
@@ -13,17 +13,18 @@ import {LoggerService} from './logger.service';
   <span *ngIf="hasLogger">!!!</span></div>`
 })
 export class HeroContactComponent {
+
   hasLogger = false;
 
   constructor(
-      // #docregion ctor-params
-      @Host()  // limit to the host component's instance of the HeroCacheService
+  // #docregion ctor-params
+      @Host() // limit to the host component's instance of the HeroCacheService
       private heroCache: HeroCacheService,
 
-      @Host()      // limit search for logger; hides the application-wide logger
-      @Optional()  // ok if the logger doesn't exist
+      @Host()     // limit search for logger; hides the application-wide logger
+      @Optional() // ok if the logger doesn't exist
       private loggerService?: LoggerService
-      // #enddocregion ctor-params
+  // #enddocregion ctor-params
   ) {
     if (loggerService) {
       this.hasLogger = true;
@@ -31,8 +32,7 @@ export class HeroContactComponent {
     }
   }
 
-  get phoneNumber() {
-    return this.heroCache.hero.phone;
-  }
+  get phoneNumber() { return this.heroCache.hero.phone; }
+
 }
 // #enddocregion component

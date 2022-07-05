@@ -1,12 +1,9 @@
-import {browser, by, element, ElementFinder} from 'protractor';
+import { browser, element, by, ElementFinder } from 'protractor';
 
 const expectedH1 = 'Tour of Heroes';
 const expectedTitle = `${expectedH1}`;
 const expectedH2 = 'My Heroes';
-const targetHero = {
-  id: 16,
-  name: 'RubberMan'
-};
+const targetHero = { id: 16, name: 'RubberMan' };
 const nameSuffix = 'X';
 
 class Hero {
@@ -17,8 +14,8 @@ class Hero {
   // Get hero from s formatted as '<id> <name>'.
   static fromString(s: string): Hero {
     return new Hero(
-        +s.substring(0, s.indexOf(' ')),
-        s.slice(s.indexOf(' ') + 1),
+      +s.substring(0, s.indexOf(' ')),
+      s.slice(s.indexOf(' ') + 1),
     );
   }
 
@@ -28,7 +25,10 @@ class Hero {
     const id = await detail.all(by.css('div')).first().getText();
     // Get name from the h2
     const name = await detail.element(by.css('h2')).getText();
-    return new Hero(+id.slice(id.indexOf(' ') + 1), name.substring(0, name.lastIndexOf(' ')));
+    return new Hero(
+      +id.slice(id.indexOf(' ') + 1),
+      name.substring(0, name.lastIndexOf(' '))
+    );
   }
 }
 
@@ -41,7 +41,7 @@ describe('Tutorial part 3', () => {
 
 function initialPageTests() {
   it(`has title '${expectedTitle}'`, async () => {
-    expect(await browser.getTitle()).toEqual(expectedTitle);
+      expect(await browser.getTitle()).toEqual(expectedTitle);
   });
 
   it(`has h1 '${expectedH1}'`, async () => {
@@ -66,8 +66,7 @@ function initialPageTests() {
 
 function selectHeroTests() {
   it(`selects ${targetHero.name} from hero list`, async () => {
-    const hero = element(
-        by.cssContainingText('li button', targetHero.id.toString() + targetHero.name.toString()));
+    const hero = element(by.cssContainingText('li button', targetHero.id.toString() + targetHero.name.toString()));
     await hero.click();
     // Nothing specific to expect other than lack of exceptions.
   });
@@ -107,6 +106,7 @@ function updateHeroTests() {
     expect(hero.id).toEqual(targetHero.id);
     expect(hero.name).toEqual(newName);
   });
+
 }
 
 async function addToHeroName(text: string): Promise<void> {

@@ -1,9 +1,10 @@
-import {Injectable, OnDestroy} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {delay} from 'rxjs/operators';
+import { Injectable, OnDestroy } from '@angular/core';
+
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 export class Item {
-  constructor(public id: number, public name: string) {}
+  constructor(public id: number, public name: string) { }
 }
 
 const ITEMS: Item[] = [
@@ -18,19 +19,18 @@ const FETCH_LATENCY = 500;
 /** Simulate a data service that retrieves items from a server */
 @Injectable()
 export class ItemService implements OnDestroy {
-  constructor() {
-    console.log('ItemService instance created.');
-  }
-  ngOnDestroy() {
-    console.log('ItemService instance destroyed.');
-  }
 
-  getItems(): Observable<Item[]> {
+  constructor() { console.log('ItemService instance created.'); }
+  ngOnDestroy() { console.log('ItemService instance destroyed.'); }
+
+  getItems(): Observable<Item[]>  {
     return of(ITEMS).pipe(delay(FETCH_LATENCY));
   }
 
-  getItem(id: number|string): Observable<Item> {
+  getItem(id: number | string): Observable<Item> {
     const item$ = of(ITEMS.find(item => item.id === +id)!);
     return item$.pipe(delay(FETCH_LATENCY));
   }
 }
+
+

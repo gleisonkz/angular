@@ -1,9 +1,10 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 // Angular E2E Testing Guide:
 // https://docs.angularjs.org/guide/e2e-testing
 
 describe('PhoneCat Application', () => {
+
   // #docregion redirect
   it('should redirect `index.html` to `index.html#!/phones', async () => {
     await browser.get('index.html');
@@ -14,6 +15,7 @@ describe('PhoneCat Application', () => {
   // #enddocregion redirect
 
   describe('View: Phone list', () => {
+
     beforeEach(() => browser.get('index.html#!/phones'));
 
     it('should filter the phone list as a user types into the search box', async () => {
@@ -40,14 +42,19 @@ describe('PhoneCat Application', () => {
         return phoneNameColumn.map((elem) => elem.getText());
       }
 
-      await queryField.sendKeys(
-          'tablet');  // Let's narrow the dataset to make the assertions shorter
+      await queryField.sendKeys('tablet');   // Let's narrow the dataset to make the assertions shorter
 
-      expect(await getNames()).toEqual(['Motorola XOOM\u2122 with Wi-Fi', 'MOTOROLA XOOM\u2122']);
+      expect(await getNames()).toEqual([
+        'Motorola XOOM\u2122 with Wi-Fi',
+        'MOTOROLA XOOM\u2122'
+      ]);
 
       await nameOption.click();
 
-      expect(await getNames()).toEqual(['MOTOROLA XOOM\u2122', 'Motorola XOOM\u2122 with Wi-Fi']);
+      expect(await getNames()).toEqual([
+        'MOTOROLA XOOM\u2122',
+        'Motorola XOOM\u2122 with Wi-Fi'
+      ]);
     });
 
     // #docregion links
@@ -59,9 +66,11 @@ describe('PhoneCat Application', () => {
       expect(url.endsWith('/phones/nexus-s')).toBe(true);
     });
     // #enddocregion links
+
   });
 
   describe('View: Phone detail', () => {
+
     beforeEach(() => browser.get('index.html#!/phones/nexus-s'));
 
     it('should display the `nexus-s` page', async () => {
@@ -84,5 +93,7 @@ describe('PhoneCat Application', () => {
       await thumbnails.get(0).click();
       expect(await mainImage.getAttribute('src')).toMatch(/img\/phones\/nexus-s.0.jpg/);
     });
+
   });
+
 });

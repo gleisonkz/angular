@@ -1,11 +1,8 @@
-import {browser, by, element, ElementArrayFinder, ElementFinder} from 'protractor';
+import { browser, element, by, ElementFinder, ElementArrayFinder } from 'protractor';
 
 const expectedH1 = 'Tour of Heroes';
 const expectedTitle = `${expectedH1}`;
-const targetHero = {
-  id: 15,
-  name: 'Magneta'
-};
+const targetHero = { id: 15, name: 'Magneta' };
 const targetHeroDashboardIndex = 2;
 const nameSuffix = 'X';
 const newHeroName = targetHero.name + nameSuffix;
@@ -18,8 +15,8 @@ class Hero {
   // Hero from string formatted as '<id> <name>'.
   static fromString(s: string): Hero {
     return new Hero(
-        +s.substring(0, s.indexOf(' ')),
-        s.slice(s.indexOf(' ') + 1),
+      +s.substring(0, s.indexOf(' ')),
+      s.slice(s.indexOf(' ') + 1),
     );
   }
 
@@ -27,7 +24,7 @@ class Hero {
   static async fromLi(li: ElementFinder): Promise<Hero> {
     const stringsFromA = await li.all(by.css('a')).getText();
     const strings = stringsFromA[0].split(' ');
-    return {id: +strings[0], name: strings[1]};
+    return { id: +strings[0], name: strings[1] };
   }
 
   // Hero id and name from the given detail element.
@@ -36,11 +33,15 @@ class Hero {
     const id = await detail.all(by.css('div')).first().getText();
     // Get name from the h2
     const name = await detail.element(by.css('h2')).getText();
-    return {id: +id.slice(id.indexOf(' ') + 1), name: name.substring(0, name.lastIndexOf(' '))};
+    return {
+      id: +id.slice(id.indexOf(' ') + 1),
+      name: name.substring(0, name.lastIndexOf(' '))
+    };
   }
 }
 
 describe('Tutorial part 6', () => {
+
   beforeAll(() => browser.get(''));
 
   function getPageElts() {
@@ -66,6 +67,7 @@ describe('Tutorial part 6', () => {
   }
 
   describe('Initial page', () => {
+
     it(`has title '${expectedTitle}'`, async () => {
       expect(await browser.getTitle()).toEqual(expectedTitle);
     });
@@ -84,9 +86,11 @@ describe('Tutorial part 6', () => {
       const page = getPageElts();
       expect(await page.appDashboard.isPresent()).toBeTruthy();
     });
+
   });
 
   describe('Dashboard tests', () => {
+
     beforeAll(() => browser.get(''));
 
     it('has top heroes', async () => {
@@ -100,7 +104,7 @@ describe('Tutorial part 6', () => {
 
     it(`cancels and shows ${targetHero.name} in Dashboard`, async () => {
       await element(by.buttonText('go back')).click();
-      await browser.waitForAngular();  // seems necessary to gets tests to pass for toh-pt6
+      await browser.waitForAngular(); // seems necessary to gets tests to pass for toh-pt6
 
       const targetHeroElt = getPageElts().topHeroes.get(targetHeroDashboardIndex);
       expect(await targetHeroElt.getText()).toEqual(targetHero.name);
@@ -112,14 +116,16 @@ describe('Tutorial part 6', () => {
 
     it(`saves and shows ${newHeroName} in Dashboard`, async () => {
       await element(by.buttonText('save')).click();
-      await browser.waitForAngular();  // seems necessary to gets tests to pass for toh-pt6
+      await browser.waitForAngular(); // seems necessary to gets tests to pass for toh-pt6
 
       const targetHeroElt = getPageElts().topHeroes.get(targetHeroDashboardIndex);
       expect(await targetHeroElt.getText()).toEqual(newHeroName);
     });
+
   });
 
   describe('Heroes tests', () => {
+
     beforeAll(() => browser.get(''));
 
     it('can switch to Heroes view', async () => {
@@ -158,7 +164,7 @@ describe('Tutorial part 6', () => {
       expect(await page.allHeroes.count()).toEqual(8, 'number of heroes');
       const heroesAfter = await toHeroArray(page.allHeroes);
       // console.log(await Hero.fromLi(page.allHeroes[0]));
-      const expectedHeroes = heroesBefore.filter(h => h.name !== newHeroName);
+      const expectedHeroes =  heroesBefore.filter(h => h.name !== newHeroName);
       expect(heroesAfter).toEqual(expectedHeroes);
       // expect(page.selectedHeroSubview.isPresent()).toBeFalsy();
     });
@@ -202,9 +208,11 @@ describe('Tutorial part 6', () => {
       expect(await addButton.getCssValue('padding')).toBe('8px 24px');
       expect(await addButton.getCssValue('border-radius')).toBe('4px');
     });
+
   });
 
   describe('Progressive hero search', () => {
+
     beforeAll(() => browser.get(''));
 
     it(`searches for 'Ma'`, async () => {
@@ -246,7 +254,7 @@ describe('Tutorial part 6', () => {
     const targetHeroElt = getPageElts().topHeroes.get(targetHeroDashboardIndex);
     expect(await targetHeroElt.getText()).toEqual(targetHero.name);
     await targetHeroElt.click();
-    await browser.waitForAngular();  // seems necessary to gets tests to pass for toh-pt6
+    await browser.waitForAngular(); // seems necessary to gets tests to pass for toh-pt6
 
     const page = getPageElts();
     expect(await page.heroDetail.isPresent()).toBeTruthy('shows hero detail');
@@ -264,6 +272,7 @@ describe('Tutorial part 6', () => {
     expect(hero.id).toEqual(targetHero.id);
     expect(hero.name).toEqual(newHeroName.toUpperCase());
   }
+
 });
 
 async function addToHeroName(text: string): Promise<void> {

@@ -1,4 +1,4 @@
-import {docRegionDefault} from './operators.1';
+import { docRegionDefault } from './operators.1';
 
 describe('squareOdd - operators.1.ts', () => {
   it('should return square odds', () => {

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'sg-app',
@@ -6,5 +6,4 @@ import {Component} from '@angular/core';
   <input type="text" tohValidator>
   <textarea tohValidator2></textarea>`
 })
-export class AppComponent {
-}
+export class AppComponent { }

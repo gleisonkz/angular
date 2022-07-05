@@ -1,16 +1,15 @@
 /* eslint-disable @angular-eslint/no-output-native */
 // #docregion
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-
-import {HeroTaxReturn} from './hero';
-import {HeroTaxReturnService} from './hero-tax-return.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { HeroTaxReturn } from './hero';
+import { HeroTaxReturnService } from './hero-tax-return.service';
 
 @Component({
   selector: 'app-hero-tax-return',
   templateUrl: './hero-tax-return.component.html',
-  styleUrls: ['./hero-tax-return.component.css'],
+  styleUrls: [ './hero-tax-return.component.css' ],
   // #docregion providers
-  providers: [HeroTaxReturnService]
+  providers: [ HeroTaxReturnService ]
   // #enddocregion providers
 })
 export class HeroTaxReturnComponent {
@@ -27,16 +26,14 @@ export class HeroTaxReturnComponent {
     this.heroTaxReturnService.taxReturn = htr;
   }
 
-  constructor(private heroTaxReturnService: HeroTaxReturnService) {}
+  constructor(private heroTaxReturnService: HeroTaxReturnService) { }
 
-  onCanceled() {
+  onCanceled()  {
     this.flashMessage('Canceled');
     this.heroTaxReturnService.restoreTaxReturn();
   }
 
-  onClose() {
-    this.close.emit();
-  }
+  onClose() { this.close.emit(); }
 
   onSaved() {
     this.flashMessage('Saved');

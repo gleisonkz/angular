@@ -1,20 +1,23 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {HeroAppMainComponent} from './hero-app-main.component';
-import {HeroAppComponent} from './hero-app.component';
-import {HeroControlsComponent} from './hero-controls.component';
-import {HeroDetailsComponent} from './hero-details.component';
-import {HeroTeamComponent} from './hero-team.component';
-import {QuestSummaryComponent} from './quest-summary.component';
+import { HeroAppComponent } from './hero-app.component';
+import { HeroAppMainComponent } from './hero-app-main.component';
+import { HeroDetailsComponent } from './hero-details.component';
+import { HeroControlsComponent } from './hero-controls.component';
+import { QuestSummaryComponent } from './quest-summary.component';
+import { HeroTeamComponent } from './hero-team.component';
 
 @NgModule({
-  imports: [BrowserModule],
+  imports: [ BrowserModule ],
   declarations: [
-    HeroAppComponent, HeroAppMainComponent, HeroDetailsComponent, HeroControlsComponent,
-    QuestSummaryComponent, HeroTeamComponent
+    HeroAppComponent,
+    HeroAppMainComponent,
+    HeroDetailsComponent,
+    HeroControlsComponent,
+    QuestSummaryComponent,
+    HeroTeamComponent
   ],
-  bootstrap: [HeroAppComponent]
+  bootstrap: [ HeroAppComponent ]
 })
-export class AppModule {
-}
+export class AppModule { }

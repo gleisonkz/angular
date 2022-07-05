@@ -1,6 +1,7 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Template Expression Operators', () => {
+
   beforeAll(() => browser.get(''));
 
   it('should have title Inputs and Outputs', async () => {
@@ -22,4 +23,5 @@ describe('Template Expression Operators', () => {
     const jsonDate = element.all(by.css('p')).get(6);
     expect(await jsonDate.getText()).toContain('Telephone');
   });
+
 });

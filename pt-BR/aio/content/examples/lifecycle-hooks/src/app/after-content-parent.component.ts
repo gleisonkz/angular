@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {LoggerService} from './logger.service';
+import { LoggerService } from './logger.service';
 
 @Component({
   selector: 'after-content-parent',
@@ -14,7 +14,7 @@ import {LoggerService} from './logger.service';
         <app-child></app-child>
       </after-content>`
       // #enddocregion parent-template
-      + `</div>
+    + `</div>
 
     <div class="info">
       <h3>AfterContent Logs</h3>
@@ -28,7 +28,7 @@ import {LoggerService} from './logger.service';
 export class AfterContentParentComponent {
   show = true;
 
-  constructor(public logger: LoggerService) {}
+  constructor(public logger: LoggerService) { }
 
   reset() {
     this.logger.clear();

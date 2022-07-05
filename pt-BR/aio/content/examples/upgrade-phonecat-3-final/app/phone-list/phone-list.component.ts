@@ -1,7 +1,7 @@
 // #docregion
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {Phone, PhoneData} from '../core/phone/phone.service';
+import { Phone, PhoneData } from '../core/phone/phone.service';
 
 @Component({
   selector: 'phone-list',
@@ -37,16 +37,16 @@ export class PhoneListComponent {
   private sortPhones(phones: PhoneData[]) {
     if (phones && this.orderProp) {
       return phones
-          .slice(0)  // Make a copy
-          .sort((a, b) => {
-            if (a[this.orderProp] < b[this.orderProp]) {
-              return -1;
-            } else if ([b[this.orderProp] < a[this.orderProp]]) {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
+        .slice(0) // Make a copy
+        .sort((a, b) => {
+          if (a[this.orderProp] < b[this.orderProp]) {
+            return -1;
+          } else if ([b[this.orderProp] < a[this.orderProp]]) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
     }
     return phones;
   }

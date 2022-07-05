@@ -1,7 +1,8 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 
 describe('Property binding e2e tests', () => {
+
   beforeEach(() => browser.get(''));
 
   it('should display Property Binding with Angular', async () => {
@@ -18,8 +19,7 @@ describe('Property binding e2e tests', () => {
   });
 
   it('should display Binding to a property of a directive', async () => {
-    expect(await element.all(by.css('h2')).get(3).getText())
-        .toBe(`Binding to a property of a directive`);
+    expect(await element.all(by.css('h2')).get(3).getText()).toBe(`Binding to a property of a directive`);
   });
 
   it('should display blue', async () => {

@@ -1,10 +1,10 @@
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
-import {ActivatedRouteStub, asyncData} from '../../testing';
-import {Hero} from '../model/hero';
+import { asyncData, ActivatedRouteStub } from '../../testing';
 
-import {HeroDetailComponent} from './hero-detail.component';
-import {HeroDetailService} from './hero-detail.service';
+import { HeroDetailComponent } from './hero-detail.component';
+import { HeroDetailService } from './hero-detail.service';
+import { Hero } from '../model/hero';
 
 //////////  Tests  ////////////////////
 
@@ -15,8 +15,8 @@ describe('HeroDetailComponent - no TestBed', () => {
   let router: jasmine.SpyObj<Router>;
 
   beforeEach((done: DoneFn) => {
-    expectedHero = {id: 42, name: 'Bubba'};
-    const activatedRoute = new ActivatedRouteStub({id: expectedHero.id});
+    expectedHero = { id: 42, name: 'Bubba' };
+    const activatedRoute = new ActivatedRouteStub({ id: expectedHero.id });
     router = jasmine.createSpyObj('Router', ['navigate']);
 
     hds = jasmine.createSpyObj('HeroDetailService', ['getHero', 'saveHero']);
@@ -36,21 +36,31 @@ describe('HeroDetailComponent - no TestBed', () => {
 
   it('should navigate when click cancel', () => {
     comp.cancel();
-    expect(router.navigate.calls.any()).withContext('router.navigate called').toBe(true);
+    expect(router.navigate.calls.any())
+      .withContext('router.navigate called')
+      .toBe(true);
   });
 
   it('should save when click save', () => {
     comp.save();
-    expect(hds.saveHero.calls.any()).withContext('HeroDetailService.save called').toBe(true);
-    expect(router.navigate.calls.any()).withContext('router.navigate not called yet').toBe(false);
+    expect(hds.saveHero.calls.any())
+      .withContext('HeroDetailService.save called')
+      .toBe(true);
+    expect(router.navigate.calls.any())
+      .withContext('router.navigate not called yet')
+      .toBe(false);
   });
 
   it('should navigate when click save resolves', (done: DoneFn) => {
     comp.save();
     // waits for async save to complete before navigating
-    hds.saveHero.calls.first().returnValue.subscribe(() => {
-      expect(router.navigate.calls.any()).withContext('router.navigate called').toBe(true);
+    hds.saveHero.calls.first().returnValue
+    .subscribe(() => {
+      expect(router.navigate.calls.any())
+        .withContext('router.navigate called')
+        .toBe(true);
       done();
     });
   });
+
 });

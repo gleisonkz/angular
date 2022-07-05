@@ -1,9 +1,10 @@
 // #docregion
-import {Injectable, NgModule} from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 
 @Injectable()
 export class Service {
-  doSomething(): void {}
+  doSomething(): void {
+  }
 }
 
 @NgModule({

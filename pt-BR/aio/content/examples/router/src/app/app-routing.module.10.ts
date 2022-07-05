@@ -1,7 +1,13 @@
 // #docplaster
 import {Injectable, NgModule} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {Resolve, RouterModule, RouterStateSnapshot, Routes, TitleStrategy,} from '@angular/router';  // CLI imports router
+import {
+  Resolve,
+  RouterModule,
+  RouterStateSnapshot,
+  Routes,
+  TitleStrategy,
+} from '@angular/router';  // CLI imports router
 
 // #docregion page-title
 const routes: Routes = [

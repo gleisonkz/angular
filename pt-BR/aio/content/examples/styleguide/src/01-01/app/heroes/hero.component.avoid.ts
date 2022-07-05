@@ -1,8 +1,8 @@
 // #docregion
 /* avoid */
-import {Component, NgModule, OnInit} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 interface Hero {
   id: number;
@@ -33,14 +33,16 @@ class AppComponent implements OnInit {
   exports: [AppComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 
-const HEROES: Hero[] =
-    [{id: 1, name: 'Bombasto'}, {id: 2, name: 'Tornado'}, {id: 3, name: 'Magneta'}];
+const HEROES: Hero[] = [
+  { id: 1, name: 'Bombasto' },
+  { id: 2, name: 'Tornado' },
+  { id: 3, name: 'Magneta' }
+];
 
 function getHeroes(): Promise<Hero[]> {
-  return Promise.resolve(HEROES);  // TODO: get hero data from the server;
+  return Promise.resolve(HEROES); // TODO: get hero data from the server;
 }

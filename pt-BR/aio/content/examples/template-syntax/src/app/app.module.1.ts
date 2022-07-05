@@ -1,7 +1,7 @@
 // #docregion
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';  // <--- JavaScript import from Angular
-import {BrowserModule} from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; // <--- JavaScript import from Angular
 
 /* Other imports */
 
@@ -12,5 +12,4 @@ import {BrowserModule} from '@angular/platform-browser';
   ],
   /* Other module metadata */
 })
-export class AppModule {
-}
+export class AppModule { }

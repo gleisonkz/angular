@@ -1,20 +1,20 @@
 // #docplaster
 // #docregion
-import {AfterContentChecked, AfterContentInit, Component, ContentChild} from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, ContentChild } from '@angular/core';
 
-import {ChildComponent} from './child.component';
-import {LoggerService} from './logger.service';
+import { ChildComponent } from './child.component';
+import { LoggerService } from './logger.service';
 
 @Component({
   selector: 'after-content',
-  // #docregion template
+// #docregion template
   template: `
     <div>projected content begins</div>
       <ng-content></ng-content>
     <div>projected content ends</div>
   `
-      // #enddocregion template
-      + `
+// #enddocregion template
+   + `
     <p *ngIf="comment" class="comment">
       {{comment}}
     </p>
@@ -28,12 +28,12 @@ export class AfterContentComponent implements AfterContentChecked, AfterContentI
   // Query for a CONTENT child of type `ChildComponent`
   @ContentChild(ChildComponent) contentChild!: ChildComponent;
 
-  // #enddocregion hooks
+// #enddocregion hooks
   constructor(private logger: LoggerService) {
     this.logIt('AfterContent constructor');
   }
 
-  // #docregion hooks
+// #docregion hooks
   ngAfterContentInit() {
     // contentChild is set after the content has been initialized
     this.logIt('AfterContentInit');
@@ -50,11 +50,11 @@ export class AfterContentComponent implements AfterContentChecked, AfterContentI
       this.doSomething();
     }
   }
-  // #enddocregion hooks
+// #enddocregion hooks
 
   // This surrogate for real business logic sets the `comment`
   private doSomething() {
-    this.comment = this.contentChild.hero.length > 10 ? 'That\'s a long name' : '';
+    this.comment = this.contentChild.hero.length > 10 ? "That's a long name" : '';
   }
 
   private logIt(method: string) {
@@ -62,7 +62,7 @@ export class AfterContentComponent implements AfterContentChecked, AfterContentI
     const message = `${method}: ${child ? child.hero : 'no'} child content`;
     this.logger.log(message);
   }
-  // #docregion hooks
+// #docregion hooks
   // ...
 }
 // #enddocregion hooks

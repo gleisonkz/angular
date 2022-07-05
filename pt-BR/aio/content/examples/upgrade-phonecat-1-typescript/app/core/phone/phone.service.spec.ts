@@ -1,7 +1,11 @@
 describe('Phone', () => {
   let $httpBackend: angular.IHttpBackendService;
   let Phone: any;
-  const phonesData = [{name: 'Phone X'}, {name: 'Phone Y'}, {name: 'Phone Z'}];
+  const phonesData = [
+    {name: 'Phone X'},
+    {name: 'Phone Y'},
+    {name: 'Phone Z'}
+  ];
 
   // Add a custom equality tester before each test
   beforeEach(() => {
@@ -33,4 +37,5 @@ describe('Phone', () => {
     $httpBackend.flush();
     expect(phones).toEqual(phonesData);
   });
+
 });

@@ -1,14 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
-import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 
-import {NpmPackageInfo, PackageSearchService} from './package-search.service';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+
+import { NpmPackageInfo, PackageSearchService } from './package-search.service';
 
 @Component({
   selector: 'app-package-search',
   templateUrl: './package-search.component.html',
   styles: ['input { margin-bottom: .5rem; }'],
-  providers: [PackageSearchService]
+  providers: [ PackageSearchService ]
 })
 export class PackageSearchComponent implements OnInit {
   // #docregion debounce
@@ -22,17 +23,18 @@ export class PackageSearchComponent implements OnInit {
 
   ngOnInit() {
     this.packages$ = this.searchText$.pipe(
-        debounceTime(500), distinctUntilChanged(),
-        switchMap(packageName => this.searchService.search(packageName, this.withRefresh)));
+      debounceTime(500),
+      distinctUntilChanged(),
+      switchMap(packageName =>
+        this.searchService.search(packageName, this.withRefresh))
+    );
   }
 
-  constructor(private searchService: PackageSearchService) {}
+  constructor(private searchService: PackageSearchService) { }
 
   // #enddocregion debounce
 
-  toggleRefresh() {
-    this.withRefresh = !this.withRefresh;
-  }
+  toggleRefresh() { this.withRefresh = ! this.withRefresh; }
 
   // #docregion getValue
   getValue(event: Event): string {

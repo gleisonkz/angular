@@ -1,17 +1,18 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 
-import {asyncData} from '../../../testing';
-import {Hero} from '../hero';
-import {HeroService} from '../hero.service';
+import { Observable } from 'rxjs';
+import { asyncData } from '../../../testing';
 
-import {getTestHeroes} from './test-heroes';
+import { map } from 'rxjs/operators';
 
 // re-export for tester convenience
-export {Hero} from '../hero';
-export {HeroService} from '../hero.service';
-export {getTestHeroes} from './test-heroes';
+export { Hero } from '../hero';
+export { HeroService } from '../hero.service';
+export { getTestHeroes } from './test-heroes';
+
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
+import { getTestHeroes } from './test-heroes';
 
 @Injectable()
 /**
@@ -19,6 +20,7 @@ export {getTestHeroes} from './test-heroes';
  * implements only as much of HeroService as is actually consumed by the app
  */
 export class TestHeroService extends HeroService {
+
   constructor() {
     // This is a fake testing service that won't be making HTTP
     // requests so we can pass in `null` as the HTTP client.
@@ -26,13 +28,13 @@ export class TestHeroService extends HeroService {
   }
 
   heroes = getTestHeroes();
-  lastResult!: Observable<any>;  // result from last method call
+  lastResult!: Observable<any>; // result from last method call
 
   override addHero(hero: Hero): Observable<Hero> {
     throw new Error('Method not implemented.');
   }
 
-  override deleteHero(hero: number|Hero): Observable<Hero> {
+  override deleteHero(hero: number | Hero): Observable<Hero> {
     throw new Error('Method not implemented.');
   }
 
@@ -40,7 +42,7 @@ export class TestHeroService extends HeroService {
     return this.lastResult = asyncData(this.heroes);
   }
 
-  override getHero(id: number|string): Observable<Hero> {
+  override getHero(id: number | string): Observable<Hero> {
     if (typeof id === 'string') {
       id = parseInt(id, 10);
     }
@@ -50,11 +52,13 @@ export class TestHeroService extends HeroService {
   }
 
   override updateHero(hero: Hero): Observable<Hero> {
-    return this.lastResult = this.getHero(hero.id).pipe(map(h => {
-      if (h) {
-        return Object.assign(h, hero);
-      }
-      throw new Error(`Hero ${hero.id} not found`);
-    }));
+    return this.lastResult = this.getHero(hero.id).pipe(
+      map(h => {
+        if (h) {
+          return Object.assign(h, hero);
+        }
+        throw new Error(`Hero ${hero.id} not found`);
+      })
+    );
   }
 }

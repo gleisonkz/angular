@@ -1,4 +1,4 @@
-import {docRegionObserver} from './subscribing';
+import { docRegionObserver } from './subscribing';
 
 describe('subscribing', () => {
   it('should subscribe and emit', () => {

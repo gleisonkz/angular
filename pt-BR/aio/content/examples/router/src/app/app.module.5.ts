@@ -1,22 +1,34 @@
 // #docplaster
 // #docregion
-import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import {AdminModule} from './admin/admin.module';
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {ComposeMessageComponent} from './compose-message/compose-message.component';
-import {CrisisCenterModule} from './crisis-center/crisis-center.module';
-import {HeroesModule} from './heroes/heroes.module';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { HeroesModule } from './heroes/heroes.module';
+import { CrisisCenterModule } from './crisis-center/crisis-center.module';
+
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
-  imports:
-      [CommonModule, FormsModule, HeroesModule, CrisisCenterModule, AdminModule, AppRoutingModule],
-  declarations: [AppComponent, ComposeMessageComponent, PageNotFoundComponent],
-  bootstrap: [AppComponent]
+  imports: [
+    CommonModule,
+    FormsModule,
+    HeroesModule,
+    CrisisCenterModule,
+    AdminModule,
+    AppRoutingModule
+  ],
+  declarations: [
+    AppComponent,
+    ComposeMessageComponent,
+    PageNotFoundComponent
+  ],
+  bootstrap: [ AppComponent ]
 })
-export class AppModule {
-}
+export class AppModule { }

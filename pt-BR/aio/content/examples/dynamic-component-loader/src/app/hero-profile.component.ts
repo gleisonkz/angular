@@ -1,7 +1,7 @@
 // #docregion
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import {AdComponent} from './ad.component';
+import { AdComponent } from './ad.component';
 
 @Component({
   template: `
@@ -18,3 +18,5 @@ import {AdComponent} from './ad.component';
 export class HeroProfileComponent implements AdComponent {
   @Input() data: any;
 }
+
+

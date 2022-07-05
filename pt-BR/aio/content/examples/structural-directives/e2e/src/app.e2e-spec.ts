@@ -1,6 +1,7 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Structural Directives', () => {
+
   beforeAll(() => browser.get(''));
 
   it('first div should show hero name with *ngIf', async () => {
@@ -35,8 +36,7 @@ describe('Structural Directives', () => {
   });
 
   it('appUnless should show 1 paragraph (B) after toggling condition', async () => {
-    const toggleConditionButton =
-        element.all(by.cssContainingText('button', 'Toggle condition')).get(0);
+    const toggleConditionButton = element.all(by.cssContainingText('button', 'Toggle condition')).get(0);
     const paragraph = element.all(by.css('p.unless'));
 
     await toggleConditionButton.click();
@@ -45,3 +45,4 @@ describe('Structural Directives', () => {
     expect(await paragraph.get(0).getText()).toContain('(B)');
   });
 });
+

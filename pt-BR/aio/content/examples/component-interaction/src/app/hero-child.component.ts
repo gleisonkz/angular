@@ -1,7 +1,7 @@
 // #docregion
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import {Hero} from './hero';
+import { Hero } from './hero';
 
 @Component({
   selector: 'app-hero-child',
@@ -12,6 +12,6 @@ import {Hero} from './hero';
 })
 export class HeroChildComponent {
   @Input() hero!: Hero;
-  @Input('master') masterName = '';  // eslint-disable-line @angular-eslint/no-input-rename
+  @Input('master') masterName = ''; // eslint-disable-line @angular-eslint/no-input-rename
 }
 // #enddocregion

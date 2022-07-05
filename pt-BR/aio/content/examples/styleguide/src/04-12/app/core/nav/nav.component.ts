@@ -1,5 +1,5 @@
 // #docregion
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'toh-nav',
@@ -7,9 +7,13 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent implements OnInit {
-  menuItems = ['Heroes', 'Villains', 'Other'];
+  menuItems = [
+    'Heroes',
+    'Villains',
+    'Other'
+  ];
 
-  ngOnInit() {}
+  ngOnInit() {  }
 
-  constructor() {}
+  constructor() { }
 }

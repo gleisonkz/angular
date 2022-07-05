@@ -1,6 +1,5 @@
-import {Component} from '@angular/core';
-
-import {UserService} from '../greeting/user.service';
+import { Component } from '@angular/core';
+import { UserService } from '../greeting/user.service';
 
 @Component({
   selector: 'app-greeting',

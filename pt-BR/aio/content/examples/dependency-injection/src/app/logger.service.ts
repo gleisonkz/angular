@@ -1,9 +1,11 @@
 // #docregion
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Injectable({providedIn: 'root'})
+@Injectable({
+  providedIn: 'root'
+})
 export class Logger {
-  logs: string[] = [];  // capture logs for testing
+  logs: string[] = []; // capture logs for testing
 
   log(message: string) {
     this.logs.push(message);

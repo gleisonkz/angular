@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 // #docregion
 @Component({
@@ -12,5 +12,4 @@ import {Component, ViewEncapsulation} from '@angular/core';
   styles: ['h2, .shadow-message { color: blue; }'],
   encapsulation: ViewEncapsulation.ShadowDom,
 })
-export class ShadowDomEncapsulationComponent {
-}
+export class ShadowDomEncapsulationComponent { }

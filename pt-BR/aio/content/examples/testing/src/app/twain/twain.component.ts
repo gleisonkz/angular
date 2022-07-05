@@ -1,9 +1,10 @@
 // #docregion
-import {Component, OnInit} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {catchError, startWith} from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 
-import {TwainService} from './twain.service';
+import { Observable, of } from 'rxjs';
+import { catchError, startWith } from 'rxjs/operators';
+
+import { TwainService } from './twain.service';
 
 @Component({
   selector: 'twain-quote',
@@ -13,7 +14,9 @@ import {TwainService} from './twain.service';
     <button type="button" (click)="getQuote()">Next quote</button>
     <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>`,
   // #enddocregion template
-  styles: ['.twain { font-style: italic; } .error { color: red; }']
+  styles: [
+    '.twain { font-style: italic; } .error { color: red; }'
+  ]
 
 })
 export class TwainComponent implements OnInit {
@@ -30,11 +33,14 @@ export class TwainComponent implements OnInit {
   getQuote() {
     this.errorMessage = '';
     this.quote = this.twainService.getQuote().pipe(
-        startWith('...'), catchError((err: any) => {
-          // Wait a turn because errorMessage already set once this turn
-          setTimeout(() => this.errorMessage = err.message || err.toString());
-          return of('...');  // reset message to placeholder
-        }));
+      startWith('...'),
+      catchError( (err: any) => {
+        // Wait a turn because errorMessage already set once this turn
+        setTimeout(() => this.errorMessage = err.message || err.toString());
+        return of('...'); // reset message to placeholder
+      })
+    );
     // #enddocregion get-quote
   }
+
 }

@@ -1,6 +1,5 @@
-import {by} from 'protractor';
-
-import {locate} from './util';
+import { by } from 'protractor';
+import { locate } from './util';
 
 export function getPage() {
   return by.css('app-hero-list-auto-page');

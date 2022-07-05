@@ -1,17 +1,16 @@
-import {browser, by, element, ExpectedConditions as EC} from 'protractor';
+import { browser, element, by, ExpectedConditions as EC } from 'protractor';
 
 const numDashboardTabs = 5;
 const numCrises = 4;
 const numHeroes = 9;
 
 describe('Router', () => {
+
   beforeAll(() => browser.get(''));
 
   function getPageStruct() {
     const hrefEles = element.all(by.css('nav a'));
-    const crisisDetail =
-        element.all(by.css('app-crisis-center > app-crisis-list > app-crisis-detail > div'))
-            .first();
+    const crisisDetail = element.all(by.css('app-crisis-center > app-crisis-list > app-crisis-detail > div')).first();
     const heroDetail = element(by.css('app-hero-detail'));
 
     return {
@@ -188,4 +187,5 @@ describe('Router', () => {
       expect(await crisisEle.getText()).toContain(crisisText);
     }
   }
+
 });

@@ -1,10 +1,14 @@
-import {Component, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 
-@Component(
-    {selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
 export class AppComponent {
+
   public firstExample = 'Hello, World!';
   public secondExample = 'Hello, World!';
 
@@ -15,7 +19,8 @@ export class AppComponent {
   <ng-template [ngIf]="true">
     <!-- … and it works  -->
     <span>Value: {{ ref1.value }}</span>
-  </ng-template>`;
+  </ng-template>`
+  ;
 
   public desugared2 = `<ng-template [ngIf]="true">
     <!-- The reference, ref2, is defined within a template -->
@@ -25,7 +30,7 @@ export class AppComponent {
   <!-- Attempting to access ref2 from outside the above template doesn't work. -->
   <span>Value: {{ ref2?.value }}</span>`;
 
-  public ngForExample = `<ng-container *ngFor="let i of [1,2]">
+    public ngForExample = `<ng-container *ngFor="let i of [1,2]">
     <input #ref type="text" [value]="i" />
   </ng-container>
 
@@ -34,11 +39,9 @@ export class AppComponent {
 
   {{ ref.value }}`;
 
-  @ViewChild('itemForm', {static: false}) form!: NgForm;
+  @ViewChild('itemForm', { static: false }) form!: NgForm;
 
-  get submitMessage() {
-    return this._submitMessage;
-  }
+  get submitMessage() { return this._submitMessage; }
   private _submitMessage = '';
 
   onSubmit(form: NgForm) {

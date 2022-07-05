@@ -1,15 +1,14 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {UserService} from '../greeting/user.service';
-
-import {CustomersService} from './customers.service';
+import { CustomersService } from './customers.service';
+import { UserService } from '../greeting/user.service';
 
 @Component({
   template: `
     <h2>Customers of {{userName}}</h2>
     <router-outlet></router-outlet>
   `,
-  providers: [UserService]
+  providers: [ UserService ]
 })
 export class CustomersComponent {
   userName = '';
@@ -17,3 +16,4 @@ export class CustomersComponent {
     this.userName = userService.userName;
   }
 }
+

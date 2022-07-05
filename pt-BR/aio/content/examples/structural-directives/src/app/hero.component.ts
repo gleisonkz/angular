@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {Hero, heroes} from './hero';
-import {LoadingState} from './loading-state';
+import { LoadingState } from './loading-state';
+import { Hero, heroes } from './hero';
 
 @Component({
   selector: 'app-hero',
@@ -11,9 +11,9 @@ import {LoadingState} from './loading-state';
   `,
 })
 export class HeroComponent {
-  heroLoadingState: LoadingState<Hero> = {type: 'loading'};
+  heroLoadingState: LoadingState<Hero> = { type: 'loading' };
 
   onLoadHero(): void {
-    this.heroLoadingState = {type: 'loaded', data: heroes[0]};
+    this.heroLoadingState = { type: 'loaded', data: heroes[0] };
   }
 }

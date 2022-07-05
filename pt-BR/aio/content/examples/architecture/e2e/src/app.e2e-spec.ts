@@ -1,4 +1,4 @@
-import {browser, by, element, ElementFinder, protractor} from 'protractor';
+import { protractor, browser, element, by, ElementFinder } from 'protractor';
 
 const nameSuffix = 'X';
 
@@ -8,6 +8,7 @@ interface Hero {
 }
 
 describe('Architecture', () => {
+
   const expectedTitle = 'Architecture of Angular';
   const expectedH2 = ['Hero List', 'Sales Tax Calculator'];
 
@@ -27,7 +28,8 @@ describe('Architecture', () => {
 });
 
 function heroTests() {
-  const targetHero: Hero = {id: 2, name: 'Dr Nice'};
+
+  const targetHero: Hero = { id: 2, name: 'Dr Nice' };
 
   it('has the right number of heroes', async () => {
     const page = getPageElts();

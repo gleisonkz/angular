@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {User, UserService} from './user.service';
+import { User, UserService } from './user.service';
 
 // #docregion component-providers
 @Component({
@@ -16,9 +16,10 @@ export class AppComponent implements OnInit {
   title = 'Users list';
   users: User[] = [];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.getUsers().then(users => this.users = users);
   }
+
 }

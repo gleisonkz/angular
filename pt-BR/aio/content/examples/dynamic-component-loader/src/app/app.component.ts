@@ -1,8 +1,8 @@
 // #docregion
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {AdItem} from './ad-item';
-import {AdService} from './ad.service';
+import { AdService } from './ad.service';
+import { AdItem } from './ad-item';
 
 @Component({
   selector: 'app-root',
@@ -21,3 +21,4 @@ export class AppComponent implements OnInit {
     this.ads = this.adService.getAds();
   }
 }
+

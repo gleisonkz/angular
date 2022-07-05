@@ -1,19 +1,19 @@
-import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 
-import {Hero} from './hero';
+import { Hero } from './hero';
 
-export enum Color {
-  Red,
-  Green,
-  Blue
-}
+export enum Color {Red, Green, Blue}
 
 /**
  * Giant grab bag of stuff to drive the chapter
  */
-@Component(
-    {selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: [ './app.component.css' ]
+})
 export class AppComponent implements AfterViewInit, OnInit {
+
   ngOnInit() {
     this.resetHeroes();
     this.setCurrentClasses();
@@ -22,11 +22,11 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit() {
     // Detect effects of NgForTrackBy
-    trackChanges(this.heroesNoTrackBy, () => this.heroesNoTrackByCount++);
+    trackChanges(this.heroesNoTrackBy,   () => this.heroesNoTrackByCount++);
     trackChanges(this.heroesWithTrackBy, () => this.heroesWithTrackByCount++);
   }
 
-  @ViewChildren('noTrackBy') heroesNoTrackBy!: QueryList<ElementRef>;
+  @ViewChildren('noTrackBy')   heroesNoTrackBy!: QueryList<ElementRef>;
   @ViewChildren('withTrackBy') heroesWithTrackBy!: QueryList<ElementRef>;
 
   actionName = 'Go for it';
@@ -34,16 +34,10 @@ export class AppComponent implements AfterViewInit, OnInit {
   classes = 'special';
   help = '';
 
-  alert(msg?: string) {
-    window.alert(msg);
-  }
-  callFax(value: string) {
-    this.alert(`Faxing ${value} ...`);
-  }
-  callPhone(value: string) {
-    this.alert(`Calling ${value} ...`);
-  }
-  canSave = true;
+  alert(msg?: string)      { window.alert(msg); }
+  callFax(value: string)   { this.alert(`Faxing ${value} ...`); }
+  callPhone(value: string) { this.alert(`Calling ${value} ...`); }
+  canSave =  true;
 
   changeIds() {
     this.resetHeroes();
@@ -65,9 +59,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   Color = Color;
   color = Color.Red;
-  colorToggle() {
-    this.color = (this.color === Color.Red) ? Color.Blue : Color.Red;
-  }
+  colorToggle() {this.color = (this.color === Color.Red) ? Color.Blue : Color.Red; }
 
   currentHero!: Hero;
 
@@ -85,16 +77,14 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   title = 'Template Syntax';
 
-  getVal(): number {
-    return 2;
-  }
+  getVal(): number { return 2; }
 
   name: string = Hero.heroes[0].name || '';
-  hero!: Hero;  // defined to demonstrate template context precedence
+  hero!: Hero; // defined to demonstrate template context precedence
   heroes: Hero[] = [];
 
   // trackBy change counting
-  heroesNoTrackByCount = 0;
+  heroesNoTrackByCount   = 0;
   heroesWithTrackByCount = 0;
   heroesWithTrackByCountReset = 0;
 
@@ -112,27 +102,25 @@ export class AppComponent implements AfterViewInit, OnInit {
   isSpecial = true;
   isUnchanged = true;
 
-  get nullHero(): Hero|null {
-    return null;
-  }
+  get nullHero(): Hero | null { return null; }
 
   onClickMe(event?: MouseEvent) {
-    const evtMsg = event ? ' Event target class is ' + (event.target as HTMLElement).className : '';
+    const evtMsg = event ? ' Event target class is ' + (event.target as HTMLElement).className  : '';
     this.alert('Click me.' + evtMsg);
   }
 
   onSave(event?: MouseEvent) {
     const evtMsg = event ? ' Event target is ' + (event.target as HTMLElement).textContent : '';
     this.alert('Saved.' + evtMsg);
-    if (event) {
-      event.stopPropagation();
-    }
+    if (event) { event.stopPropagation(); }
   }
 
-  onSubmit(data: any) { /* referenced but not used */
-  }
+  onSubmit(data: any) {/* referenced but not used */}
 
-  product = {name: 'frimfram', price: 42};
+  product = {
+    name: 'frimfram',
+    price: 42
+  };
 
   // updates with fresh set of cloned heroes
   resetHeroes() {
@@ -149,10 +137,10 @@ export class AppComponent implements AfterViewInit, OnInit {
   currentClasses: Record<string, boolean> = {};
   setCurrentClasses() {
     // CSS classes: added/removed per current state of component properties
-    this.currentClasses = {
+    this.currentClasses =  {
       saveable: this.canSave,
       modified: !this.isUnchanged,
-      special: this.isSpecial
+      special:  this.isSpecial
     };
   }
 
@@ -160,32 +148,28 @@ export class AppComponent implements AfterViewInit, OnInit {
   setCurrentStyles() {
     // CSS styles: set per current state of component properties
     this.currentStyles = {
-      'font-style': this.canSave ? 'italic' : 'normal',
-      'font-weight': !this.isUnchanged ? 'bold' : 'normal',
-      'font-size': this.isSpecial ? '24px' : '12px'
+      'font-style':  this.canSave      ? 'italic' : 'normal',
+      'font-weight': !this.isUnchanged ? 'bold'   : 'normal',
+      'font-size':   this.isSpecial    ? '24px'   : '12px'
     };
   }
 
-  trackByHeroes(index: number, hero: Hero): number {
-    return hero.id;
-  }
+  trackByHeroes(index: number, hero: Hero): number { return hero.id; }
 
-  trackById(index: number, item: any): number {
-    return item.id;
-  }
+  trackById(index: number, item: any): number { return item.id; }
 }
 
 // helper to track changes to viewChildren
 function trackChanges(views: QueryList<ElementRef>, changed: () => void) {
   let oldRefs = views.toArray();
   views.changes.subscribe((changes: QueryList<ElementRef>) => {
-    const changedRefs = changes.toArray();
-    // Check if every changed Element is the same as old and in the same position
-    const isSame = oldRefs.every((v, i) => v.nativeElement === changedRefs[i].nativeElement);
-    if (!isSame) {
-      oldRefs = changedRefs;
-      // wait a tick because called after views are constructed
-      setTimeout(changed, 0);
-    }
+      const changedRefs = changes.toArray();
+      // Check if every changed Element is the same as old and in the same position
+      const isSame = oldRefs.every((v, i) => v.nativeElement === changedRefs[i].nativeElement);
+      if (!isSame) {
+        oldRefs = changedRefs;
+        // wait a tick because called after views are constructed
+        setTimeout(changed, 0);
+      }
   });
 }

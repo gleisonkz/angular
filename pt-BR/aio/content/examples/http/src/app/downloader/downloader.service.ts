@@ -1,12 +1,15 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import {MessageService} from '../message.service';
+import { tap } from 'rxjs/operators';
+
+import { MessageService } from '../message.service';
 
 @Injectable()
 export class DownloaderService {
-  constructor(private http: HttpClient, private messageService: MessageService) {}
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService) { }
 
   // #docregion getTextFile
   getTextFile(filename: string) {
@@ -14,11 +17,14 @@ export class DownloaderService {
     // because a text response was specified.
     // There's no need to pass a <string> type parameter to get().
     return this.http.get(filename, {responseType: 'text'})
-        .pipe(tap(  // Log the result or error
-            {
-              next: (data) => this.log(filename, data),
-              error: (error) => this.logError(filename, error)
-            }));
+      .pipe(
+        tap( // Log the result or error
+        {
+          next: (data) => this.log(filename, data),
+          error: (error) => this.logError(filename, error)
+        }
+        )
+      );
   }
   // #enddocregion getTextFile
 
@@ -28,8 +34,7 @@ export class DownloaderService {
   }
 
   private logError(filename: string, error: any) {
-    const message =
-        `DownloaderService failed to download "${filename}"; got error "${error.message}".`;
+    const message = `DownloaderService failed to download "${filename}"; got error "${error.message}".`;
     console.error(message);
     this.messageService.add(message);
   }

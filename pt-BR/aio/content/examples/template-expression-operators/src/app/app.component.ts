@@ -1,24 +1,29 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 
 interface Item {
   name: string;
   manufactureDate: Date;
-  color?: string|null;
+  color?: string | null;
   price: number;
 }
 
-@Component(
-    {selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
 export class AppComponent {
   title = 'Template Expression Operators';
 
   item: Item = {
-    name: 'Telephone',
-    manufactureDate: new Date(1980, 1, 25),
+    name : 'Telephone',
+    manufactureDate : new Date(1980, 1, 25),
     color: 'orange',
     price: 98,
   };
 
-  nullItem: Item|null = null;
+  nullItem: Item | null = null;
+
 }
+

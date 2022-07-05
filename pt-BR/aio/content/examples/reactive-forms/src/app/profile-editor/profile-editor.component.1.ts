@@ -1,9 +1,8 @@
 // #docplaster
 // #docregion formgroup, nested-formgroup
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 // #docregion imports
-import {FormControl, FormGroup} from '@angular/forms';
-
+import { FormGroup, FormControl } from '@angular/forms';
 // #enddocregion imports
 
 @Component({
@@ -12,25 +11,30 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./profile-editor.component.css']
 })
 export class ProfileEditorComponent {
-  // #docregion formgroup-compare
+// #docregion formgroup-compare
   profileForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
-    // #enddocregion formgroup
+// #enddocregion formgroup
     address: new FormGroup({
       street: new FormControl(''),
       city: new FormControl(''),
       state: new FormControl(''),
       zip: new FormControl('')
     })
-    // #docregion formgroup
+// #docregion formgroup
   });
-  // #enddocregion formgroup, nested-formgroup, formgroup-compare
-  // #docregion patch-value
+// #enddocregion formgroup, nested-formgroup, formgroup-compare
+// #docregion patch-value
   updateProfile() {
-    this.profileForm.patchValue({firstName: 'Nancy', address: {street: '123 Drew Street'}});
+    this.profileForm.patchValue({
+      firstName: 'Nancy',
+      address: {
+        street: '123 Drew Street'
+      }
+    });
   }
-  // #enddocregion patch-value
-  // #docregion formgroup, nested-formgroup
+// #enddocregion patch-value
+// #docregion formgroup, nested-formgroup
 }
 // #enddocregion formgroup

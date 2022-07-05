@@ -1,8 +1,9 @@
 // #docplaster
 // #docregion vc
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-
-import {CountdownTimerComponent} from './countdown-timer.component';
+import { AfterViewInit, ViewChild } from '@angular/core';
+// #docregion lv
+import { Component } from '@angular/core';
+import { CountdownTimerComponent } from './countdown-timer.component';
 
 // #enddocregion lv
 // #enddocregion vc
@@ -20,8 +21,7 @@ import {CountdownTimerComponent} from './countdown-timer.component';
   `,
   styleUrls: ['../assets/demo.css']
 })
-export class CountdownLocalVarParentComponent {
-}
+export class CountdownLocalVarParentComponent { }
 // #enddocregion lv
 
 //// View Child version
@@ -38,11 +38,11 @@ export class CountdownLocalVarParentComponent {
   styleUrls: ['../assets/demo.css']
 })
 export class CountdownViewChildParentComponent implements AfterViewInit {
-  @ViewChild(CountdownTimerComponent) private timerComponent!: CountdownTimerComponent;
 
-  seconds() {
-    return 0;
-  }
+  @ViewChild(CountdownTimerComponent)
+  private timerComponent!: CountdownTimerComponent;
+
+  seconds() { return 0; }
 
   ngAfterViewInit() {
     // Redefine `seconds()` to get from the `CountdownTimerComponent.seconds` ...
@@ -51,11 +51,7 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
     setTimeout(() => this.seconds = () => this.timerComponent.seconds, 0);
   }
 
-  start() {
-    this.timerComponent.start();
-  }
-  stop() {
-    this.timerComponent.stop();
-  }
+  start() { this.timerComponent.start(); }
+  stop() { this.timerComponent.stop(); }
 }
 // #enddocregion vc

@@ -1,4 +1,4 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Getting Started V0', () => {
   beforeEach(() => browser.get('/'));

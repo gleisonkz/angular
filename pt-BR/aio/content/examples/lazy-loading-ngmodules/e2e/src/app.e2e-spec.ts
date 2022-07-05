@@ -1,6 +1,5 @@
-import {by, element} from 'protractor';
-
-import {AppPage} from './app.po';
+import { element, by } from 'protractor';
+import { AppPage } from './app.po';
 
 
 describe('providers App', () => {
@@ -25,6 +24,7 @@ describe('providers App', () => {
       const customersMessage = element(by.css('app-customers > p'));
       expect(await customersMessage.getText()).toBe('customers works!');
     });
+
   });
 
   describe('Orders', () => {
@@ -34,5 +34,7 @@ describe('providers App', () => {
       const ordersMessage = element(by.css('app-orders > p'));
       expect(await ordersMessage.getText()).toBe('orders works!');
     });
+
   });
+
 });

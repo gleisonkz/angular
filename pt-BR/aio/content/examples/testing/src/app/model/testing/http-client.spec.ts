@@ -1,8 +1,11 @@
 // Http testing module and mocking controller
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+
 // Other imports
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
+import { HttpHeaders } from '@angular/common/http';
 
 interface Data {
   name: string;
@@ -15,7 +18,9 @@ describe('HttpClient testing', () => {
   let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({imports: [HttpClientTestingModule]});
+    TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ]
+    });
 
     // Inject the http service and test controller for each test
     httpClient = TestBed.inject(HttpClient);
@@ -32,10 +37,11 @@ describe('HttpClient testing', () => {
     const testData: Data = {name: 'Test Data'};
 
     // Make an HTTP GET request
-    httpClient.get<Data>(testUrl).subscribe(
-        data =>
-            // When observable resolves, result should match test data
-        expect(data).toEqual(testData));
+    httpClient.get<Data>(testUrl)
+      .subscribe(data =>
+        // When observable resolves, result should match test data
+        expect(data).toEqual(testData)
+      );
 
     // The following `expectOne()` will match the request's URL.
     // If no requests or multiple requests matched that URL
@@ -57,27 +63,42 @@ describe('HttpClient testing', () => {
     const testData: Data = {name: 'Test Data'};
 
     // Make an HTTP GET request with specific header
-    httpClient.get<Data>(testUrl, {headers: new HttpHeaders({Authorization: 'my-auth-token'})})
-        .subscribe(data => expect(data).toEqual(testData));
+    httpClient.get<Data>(testUrl, {
+        headers: new HttpHeaders({Authorization: 'my-auth-token'})
+      })
+      .subscribe(data =>
+        expect(data).toEqual(testData)
+      );
 
     // Find request with a predicate function.
     // Expect one request with an authorization header
-    const req = httpTestingController.expectOne(request => request.headers.has('Authorization'));
+    const req = httpTestingController.expectOne(
+      request => request.headers.has('Authorization')
+    );
     req.flush(testData);
   });
 
   it('can test multiple requests', () => {
-    const testData: Data[] = [{name: 'bob'}, {name: 'carol'}, {name: 'ted'}, {name: 'alice'}];
+    const testData: Data[] = [
+      { name: 'bob' }, { name: 'carol' },
+      { name: 'ted' }, { name: 'alice' }
+    ];
 
     // Make three requests in a row
-    httpClient.get<Data[]>(testUrl).subscribe(
-        d => expect(d.length).withContext('should have no data').toEqual(0));
+    httpClient.get<Data[]>(testUrl)
+      .subscribe(d => expect(d.length)
+        .withContext('should have no data')
+        .toEqual(0));
 
-    httpClient.get<Data[]>(testUrl).subscribe(
-        d => expect(d).withContext('should be one element array').toEqual([testData[0]]));
+    httpClient.get<Data[]>(testUrl)
+      .subscribe(d => expect(d)
+        .withContext('should be one element array')
+        .toEqual([testData[0]]));
 
-    httpClient.get<Data[]>(testUrl).subscribe(
-        d => expect(d).withContext('should be expected data').toEqual(testData));
+    httpClient.get<Data[]>(testUrl)
+      .subscribe(d => expect(d)
+        .withContext('should be expected data')
+        .toEqual(testData));
 
     // get all pending requests that match the given URL
     const requests = httpTestingController.match(testUrl);
@@ -95,15 +116,19 @@ describe('HttpClient testing', () => {
     httpClient.get<Data[]>(testUrl).subscribe({
       next: data => fail('should have failed with the 404 error'),
       error: (error: HttpErrorResponse) => {
-        expect(error.status).withContext('status').toEqual(404);
-        expect(error.error).withContext('message').toEqual(emsg);
-      }
-    });
+        expect(error.status)
+          .withContext('status')
+          .toEqual(404);
+        expect(error.error)
+          .withContext('message')
+          .toEqual(emsg);
+      }}
+    );
 
     const req = httpTestingController.expectOne(testUrl);
 
     // Respond with mock error
-    req.flush(emsg, {status: 404, statusText: 'Not Found'});
+    req.flush(emsg, { status: 404, statusText: 'Not Found' });
   });
 
   it('can test for network error', done => {
@@ -116,8 +141,8 @@ describe('HttpClient testing', () => {
       error: (error: HttpErrorResponse) => {
         expect(error.error).toBe(errorEvent);
         done();
-      }
-    });
+      }}
+    );
 
     const req = httpTestingController.expectOne(testUrl);
 

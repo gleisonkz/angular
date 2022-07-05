@@ -1,5 +1,5 @@
 // #docregion
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 // #docregion loop-back-component
 @Component({
   selector: 'app-loop-back',
@@ -8,6 +8,5 @@ import {Component} from '@angular/core';
     <p>{{box.value}}</p>
   `
 })
-export class LoopbackComponent {
-}
+export class LoopbackComponent { }
 // #enddocregion loop-back-component

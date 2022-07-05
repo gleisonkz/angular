@@ -1,10 +1,10 @@
 declare const angular: angular.IAngularStatic;
-import {downgradeComponent} from '@angular/upgrade/static';
+import { downgradeComponent } from '@angular/upgrade/static';
 
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {Phone, PhoneData} from '../core/phone/phone.service';
-import {RouteParams} from '../ajs-upgraded-providers';
+import { Phone, PhoneData } from '../core/phone/phone.service';
+import { RouteParams } from '../ajs-upgraded-providers';
 
 @Component({
   selector: 'phone-detail',
@@ -26,6 +26,8 @@ export class PhoneDetailComponent {
   }
 }
 
-angular.module('phoneDetail').directive('phoneDetail', downgradeComponent({
-                                                         component: PhoneDetailComponent
-                                                       }) as angular.IDirectiveFactory);
+angular.module('phoneDetail')
+  .directive(
+    'phoneDetail',
+    downgradeComponent({component: PhoneDetailComponent}) as angular.IDirectiveFactory
+  );

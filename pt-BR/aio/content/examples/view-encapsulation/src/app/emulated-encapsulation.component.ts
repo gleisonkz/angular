@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 // #docregion
 @Component({
@@ -11,5 +11,4 @@ import {Component, ViewEncapsulation} from '@angular/core';
   styles: ['h2, .emulated-message { color: green; }'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class EmulatedEncapsulationComponent {
-}
+export class EmulatedEncapsulationComponent { }

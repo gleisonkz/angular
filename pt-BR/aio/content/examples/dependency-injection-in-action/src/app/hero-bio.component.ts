@@ -1,7 +1,7 @@
 // #docregion
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import {HeroCacheService} from './hero-cache.service';
+import { HeroCacheService } from './hero-cache.service';
 
 // #docregion component
 @Component({
@@ -15,17 +15,13 @@ import {HeroCacheService} from './hero-cache.service';
   providers: [HeroCacheService]
 })
 
-export class HeroBioComponent implements OnInit {
+export class HeroBioComponent implements OnInit  {
   @Input() heroId = 0;
 
-  constructor(private heroCache: HeroCacheService) {}
+  constructor(private heroCache: HeroCacheService) { }
 
-  ngOnInit() {
-    this.heroCache.fetchCachedHero(this.heroId);
-  }
+  ngOnInit() { this.heroCache.fetchCachedHero(this.heroId); }
 
-  get hero() {
-    return this.heroCache.hero;
-  }
+  get hero() { return this.heroCache.hero; }
 }
 // #enddocregion component

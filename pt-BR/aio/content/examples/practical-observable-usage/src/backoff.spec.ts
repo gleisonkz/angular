@@ -1,7 +1,6 @@
-import {interval} from 'rxjs';
-import {tap} from 'rxjs/operators';
-
-import {backoff} from './backoff';
+import { interval } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { backoff } from './backoff';
 
 describe('backoff()', () => {
   beforeEach(() => jasmine.clock().install());
@@ -10,12 +9,12 @@ describe('backoff()', () => {
   it('should retry in case of error', () => {
     const mockConsole = {log: jasmine.createSpy('log')};
     const source = interval(10).pipe(
-        tap(i => {
-          if (i > 0) {
-            throw new Error('Test error');
-          }
-        }),
-        backoff(3, 100),
+      tap(i => {
+        if (i > 0) {
+          throw new Error('Test error');
+        }
+      }),
+      backoff(3, 100),
     );
     source.subscribe({
       next: v => mockConsole.log(`Emitted: ${v}`),

@@ -1,7 +1,10 @@
 // #docregion
 // #docregion hero-detail-io
 export const heroDetail = {
-  bindings: {hero: '<', deleted: '&'},
+  bindings: {
+    hero: '<',
+    deleted: '&'
+  },
   template: `
     <h2>{{$ctrl.hero.name}} details!</h2>
     <div><label>id: </label>{{$ctrl.hero.id}}</div>
@@ -16,9 +19,9 @@ export const heroDetail = {
 // #enddocregion hero-detail-io
 
 // #docregion hero-detail-io-upgrade
-import {Directive, ElementRef, Injector, Input, Output, EventEmitter} from '@angular/core';
-import {UpgradeComponent} from '@angular/upgrade/static';
-import {Hero} from '../hero';
+import { Directive, ElementRef, Injector, Input, Output, EventEmitter } from '@angular/core';
+import { UpgradeComponent } from '@angular/upgrade/static';
+import { Hero } from '../hero';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector

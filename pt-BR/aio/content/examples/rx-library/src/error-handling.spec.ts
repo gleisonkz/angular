@@ -1,6 +1,5 @@
-import {Subject, throwError} from 'rxjs';
-
-import {docRegionDefault} from './error-handling';
+import { Subject, throwError } from 'rxjs';
+import { docRegionDefault } from './error-handling';
 
 describe('error-handling', () => {
   let consoleSpy: jasmine.SpyObj<Console>;
@@ -10,7 +9,9 @@ describe('error-handling', () => {
   beforeEach(() => {
     consoleSpy = jasmine.createSpyObj<Console>('console', ['log']);
     ajaxSubject = new Subject();
-    ajax = jasmine.createSpy('ajax').and.callFake((url: string) => ajaxSubject);
+    ajax = jasmine
+      .createSpy('ajax')
+      .and.callFake((url: string) => ajaxSubject);
   });
 
   afterEach(() => ajaxSubject.unsubscribe());
@@ -19,14 +20,18 @@ describe('error-handling', () => {
     docRegionDefault(consoleSpy, ajax);
 
     ajaxSubject.next({response: {foo: 'bar'}});
-    expect(consoleSpy.log.calls.allArgs()).toEqual([['data: ', {foo: 'bar'}]]);
+    expect(consoleSpy.log.calls.allArgs()).toEqual([
+      ['data: ', {foo: 'bar'}]
+    ]);
   });
 
   it('should return an empty array when using an object without a `response` property', () => {
     docRegionDefault(consoleSpy, ajax);
 
     ajaxSubject.next({foo: 'bar'});
-    expect(consoleSpy.log.calls.allArgs()).toEqual([['data: ', []]]);
+    expect(consoleSpy.log.calls.allArgs()).toEqual([
+      ['data: ', []]
+    ]);
   });
 
   it('should return an empty array when the ajax observable errors', () => {
@@ -34,6 +39,8 @@ describe('error-handling', () => {
 
     docRegionDefault(consoleSpy, ajax);
 
-    expect(consoleSpy.log.calls.allArgs()).toEqual([['data: ', []]]);
+    expect(consoleSpy.log.calls.allArgs()).toEqual([
+      ['data: ', []]
+    ]);
   });
 });

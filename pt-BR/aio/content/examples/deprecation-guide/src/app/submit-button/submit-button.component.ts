@@ -1,16 +1,16 @@
 // #docplaster ...
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 // #docregion submitButton, submitButtonNarrow
 @Component({
   // #enddocregion submitButton, submitButtonNarrow
-  // #docplaster
+// #docplaster
   selector: 'app-submit-button',
   templateUrl: './submit-button.component.html',
   styleUrls: ['./submit-button.component.css']
   // #docregion submitButton, submitButtonNarrow
 })
 export class SubmitButtonComponent {
-  // #enddocregion submitButtonNarrow
+// #enddocregion submitButtonNarrow
   private disabledValue = false;
 
   @Input()
@@ -29,6 +29,7 @@ export class SubmitButtonComponent {
   styleUrls: ['./submit-button.component.css']
 })
 export class SubmitButtonValidComponent {
+
   // #docregion submitButtonNarrow
   static ngAcceptInputType_disabled: boolean|'';
 

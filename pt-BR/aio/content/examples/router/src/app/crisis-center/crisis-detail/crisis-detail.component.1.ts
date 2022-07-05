@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {Observable} from 'rxjs';
-import {switchMap} from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
-import {DialogService} from '../../dialog.service';
-import {Crisis} from '../crisis';
-import {CrisisService} from '../crisis.service';
+import { CrisisService } from '../crisis.service';
+import { Crisis } from '../crisis';
+import { DialogService } from '../../dialog.service';
 
 @Component({
   selector: 'app-crisis-detail',
@@ -17,20 +17,25 @@ export class CrisisDetailComponent implements OnInit {
   editName = '';
 
   constructor(
-      private service: CrisisService, private router: Router, private route: ActivatedRoute,
-      public dialogService: DialogService) {}
+    private service: CrisisService,
+    private router: Router,
+    private route: ActivatedRoute,
+    public dialogService: DialogService
+  ) {}
 
   ngOnInit() {
     this.route.paramMap
-        .pipe(switchMap((params: ParamMap) => this.service.getCrisis(params.get('id')!)))
-        .subscribe((crisis: Crisis) => {
-          if (crisis) {
-            this.editName = crisis.name;
-            this.crisis = crisis;
-          } else {  // id not found
-            this.gotoCrises();
-          }
-        });
+      .pipe(
+        switchMap((params: ParamMap) =>
+          this.service.getCrisis(params.get('id')!)))
+      .subscribe((crisis: Crisis) => {
+        if (crisis) {
+          this.editName = crisis.name;
+          this.crisis = crisis;
+        } else { // id not found
+          this.gotoCrises();
+        }
+      });
   }
 
   cancel() {
@@ -42,7 +47,7 @@ export class CrisisDetailComponent implements OnInit {
     this.gotoCrises();
   }
 
-  canDeactivate(): Observable<boolean>|boolean {
+  canDeactivate(): Observable<boolean> | boolean {
     // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged
     if (!this.crisis || this.crisis.name === this.editName) {
       return true;
@@ -58,6 +63,6 @@ export class CrisisDetailComponent implements OnInit {
     // so that the CrisisListComponent can select that crisis.
     // Add a totally useless `foo` parameter for kicks.
     // Relative navigation back to the crises
-    this.router.navigate(['../', {id: crisisId, foo: 'foo'}], {relativeTo: this.route});
+    this.router.navigate(['../', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });
   }
 }

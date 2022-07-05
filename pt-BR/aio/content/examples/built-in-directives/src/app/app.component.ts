@@ -1,19 +1,24 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Item } from './item';
 
-import {Item} from './item';
-
-@Component(
-    {selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
 export class AppComponent implements OnInit {
-  canSave = true;
+
+  canSave =  true;
   isSpecial = true;
   isUnchanged = true;
 
   isActive = true;
-  nullCustomer: string|null = null;
-  currentCustomer = {name: 'Laura'};
+  nullCustomer: string | null = null;
+  currentCustomer = {
+    name: 'Laura'
+  };
 
-  item!: Item;  // defined to demonstrate template context precedence
+  item!: Item; // defined to demonstrate template context precedence
   items: Item[] = [];
 
   // #docregion item
@@ -23,7 +28,7 @@ export class AppComponent implements OnInit {
 
 
   // trackBy change counting
-  itemsNoTrackByCount = 0;
+  itemsNoTrackByCount   = 0;
   itemsWithTrackByCount = 0;
   itemsWithTrackByCountReset = 0;
   itemIdIncrement = 1;
@@ -50,10 +55,10 @@ export class AppComponent implements OnInit {
   // #docregion setClasses
   setCurrentClasses() {
     // CSS classes: added/removed per current state of component properties
-    this.currentClasses = {
+    this.currentClasses =  {
       saveable: this.canSave,
       modified: !this.isUnchanged,
-      special: this.isSpecial
+      special:  this.isSpecial
     };
   }
   // #enddocregion setClasses
@@ -62,9 +67,9 @@ export class AppComponent implements OnInit {
   setCurrentStyles() {
     // CSS styles: set per current state of component properties
     this.currentStyles = {
-      'font-style': this.canSave ? 'italic' : 'normal',
-      'font-weight': !this.isUnchanged ? 'bold' : 'normal',
-      'font-size': this.isSpecial ? '24px' : '12px'
+      'font-style':  this.canSave      ? 'italic' : 'normal',
+      'font-weight': !this.isUnchanged ? 'bold'   : 'normal',
+      'font-size':   this.isSpecial    ? '24px'   : '12px'
     };
   }
   // #enddocregion setStyles
@@ -90,6 +95,7 @@ export class AppComponent implements OnInit {
   }
 
   changeIds() {
+
     this.items.forEach(i => i.id += 1 * this.itemIdIncrement);
     this.itemsWithTrackByCountReset = -1;
     this.itemsNoTrackByCount = ++this.itemsNoTrackByCount;
@@ -102,17 +108,16 @@ export class AppComponent implements OnInit {
     this.itemsWithTrackByCount = 0;
     this.itemIdIncrement = 1;
   }
-  // #docregion trackByItems
-  trackByItems(index: number, item: Item): number {
-    return item.id;
-  }
-  // #enddocregion trackByItems
+// #docregion trackByItems
+  trackByItems(index: number, item: Item): number { return item.id; }
+// #enddocregion trackByItems
 
-  trackById(index: number, item: any): number {
-    return item.id;
-  }
+  trackById(index: number, item: any): number { return item.id; }
 
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
   }
 }
+
+
+

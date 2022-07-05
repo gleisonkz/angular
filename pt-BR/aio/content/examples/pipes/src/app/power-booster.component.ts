@@ -1,5 +1,5 @@
 // #docregion
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-power-booster',
@@ -8,5 +8,4 @@ import {Component} from '@angular/core';
     <p>Super power boost: {{2 | exponentialStrength: 10}}</p>
   `
 })
-export class PowerBoosterComponent {
-}
+export class PowerBoosterComponent { }

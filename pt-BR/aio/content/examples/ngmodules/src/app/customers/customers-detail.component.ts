@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import {Customer, CustomersService} from './customers.service';
+import { Customer,
+         CustomersService } from './customers.service';
 
 @Component({
   template: `
@@ -19,7 +20,9 @@ import {Customer, CustomersService} from './customers.service';
 export class CustomersDetailComponent implements OnInit {
   customer!: Customer;
 
-  constructor(private route: ActivatedRoute, private customersService: CustomersService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private customersService: CustomersService) { }
 
   ngOnInit() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);

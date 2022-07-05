@@ -1,8 +1,7 @@
 // #docplaster
-import {Component, Host, OnInit, Optional, SkipSelf} from '@angular/core';
-
-import {AnimalService} from '../animal.service';
-import {FlowerService} from '../flower.service';
+import { Component, OnInit, Host, SkipSelf, Optional } from '@angular/core';
+import { FlowerService } from '../flower.service';
+import { AnimalService } from '../animal.service';
 
 // #docregion provide-animal-service
 @Component({
@@ -10,14 +9,14 @@ import {FlowerService} from '../flower.service';
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css'],
   // provide services
-  providers: [{provide: FlowerService, useValue: {emoji: '🌻'}}],
-  viewProviders: [{provide: AnimalService, useValue: {emoji: '🐶'}}]
+  providers: [{ provide: FlowerService, useValue: { emoji: '🌻' } }],
+  viewProviders: [{ provide: AnimalService, useValue: { emoji: '🐶' } }]
 })
 
 export class ChildComponent {
   // inject service
-  constructor(public flower: FlowerService, public animal: AnimalService) {}
-  // #enddocregion provide-animal-service
+  constructor( public flower: FlowerService, public animal: AnimalService) { }
+// #enddocregion provide-animal-service
 
   // viewProviders ensures that only the view gets to see this.
   // With the AnimalService in the viewProviders, the
@@ -25,21 +24,21 @@ export class ChildComponent {
   // inspector is in the content.
 
 
-  // constructor( public flower: FlowerService, @Optional() @Host()  public animal?:
-  // AnimalService) { }
+  // constructor( public flower: FlowerService, @Optional() @Host()  public animal?: AnimalService) { }
 
-  // Comment out the above constructor and alternately
-  // uncomment the two following constructors to see the
-  // effects of @Host() and @Host() + @SkipSelf().
+// Comment out the above constructor and alternately
+// uncomment the two following constructors to see the
+// effects of @Host() and @Host() + @SkipSelf().
 
-  // constructor(
-  //     @Host() public animal : AnimalService,
-  //     @Host() @Optional() public flower ?: FlowerService) { }
+// constructor(
+//     @Host() public animal : AnimalService,
+//     @Host() @Optional() public flower ?: FlowerService) { }
 
-  // constructor(
-  //     @SkipSelf() @Host() public animal : AnimalService,
-  //     @SkipSelf() @Host() @Optional() public flower ?: FlowerService) { }
+// constructor(
+//     @SkipSelf() @Host() public animal : AnimalService,
+//     @SkipSelf() @Host() @Optional() public flower ?: FlowerService) { }
 
-  // #docregion provide-animal-service
+// #docregion provide-animal-service
 }
 // #enddocregion provide-animal-service
+

@@ -1,6 +1,9 @@
 // #docregion
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, CanMatch, Route, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
+import {
+  ActivatedRouteSnapshot, CanActivate, CanMatch,
+  Route, Router, RouterStateSnapshot, UrlTree
+} from '@angular/router';
 
 import {AuthService} from './auth.service';
 
@@ -10,7 +13,9 @@ import {AuthService} from './auth.service';
 export class AuthGuard implements CanActivate, CanMatch {
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): true|UrlTree {
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): true|UrlTree {
     const url: string = state.url;
 
     return this.checkLogin(url);

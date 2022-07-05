@@ -1,6 +1,6 @@
 // #docregion
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Component, EventEmitter, HostBinding, Input, Output} from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'my-popup',
@@ -8,13 +8,13 @@ import {Component, EventEmitter, HostBinding, Input, Output} from '@angular/core
     <span>Popup: {{message}}</span>
     <button type="button" (click)="closed.next()">&#x2716;</button>
   `,
-  animations: [trigger(
-      'state',
-      [
-        state('opened', style({transform: 'translateY(0%)'})),
-        state('void, closed', style({transform: 'translateY(100%)', opacity: 0})),
-        transition('* => *', animate('100ms ease-in')),
-      ])],
+  animations: [
+    trigger('state', [
+      state('opened', style({transform: 'translateY(0%)'})),
+      state('void, closed', style({transform: 'translateY(100%)', opacity: 0})),
+      transition('* => *', animate('100ms ease-in')),
+    ])
+  ],
   styles: [`
     :host {
       position: absolute;
@@ -37,17 +37,17 @@ import {Component, EventEmitter, HostBinding, Input, Output} from '@angular/core
   `]
 })
 export class PopupComponent {
-  @HostBinding('@state') state: 'opened'|'closed' = 'closed';
+  @HostBinding('@state')
+  state: 'opened' | 'closed' = 'closed';
 
   @Input()
-  get message(): string {
-    return this._message;
-  }
+  get message(): string { return this._message; }
   set message(message: string) {
     this._message = message;
     this.state = 'opened';
   }
   private _message = '';
 
-  @Output() closed = new EventEmitter<void>();
+  @Output()
+  closed = new EventEmitter<void>();
 }

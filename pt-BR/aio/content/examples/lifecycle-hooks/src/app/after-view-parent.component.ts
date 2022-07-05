@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {LoggerService} from './logger.service';
+import { LoggerService } from './logger.service';
 
 @Component({
   selector: 'after-view-parent',
@@ -20,7 +20,7 @@ import {LoggerService} from './logger.service';
 export class AfterViewParentComponent {
   show = true;
 
-  constructor(public logger: LoggerService) {}
+  constructor(public logger: LoggerService) { }
 
   reset() {
     this.logger.clear();

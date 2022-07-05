@@ -1,6 +1,5 @@
-import {by, element} from 'protractor';
-
-import {AppPage} from './app.po';
+import { AppPage } from './app.po';
+import { element, by } from 'protractor';
 
 
 describe('sw-example App', () => {

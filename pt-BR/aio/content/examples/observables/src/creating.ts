@@ -1,6 +1,6 @@
 // #docplaster
 
-import {Observable, Observer} from 'rxjs';
+import { Observable, Observer } from 'rxjs';
 
 export function docRegionSubscriber(console: Console) {
   // #docregion subscriber
@@ -22,12 +22,8 @@ export function docRegionSubscriber(console: Console) {
 
   // execute the Observable and print the result of each notification
   sequence.subscribe({
-    next(num) {
-      console.log(num);
-    },
-    complete() {
-      console.log('Finished sequence');
-    }
+    next(num) { console.log(num); },
+    complete() { console.log('Finished sequence'); }
   });
 
   // Logs:
@@ -70,3 +66,4 @@ export function docRegionFromEvent(document: Document) {
   // #enddocregion fromevent_use
   return subscription;
 }
+

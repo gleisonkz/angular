@@ -1,6 +1,7 @@
-import {browser, by, element} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Interpolation e2e tests', () => {
+
   beforeEach(() => browser.get(''));
 
   it('should display Interpolation and Template Expressions', async () => {
@@ -12,8 +13,7 @@ describe('Interpolation e2e tests', () => {
   });
 
   it('should display The sum of 1 + 1 is not 4.', async () => {
-    expect(await element.all(by.css('p:last-child')).get(0).getText())
-        .toBe(`The sum of 1 + 1 is not 4.`);
+    expect(await element.all(by.css('p:last-child')).get(0).getText()).toBe(`The sum of 1 + 1 is not 4.`);
   });
 
   it('should display Expression Context', async () => {

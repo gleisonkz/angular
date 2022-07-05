@@ -1,14 +1,15 @@
-import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+
 // Other imports
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
-import {asyncData, asyncError} from '../../testing/async-observable-helpers';
+import { asyncData, asyncError } from '../../testing/async-observable-helpers';
 
-import {Hero} from './hero';
-import {HeroService} from './hero.service';
+import { Hero } from './hero';
+import { HeroService } from './hero.service';
 
-describe('HeroesService (with spies)', () => {
+describe ('HeroesService (with spies)', () => {
   // #docregion test-with-spies
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
   let heroService: HeroService;
@@ -20,35 +21,43 @@ describe('HeroesService (with spies)', () => {
   });
 
   it('should return expected heroes (HttpClient called once)', (done: DoneFn) => {
-    const expectedHeroes: Hero[] = [{id: 1, name: 'A'}, {id: 2, name: 'B'}];
+    const expectedHeroes: Hero[] =
+      [{ id: 1, name: 'A' }, { id: 2, name: 'B' }];
 
     httpClientSpy.get.and.returnValue(asyncData(expectedHeroes));
 
     heroService.getHeroes().subscribe({
       next: heroes => {
-        expect(heroes).withContext('expected heroes').toEqual(expectedHeroes);
+        expect(heroes)
+          .withContext('expected heroes')
+          .toEqual(expectedHeroes);
         done();
       },
       error: done.fail
     });
-    expect(httpClientSpy.get.calls.count()).withContext('one call').toBe(1);
+    expect(httpClientSpy.get.calls.count())
+      .withContext('one call')
+      .toBe(1);
   });
 
   it('should return an error when the server returns a 404', (done: DoneFn) => {
-    const errorResponse =
-        new HttpErrorResponse({error: 'test 404 error', status: 404, statusText: 'Not Found'});
+    const errorResponse = new HttpErrorResponse({
+      error: 'test 404 error',
+      status: 404, statusText: 'Not Found'
+    });
 
     httpClientSpy.get.and.returnValue(asyncError(errorResponse));
 
     heroService.getHeroes().subscribe({
       next: heroes => done.fail('expected an error, not heroes'),
-      error: error => {
+      error: error  => {
         expect(error.message).toContain('test 404 error');
         done();
       }
     });
   });
   // #enddocregion test-with-spies
+
 });
 
 describe('HeroesService (with mocks)', () => {
@@ -59,9 +68,9 @@ describe('HeroesService (with mocks)', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       // Import the HttpClient mocking services
-      imports: [HttpClientTestingModule],
+      imports: [ HttpClientTestingModule ],
       // Provide the service-under-test
-      providers: [HeroService]
+      providers: [ HeroService ]
     });
 
     // Inject the http, test controller, and service-under-test
@@ -83,15 +92,16 @@ describe('HeroesService (with mocks)', () => {
     beforeEach(() => {
       heroService = TestBed.inject(HeroService);
       expectedHeroes = [
-        {id: 1, name: 'A'},
-        {id: 2, name: 'B'},
-      ] as Hero[];
+        { id: 1, name: 'A' },
+        { id: 2, name: 'B' },
+       ] as Hero[];
     });
 
     it('should return expected heroes (called once)', () => {
       heroService.getHeroes().subscribe({
-        next: heroes =>
-            expect(heroes).withContext('should return expected heroes').toEqual(expectedHeroes),
+        next: heroes => expect(heroes)
+          .withContext('should return expected heroes')
+          .toEqual(expectedHeroes),
         error: fail
       });
 
@@ -105,13 +115,14 @@ describe('HeroesService (with mocks)', () => {
 
     it('should be OK returning no heroes', () => {
       heroService.getHeroes().subscribe({
-        next: heroes =>
-            expect(heroes.length).withContext('should have empty heroes array').toEqual(0),
+        next: heroes => expect(heroes.length)
+          .withContext('should have empty heroes array')
+          .toEqual(0),
         error: fail
       });
 
       const req = httpTestingController.expectOne(heroService.heroesUrl);
-      req.flush([]);  // Respond with no heroes
+      req.flush([]); // Respond with no heroes
     });
 
     it('should turn 404 into a user-friendly error', () => {
@@ -131,13 +142,16 @@ describe('HeroesService (with mocks)', () => {
       heroService.getHeroes().subscribe();
       heroService.getHeroes().subscribe();
       heroService.getHeroes().subscribe({
-        next: heroes =>
-            expect(heroes).withContext('should return expected heroes').toEqual(expectedHeroes),
+        next: heroes => expect(heroes)
+          .withContext('should return expected heroes')
+          .toEqual(expectedHeroes),
         error: fail
       });
 
       const requests = httpTestingController.match(heroService.heroesUrl);
-      expect(requests.length).withContext('calls to getHeroes()').toEqual(3);
+      expect(requests.length)
+        .withContext('calls to getHeroes()')
+        .toEqual(3);
 
       // Respond to each request with different mock hero results
       requests[0].flush([]);
@@ -151,10 +165,13 @@ describe('HeroesService (with mocks)', () => {
     const makeUrl = (id: number) => `${heroService.heroesUrl}/?id=${id}`;
 
     it('should update a hero and return it', () => {
-      const updateHero: Hero = {id: 1, name: 'A'};
+
+      const updateHero: Hero = { id: 1, name: 'A' };
 
       heroService.updateHero(updateHero).subscribe({
-        next: data => expect(data).withContext('should return the hero').toEqual(updateHero),
+        next: data => expect(data)
+          .withContext('should return the hero')
+          .toEqual(updateHero),
         error: fail
       });
 
@@ -164,13 +181,14 @@ describe('HeroesService (with mocks)', () => {
       expect(req.request.body).toEqual(updateHero);
 
       // Expect server to return the hero after PUT
-      const expectedResponse = new HttpResponse({status: 200, statusText: 'OK', body: updateHero});
+      const expectedResponse = new HttpResponse(
+        { status: 200, statusText: 'OK', body: updateHero });
       req.event(expectedResponse);
     });
 
     it('should turn 404 error into user-facing error', () => {
       const msg = 'Deliberate 404';
-      const updateHero: Hero = {id: 1, name: 'A'};
+      const updateHero: Hero = { id: 1, name: 'A' };
       heroService.updateHero(updateHero).subscribe({
         next: heroes => fail('expected to fail'),
         error: error => expect(error.message).toContain(msg)
@@ -187,7 +205,7 @@ describe('HeroesService (with mocks)', () => {
       // the network level. Connection timeout, DNS error, offline, etc.
       const errorEvent = new ProgressEvent('error');
 
-      const updateHero: Hero = {id: 1, name: 'A'};
+      const updateHero: Hero = { id: 1, name: 'A' };
       heroService.updateHero(updateHero).subscribe({
         next: heroes => fail('expected to fail'),
         error: error => {

@@ -1,8 +1,7 @@
-/* eslint-disable @angular-eslint/no-inputs-metadata-property, @angular-eslint/no-outputs-metadata-property
- */
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+/* eslint-disable @angular-eslint/no-inputs-metadata-property, @angular-eslint/no-outputs-metadata-property */
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import {Hero} from './hero';
+import { Hero } from './hero';
 
 @Component({
   selector: 'app-hero-detail',
@@ -19,7 +18,7 @@ import {Hero} from './hero';
   </div>`
 })
 export class HeroDetailComponent {
-  hero = new Hero(-1, '', 'Zzzzzzzz');  // default sleeping hero
+  hero = new Hero(-1, '', 'Zzzzzzzz'); // default sleeping hero
   // heroImageUrl = 'https://wpclipart.com/cartoon/people/hero/hero_silhoutte_T.png';
   // Public Domain terms of use: https://wpclipart.com/terms.html
   heroImageUrl = 'assets/images/hero.png';
@@ -56,6 +55,7 @@ export class HeroDetailComponent {
   `]
 })
 export class BigHeroDetailComponent extends HeroDetailComponent {
+
   @Input() override hero!: Hero;
   @Output() override deleteRequest = new EventEmitter<Hero>();
 

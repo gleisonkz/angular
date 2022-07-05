@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-zippy-ngprojectas',
@@ -12,5 +12,4 @@ import {Component} from '@angular/core';
     <ng-content select="[question]"></ng-content>
   `
 })
-export class ZippyNgprojectasComponent {
-}
+export class ZippyNgprojectasComponent {}

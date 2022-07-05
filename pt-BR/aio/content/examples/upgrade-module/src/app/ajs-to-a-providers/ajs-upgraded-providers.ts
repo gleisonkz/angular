@@ -1,5 +1,5 @@
 // #docregion
-import {HeroesService} from './heroes.service';
+import { HeroesService } from './heroes.service';
 
 export function heroesServiceFactory(i: any) {
   return i.get('heroes');

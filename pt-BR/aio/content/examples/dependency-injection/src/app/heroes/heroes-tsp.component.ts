@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 /**
  * A version of `HeroesComponent` that does not provide the `HeroService` (and thus relies on its
@@ -13,5 +13,4 @@ import {Component} from '@angular/core';
     <app-hero-list></app-hero-list>
   `
 })
-export class HeroesTspComponent {
-}
+export class HeroesTspComponent { }

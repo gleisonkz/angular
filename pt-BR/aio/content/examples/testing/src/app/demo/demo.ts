@@ -1,8 +1,13 @@
-/* eslint-disable @angular-eslint/directive-selector, guard-for-in, @angular-eslint/no-input-rename
- */
-import {Component, ContentChildren, Directive, EventEmitter, HostBinding, HostListener, Injectable, Input, OnChanges, OnDestroy, OnInit, Optional, Output, Pipe, PipeTransform, SimpleChanges} from '@angular/core';
-import {of} from 'rxjs';
-import {delay} from 'rxjs/operators';
+/* eslint-disable @angular-eslint/directive-selector, guard-for-in, @angular-eslint/no-input-rename */
+import { Component, ContentChildren, Directive, EventEmitter,
+         Injectable, Input, Output, Optional,
+         HostBinding, HostListener,
+         OnInit, OnChanges, OnDestroy,
+         Pipe, PipeTransform,
+         SimpleChanges } from '@angular/core';
+
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 ////////// The App: Services and Components for the tests. //////////////
 
@@ -15,20 +20,12 @@ export interface Hero {
 export class ValueService {
   value = 'real value';
 
-  getValue() {
-    return this.value;
-  }
-  setValue(value: string) {
-    this.value = value;
-  }
+  getValue() { return this.value; }
+  setValue(value: string) { this.value = value; }
 
-  getObservableValue() {
-    return of('observable value');
-  }
+  getObservableValue() { return of('observable value'); }
 
-  getPromiseValue() {
-    return Promise.resolve('promise value');
-  }
+  getPromiseValue() { return Promise.resolve('promise value'); }
 
   getObservableDelayValue() {
     return of('observable delay value').pipe(delay(10));
@@ -38,24 +35,20 @@ export class ValueService {
 // #docregion MasterService
 @Injectable()
 export class MasterService {
-  constructor(private valueService: ValueService) {}
-  getValue() {
-    return this.valueService.getValue();
-  }
+  constructor(private valueService: ValueService) { }
+  getValue() { return this.valueService.getValue(); }
 }
 // #enddocregion MasterService
 
 /////////// Pipe ////////////////
 /*
  * Reverse the input string.
- */
-@Pipe({name: 'reverse'})
+*/
+@Pipe({ name: 'reverse' })
 export class ReversePipe implements PipeTransform {
   transform(s: string) {
     let r = '';
-    for (let i = s.length; i;) {
-      r += s[--i];
-    }
+    for (let i = s.length; i; ) { r += s[--i]; }
     return r;
   }
 }
@@ -107,31 +100,39 @@ export class BankAccountParentComponent {
 })
 export class LightswitchComponent {
   isOn = false;
-  clicked() {
-    this.isOn = !this.isOn;
-  }
-  get message() {
-    return `The light is ${this.isOn ? 'On' : 'Off'}`;
-  }
+  clicked() { this.isOn = !this.isOn; }
+  get message() { return `The light is ${this.isOn ? 'On' : 'Off'}`; }
 }
 // #enddocregion LightswitchComp
 
-@Component({selector: 'child-1', template: '<span>Child-1({{text}})</span>'})
+@Component({
+  selector: 'child-1',
+  template: '<span>Child-1({{text}})</span>'
+})
 export class Child1Component {
   @Input() text = 'Original';
 }
 
-@Component({selector: 'child-2', template: '<div>Child-2({{text}})</div>'})
+@Component({
+  selector: 'child-2',
+  template: '<div>Child-2({{text}})</div>'
+})
 export class Child2Component {
   @Input() text = '';
 }
 
-@Component({selector: 'child-3', template: '<div>Child-3({{text}})</div>'})
+@Component({
+  selector: 'child-3',
+  template: '<div>Child-3({{text}})</div>'
+})
 export class Child3Component {
   @Input() text = '';
 }
 
-@Component({selector: 'input-comp', template: '<input [(ngModel)]="name">'})
+@Component({
+  selector: 'input-comp',
+  template: '<input [(ngModel)]="name">'
+})
 export class InputComponent {
   name = 'John';
 }
@@ -152,16 +153,17 @@ export class InputComponent {
 // }
 
 // As the styleguide recommends
-@Directive({selector: 'input[value]'})
+@Directive({ selector: 'input[value]' })
 export class InputValueBinderDirective {
-  @HostBinding() @Input() value: any;
+  @HostBinding()
+  @Input()
+  value: any;
 
-  @Output() valueChange: EventEmitter<any> = new EventEmitter();
+  @Output()
+  valueChange: EventEmitter<any> = new EventEmitter();
 
   @HostListener('input', ['$event.target.value'])
-  onInput(value: any) {
-    this.valueChange.emit(value);
-  }
+  onInput(value: any) { this.valueChange.emit(value); }
 }
 
 @Component({
@@ -171,12 +173,14 @@ export class InputValueBinderDirective {
   `
 })
 export class InputValueBinderComponent {
-  name = 'Sally';  // initial value
+  name = 'Sally'; // initial value
 }
 
-@Component({selector: 'parent-comp', template: 'Parent(<child-1></child-1>)'})
-export class ParentComponent {
-}
+@Component({
+  selector: 'parent-comp',
+  template: 'Parent(<child-1></child-1>)'
+})
+export class ParentComponent { }
 
 @Component({
   selector: 'io-comp',
@@ -185,9 +189,7 @@ export class ParentComponent {
 export class IoComponent {
   @Input() hero!: Hero;
   @Output() selected = new EventEmitter<Hero>();
-  click() {
-    this.selected.emit(this.hero);
-  }
+  click() { this.selected.emit(this.hero); }
 }
 
 @Component({
@@ -203,14 +205,15 @@ export class IoComponent {
   `
 })
 export class IoParentComponent {
-  heroes: Hero[] = [{name: 'Bob'}, {name: 'Carol'}, {name: 'Ted'}, {name: 'Alice'}];
+  heroes: Hero[] = [ {name: 'Bob'}, {name: 'Carol'}, {name: 'Ted'}, {name: 'Alice'} ];
   selectedHero!: Hero;
-  onSelect(hero: Hero) {
-    this.selectedHero = hero;
-  }
+  onSelect(hero: Hero) { this.selectedHero = hero; }
 }
 
-@Component({selector: 'my-if-comp', template: 'MyIf(<span *ngIf="showMore">More</span>)'})
+@Component({
+  selector: 'my-if-comp',
+  template: 'MyIf(<span *ngIf="showMore">More</span>)'
+})
 export class MyIfComponent {
   showMore = false;
 }
@@ -234,16 +237,17 @@ export class TestViewProvidersComponent {
   constructor(public valueService: ValueService) {}
 }
 
-@Component({selector: 'external-template-comp', templateUrl: './demo-external-template.html'})
+@Component({
+  selector: 'external-template-comp',
+  templateUrl: './demo-external-template.html'
+})
 export class ExternalTemplateComponent implements OnInit {
   serviceValue = '';
 
-  constructor(@Optional() private service?: ValueService) {}
+  constructor(@Optional() private service?: ValueService) {  }
 
   ngOnInit() {
-    if (this.service) {
-      this.serviceValue = this.service.getValue();
-    }
+    if (this.service) { this.serviceValue = this.service.getValue(); }
   }
 }
 
@@ -254,8 +258,7 @@ export class ExternalTemplateComponent implements OnInit {
   <external-template-comp></external-template-comp>
   `
 })
-export class InnerCompWithExternalTemplateComponent {
-}
+export class InnerCompWithExternalTemplateComponent { }
 
 @Component({selector: 'needs-content', template: '<ng-content></ng-content>'})
 export class NeedsContentComponent {
@@ -279,13 +282,9 @@ export class MyIfChildComponent implements OnInit, OnChanges, OnDestroy {
   @Input() value = '';
   @Output() valueChange = new EventEmitter<string>();
 
-  get childValue() {
-    return this.value;
-  }
+  get childValue() { return this.value; }
   set childValue(v: string) {
-    if (this.value === v) {
-      return;
-    }
+    if (this.value === v) { return; }
     this.value = v;
     this.valueChange.emit(v);
   }
@@ -296,7 +295,7 @@ export class MyIfChildComponent implements OnInit, OnChanges, OnDestroy {
   ngOnChangesCounter = 0;
   ngOnDestroyCalled = false;
 
-  ngOnInit() {
+  ngOnInit()    {
     this.ngOnInitCalled = true;
     this.changeLog.push('ngOnInit called');
   }
@@ -310,7 +309,7 @@ export class MyIfChildComponent implements OnInit, OnChanges, OnDestroy {
     for (const propName in changes) {
       this.ngOnChangesCounter += 1;
       const prop = changes[propName];
-      const cur = JSON.stringify(prop.currentValue);
+      const cur  = JSON.stringify(prop.currentValue);
       const prev = JSON.stringify(prop.previousValue);
       this.changeLog.push(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
     }
@@ -363,8 +362,7 @@ export class ReversePipeComponent {
 }
 
 @Component({template: '<div>Replace Me</div>'})
-export class ShellComponent {
-}
+export class ShellComponent { }
 
 @Component({
   selector: 'demo-comp',
@@ -400,34 +398,37 @@ export class ShellComponent {
     </needs-content>
   `
 })
-export class DemoComponent {
-}
+export class DemoComponent { }
 //////// Aggregations ////////////
 
 export const demoDeclarations = [
-  DemoComponent,        BankAccountComponent,      BankAccountParentComponent,
-  LightswitchComponent, Child1Component,           Child2Component,
-  Child3Component,      ExternalTemplateComponent, InnerCompWithExternalTemplateComponent,
-  InputComponent,       InputValueBinderDirective, InputValueBinderComponent,
-  IoComponent,          IoParentComponent,         MyIfComponent,
-  MyIfChildComponent,   MyIfParentComponent,       NeedsContentComponent,
-  ParentComponent,      TestProvidersComponent,    TestViewProvidersComponent,
-  ReversePipe,          ReversePipeComponent,      ShellComponent
+  DemoComponent,
+  BankAccountComponent, BankAccountParentComponent,
+  LightswitchComponent,
+  Child1Component, Child2Component, Child3Component,
+  ExternalTemplateComponent, InnerCompWithExternalTemplateComponent,
+  InputComponent,
+  InputValueBinderDirective, InputValueBinderComponent,
+  IoComponent, IoParentComponent,
+  MyIfComponent, MyIfChildComponent, MyIfParentComponent,
+  NeedsContentComponent, ParentComponent,
+  TestProvidersComponent, TestViewProvidersComponent,
+  ReversePipe, ReversePipeComponent, ShellComponent
 ];
 
 export const demoProviders = [MasterService, ValueService];
 
 ////////////////////
 ////////////
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
   declarations: demoDeclarations,
-  providers: demoProviders,
-  bootstrap: [DemoComponent]
+  providers:    demoProviders,
+  bootstrap:       [DemoComponent]
 })
-export class DemoModule {
-}
+export class DemoModule { }
+

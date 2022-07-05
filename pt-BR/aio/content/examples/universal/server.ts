@@ -1,26 +1,24 @@
 import 'zone.js/node';
 
-import {APP_BASE_HREF} from '@angular/common';
-import {ngExpressEngine} from '@nguniversal/express-engine';
+import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
-import {existsSync} from 'fs';
-import {join} from 'path';
+import { join } from 'path';
 
-import {AppServerModule} from './src/main.server';
+import { AppServerModule } from './src/main.server';
+import { APP_BASE_HREF } from '@angular/common';
+import { existsSync } from 'fs';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
   const server = express();
   const distFolder = join(process.cwd(), 'dist/browser');
-  const indexHtml =
-      existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
+  const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // #docregion ngExpressEngine
-  // Our Universal express-engine (found @
-  // https://github.com/angular/universal/tree/main/modules/express-engine)
+  // Our Universal express-engine (found @ https://github.com/angular/universal/tree/main/modules/express-engine)
   server.engine('html', ngExpressEngine({
-                  bootstrap: AppServerModule,
-                }));
+    bootstrap: AppServerModule,
+  }));
   // #enddocregion ngExpressEngine
 
   server.set('view engine', 'html');
@@ -35,13 +33,15 @@ export function app() {
 
   // #docregion static
   // Serve static files from /browser
-  server.get('*.*', express.static(distFolder, {maxAge: '1y'}));
+  server.get('*.*', express.static(distFolder, {
+    maxAge: '1y'
+  }));
   // #enddocregion static
 
   // #docregion navigation-request
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
-    res.render(indexHtml, {req, providers: [{provide: APP_BASE_HREF, useValue: req.baseUrl}]});
+    res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
   // #enddocregion navigation-request
 

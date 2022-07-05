@@ -1,11 +1,14 @@
 // #docregion
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 // #docregion example
 /* avoid */
 
-@Component({selector: 'toh-hero-button', template: `<button type="button">OK</button>`})
+@Component({
+  selector: 'toh-hero-button',
+  template: `<button type="button">OK</button>`
+})
 export class HeroButtonComponent {
-  onInit() {  // misspelled
+  onInit() { // misspelled
     console.log('The component is initialized');
   }
 }

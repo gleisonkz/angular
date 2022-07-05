@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-input-output',
@@ -6,6 +6,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   styleUrls: ['./input-output.component.css']
 })
 export class InputOutputComponent {
+
   @Input() item = '';
   @Output() deleteRequest = new EventEmitter<string>();
 

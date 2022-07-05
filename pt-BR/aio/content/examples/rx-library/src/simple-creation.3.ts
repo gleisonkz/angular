@@ -4,7 +4,7 @@
   we need to indent the imports with the function below.
 */
 // #docregion event
-import {fromEvent} from 'rxjs';
+  import { fromEvent } from 'rxjs';
 
 // #enddocregion event
 

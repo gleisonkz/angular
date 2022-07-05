@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
 // import { Item } from '../item';
 // import { ITEMS } from '../mock-items';
 
@@ -9,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
+
   // #docregion input-type
   @Input() childItem = '';
   // #enddocregion input-type
@@ -18,7 +18,9 @@ export class ItemDetailComponent implements OnInit {
 
   currentItem = 'bananas in boxes';
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
 }

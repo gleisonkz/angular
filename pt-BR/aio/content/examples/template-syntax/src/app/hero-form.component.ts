@@ -1,7 +1,7 @@
-import {Component, Input, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { Component, Input, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
-import {Hero} from './hero';
+import { Hero } from './hero';
 
 @Component({
   selector: 'app-hero-form',
@@ -25,6 +25,6 @@ export class HeroFormComponent {
   }
 
   onSubmit(form: NgForm) {
-    this._submitMessage = 'Submitted. form value is ' + JSON.stringify(form.value);
+    this._submitMessage =  'Submitted. form value is ' + JSON.stringify(form.value);
   }
 }

@@ -1,7 +1,8 @@
-import {browser, by, element, ElementArrayFinder, ElementFinder, protractor} from 'protractor';
+import { browser, element, by, protractor, ElementFinder, ElementArrayFinder } from 'protractor';
 
 // THESE TESTS ARE INCOMPLETE
 describe('Form Validation Tests', () => {
+
   beforeAll(() => browser.get(''));
 
   describe('Template-driven form', () => {
@@ -32,7 +33,10 @@ describe('Form Validation Tests', () => {
 const testName = 'Test Name';
 
 let page: {
-  section: ElementFinder; form: ElementFinder; title: ElementFinder; nameInput: ElementFinder;
+  section: ElementFinder;
+  form: ElementFinder;
+  title: ElementFinder;
+  nameInput: ElementFinder;
   alterEgoInput: ElementFinder;
   powerSelect: ElementFinder;
   powerOption: ElementFinder;
@@ -64,6 +68,7 @@ function getPage(sectionTag: string) {
 }
 
 function tests(title: string) {
+
   it('should display correct title', async () => {
     expect(await page.title.getText()).toContain(title);
   });
@@ -99,14 +104,14 @@ function tests(title: string) {
   it('should produce "required" error after clearing name', async () => {
     await page.nameInput.clear();
     // await page.alterEgoInput.click(); // to blur ... didn't work
-    await page.nameInput.sendKeys('x', protractor.Key.BACK_SPACE);  // ugh!
+    await page.nameInput.sendKeys('x', protractor.Key.BACK_SPACE); // ugh!
     expect(await page.form.getAttribute('class')).toMatch('ng-invalid');
     expect(await page.errorMessages.get(0).getText()).toContain('required');
   });
 
   it('should produce "at least 4 characters" error when name="x"', async () => {
     await page.nameInput.clear();
-    await page.nameInput.sendKeys('x');  // too short
+    await page.nameInput.sendKeys('x'); // too short
     await expectFormIsInvalid();
     expect(await page.errorMessages.get(0).getText()).toContain('at least 4 characters');
   });
@@ -138,7 +143,7 @@ function tests(title: string) {
     const newFormBtn = page.heroSubmitted.element(by.css('button'));
     await newFormBtn.click();
     expect(await page.heroSubmitted.isElementPresent(by.css('p')))
-        .toBe(false, 'submitted hidden again');
+      .toBe(false, 'submitted hidden again');
     expect(await page.title.isDisplayed()).toBe(true, 'can see form title');
   });
 }
@@ -211,20 +216,19 @@ function asyncValidationTests() {
 function crossValidationTests() {
   const emsg = 'Name cannot match alter ego.';
 
-  it(`should produce "${emsg}" error after setting name and alter ego to the same value`,
-     async () => {
-       await page.nameInput.clear();
-       await page.nameInput.sendKeys('Batman');
+  it(`should produce "${emsg}" error after setting name and alter ego to the same value`, async () => {
+    await page.nameInput.clear();
+    await page.nameInput.sendKeys('Batman');
 
-       await page.alterEgoInput.clear();
-       await page.alterEgoInput.sendKeys('Batman');
+    await page.alterEgoInput.clear();
+    await page.alterEgoInput.sendKeys('Batman');
 
-       await triggerAlterEgoValidation();
-       await waitForAlterEgoValidation();
+    await triggerAlterEgoValidation();
+    await waitForAlterEgoValidation();
 
-       await expectFormIsInvalid();
-       expect(await page.crossValidationErrorMessage.getText()).toBe(emsg);
-     });
+    await expectFormIsInvalid();
+    expect(await page.crossValidationErrorMessage.getText()).toBe(emsg);
+  });
 
   it('should be ok again with different values', async () => {
     await page.nameInput.clear();

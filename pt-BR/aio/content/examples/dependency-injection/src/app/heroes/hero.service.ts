@@ -1,10 +1,8 @@
 // #docregion
-import {Injectable} from '@angular/core';
-
-import {Logger} from '../logger.service';
-import {UserService} from '../user.service';
-
-import {HEROES} from './mock-heroes';
+import { Injectable } from '@angular/core';
+import { HEROES } from './mock-heroes';
+import { Logger } from '../logger.service';
+import { UserService } from '../user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +12,9 @@ import {HEROES} from './mock-heroes';
 })
 export class HeroService {
   // #docregion internals
-  constructor(private logger: Logger, private isAuthorized: boolean) {}
+  constructor(
+    private logger: Logger,
+    private isAuthorized: boolean) { }
 
   getHeroes() {
     const auth = this.isAuthorized ? 'authorized ' : 'unauthorized';

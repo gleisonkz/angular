@@ -1,7 +1,6 @@
-import {Component} from '@angular/core';
-
-import {AnimalService} from '../animal.service';
-import {FlowerService} from '../flower.service';
+import { Component } from '@angular/core';
+import { FlowerService } from '../flower.service';
+import { AnimalService } from '../animal.service';
 
 @Component({
   selector: 'app-inspector',
@@ -10,6 +9,6 @@ import {FlowerService} from '../flower.service';
 })
 // #docregion injection
 export class InspectorComponent {
-  constructor(public flower: FlowerService, public animal: AnimalService) {}
+  constructor(public flower: FlowerService, public animal: AnimalService) { }
 }
 // #enddocregion injection

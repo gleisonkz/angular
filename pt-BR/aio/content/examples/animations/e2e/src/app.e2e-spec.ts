@@ -1,16 +1,14 @@
-import {browser} from 'protractor';
-import {logging} from 'selenium-webdriver';
-
-import * as enterLeave from './enter-leave.po';
+import { browser } from 'protractor';
+import { logging } from 'selenium-webdriver';
 import * as openClose from './open-close.po';
 import * as statusSlider from './status-slider.po';
 import * as toggle from './toggle.po';
-
+import * as enterLeave from './enter-leave.po';
 import * as auto from './auto.po';
 import * as filterStagger from './filter-stagger.po';
 import * as heroGroups from './hero-groups';
-import {getLinkById, sleepFor} from './util';
-import {getComponentSection, getToggleButton} from './querying.po';
+import { getLinkById, sleepFor } from './util';
+import { getComponentSection, getToggleButton } from './querying.po';
 
 describe('Animation Tests', () => {
   const routingAnimationDuration = 350;
@@ -61,8 +59,7 @@ describe('Animation Tests', () => {
 
       if (text.includes('Open')) {
         await toggleButton.click();
-        await browser.wait(
-            async () => await container.getCssValue('height') === closedHeight, 2000);
+        await browser.wait(async () => await container.getCssValue('height') === closedHeight, 2000);
       }
 
       text = await container.getText();
@@ -79,7 +76,7 @@ describe('Animation Tests', () => {
       await toggleButton.click();
 
       const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-      const animationMessages = logs.filter(({message}) => message.includes('Animation'));
+      const animationMessages = logs.filter(({ message }) => message.includes('Animation'));
 
       expect(animationMessages.length).toBeGreaterThan(0);
     });
@@ -101,8 +98,7 @@ describe('Animation Tests', () => {
 
       if (text === 'Active') {
         await toggleButton.click();
-        await browser.wait(
-            async () => await container.getCssValue('backgroundColor') === inactiveColor, 3000);
+        await browser.wait(async () => await container.getCssValue('backgroundColor') === inactiveColor, 3000);
       }
 
       text = await container.getText();
@@ -119,8 +115,7 @@ describe('Animation Tests', () => {
 
       if (text === 'Inactive') {
         await toggleButton.click();
-        await browser.wait(
-            async () => await container.getCssValue('backgroundColor') === activeColor, 3000);
+        await browser.wait(async () => await container.getCssValue('backgroundColor') === activeColor, 3000);
       }
 
       text = await container.getText();
@@ -296,5 +291,6 @@ describe('Animation Tests', () => {
       await newPageSleepFor(queryingAnimationDuration);
       expect(await toggleButton.isEnabled()).toBe(true);
     });
+
   });
 });

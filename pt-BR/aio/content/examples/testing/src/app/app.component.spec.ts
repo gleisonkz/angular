@@ -1,11 +1,11 @@
 // #docplaster
-import {Component, DebugElement, NO_ERRORS_SCHEMA} from '@angular/core';
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {By} from '@angular/platform-browser';
+import { Component, DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
-import {RouterLinkDirectiveStub} from '../testing';
+import { RouterLinkDirectiveStub } from '../testing';
 
-import {AppComponent} from './app.component';
+import { AppComponent } from './app.component';
 
 // #docregion component-stubs
 @Component({selector: 'app-banner', template: ''})
@@ -72,8 +72,8 @@ describe('AppComponent & NO_ERRORS_SCHEMA', () => {
 //////// Testing w/ real root module //////
 // Tricky because we are disabling the router and its configuration
 // Better to use RouterTestingModule
-import {AppModule} from './app.module';
-import {AppRoutingModule} from './app-routing.module';
+import { AppModule } from './app.module';
+import { AppRoutingModule } from './app-routing.module';
 
 describe('AppComponent & AppModule', () => {
   beforeEach(waitForAsync(() => {
@@ -121,7 +121,9 @@ function tests() {
 
   // #docregion tests
   it('can get RouterLinks from template', () => {
-    expect(routerLinks.length).withContext('should have 3 routerLinks').toBe(3);
+    expect(routerLinks.length)
+      .withContext('should have 3 routerLinks')
+      .toBe(3);
     expect(routerLinks[0].linkParams).toBe('/dashboard');
     expect(routerLinks[1].linkParams).toBe('/heroes');
     expect(routerLinks[2].linkParams).toBe('/about');
@@ -131,7 +133,9 @@ function tests() {
     const heroesLinkDe = linkDes[1];    // heroes link DebugElement
     const heroesLink = routerLinks[1];  // heroes link directive
 
-    expect(heroesLink.navigatedTo).withContext('should not have navigated yet').toBeNull();
+    expect(heroesLink.navigatedTo)
+      .withContext('should not have navigated yet')
+      .toBeNull();
 
     heroesLinkDe.triggerEventHandler('click');
     fixture.detectChanges();

@@ -1,6 +1,6 @@
 // #docplaster
 // #docregion
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 // #docregion example
 @Component({
@@ -9,6 +9,5 @@ import {Component} from '@angular/core';
   // #docregion example
   selector: 'admin-users'
 })
-export class UsersComponent {
-}
+export class UsersComponent {}
 // #enddocregion example

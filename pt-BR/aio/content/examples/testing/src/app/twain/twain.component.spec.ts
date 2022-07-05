@@ -1,12 +1,13 @@
 // #docplaster
-import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
-import {of, throwError} from 'rxjs';
-import {last} from 'rxjs/operators';
+import { fakeAsync, ComponentFixture, TestBed, tick, waitForAsync } from '@angular/core/testing';
 
-import {asyncData, asyncError} from '../../testing';
+import { asyncData, asyncError } from '../../testing';
 
-import {TwainComponent} from './twain.component';
-import {TwainService} from './twain.service';
+import { of, throwError } from 'rxjs';
+import { last } from 'rxjs/operators';
+
+import { TwainComponent } from './twain.component';
+import { TwainService } from './twain.service';
 
 describe('TwainComponent', () => {
   let component: TwainComponent;
@@ -46,9 +47,15 @@ describe('TwainComponent', () => {
 
   describe('when test with synchronous observable', () => {
     it('should not show quote before OnInit', () => {
-      expect(quoteEl.textContent).withContext('nothing displayed').toBe('');
-      expect(errorMessage()).withContext('should not show error element').toBeNull();
-      expect(getQuoteSpy.calls.any()).withContext('getQuote not yet called').toBe(false);
+      expect(quoteEl.textContent)
+        .withContext('nothing displayed')
+        .toBe('');
+      expect(errorMessage())
+        .withContext('should not show error element')
+        .toBeNull();
+      expect(getQuoteSpy.calls.any())
+        .withContext('getQuote not yet called')
+        .toBe(false);
     });
 
     // The quote would not be immediately available if the service were truly async.
@@ -58,7 +65,9 @@ describe('TwainComponent', () => {
 
       // sync spy result shows testQuote immediately after init
       expect(quoteEl.textContent).toBe(testQuote);
-      expect(getQuoteSpy.calls.any()).withContext('getQuote called').toBe(true);
+      expect(getQuoteSpy.calls.any())
+        .withContext('getQuote called')
+        .toBe(true);
     });
     // #enddocregion sync-test
 
@@ -77,11 +86,11 @@ describe('TwainComponent', () => {
          fixture.detectChanges();  // update errorMessage within setTimeout()
 
          expect(errorMessage())
-             .withContext('should display error')
-             .toMatch(
-                 /test failure/,
-             );
-         expect(quoteEl.textContent).withContext('should show placeholder').toBe('...');
+          .withContext('should display error')
+          .toMatch(/test failure/, );
+         expect(quoteEl.textContent)
+          .withContext('should show placeholder')
+          .toBe('...');
        }));
     // #enddocregion error-test
   });
@@ -95,42 +104,64 @@ describe('TwainComponent', () => {
     });
 
     it('should not show quote before OnInit', () => {
-      expect(quoteEl.textContent).withContext('nothing displayed').toBe('');
-      expect(errorMessage()).withContext('should not show error element').toBeNull();
-      expect(getQuoteSpy.calls.any()).withContext('getQuote not yet called').toBe(false);
+      expect(quoteEl.textContent)
+        .withContext('nothing displayed')
+        .toBe('');
+      expect(errorMessage())
+        .withContext('should not show error element')
+        .toBeNull();
+      expect(getQuoteSpy.calls.any())
+        .withContext('getQuote not yet called')
+        .toBe(false);
     });
 
     it('should still not show quote after component initialized', () => {
       fixture.detectChanges();
       // getQuote service is async => still has not returned with quote
       // so should show the start value, '...'
-      expect(quoteEl.textContent).withContext('should show placeholder').toBe('...');
-      expect(errorMessage()).withContext('should not show error').toBeNull();
-      expect(getQuoteSpy.calls.any()).withContext('getQuote called').toBe(true);
+      expect(quoteEl.textContent)
+        .withContext('should show placeholder')
+        .toBe('...');
+      expect(errorMessage())
+        .withContext('should not show error')
+        .toBeNull();
+      expect(getQuoteSpy.calls.any())
+        .withContext('getQuote called')
+        .toBe(true);
     });
 
     // #docregion fake-async-test
     it('should show quote after getQuote (fakeAsync)', fakeAsync(() => {
          fixture.detectChanges();  // ngOnInit()
-         expect(quoteEl.textContent).withContext('should show placeholder').toBe('...');
+         expect(quoteEl.textContent)
+          .withContext('should show placeholder')
+          .toBe('...');
 
          tick();                   // flush the observable to get the quote
          fixture.detectChanges();  // update view
 
-         expect(quoteEl.textContent).withContext('should show quote').toBe(testQuote);
-         expect(errorMessage()).withContext('should not show error').toBeNull();
+         expect(quoteEl.textContent)
+          .withContext('should show quote')
+          .toBe(testQuote);
+         expect(errorMessage())
+          .withContext('should not show error')
+          .toBeNull();
        }));
     // #enddocregion fake-async-test
 
     // #docregion waitForAsync-test
     it('should show quote after getQuote (waitForAsync)', waitForAsync(() => {
          fixture.detectChanges();  // ngOnInit()
-         expect(quoteEl.textContent).withContext('should show placeholder').toBe('...');
+         expect(quoteEl.textContent)
+          .withContext('should show placeholder')
+          .toBe('...');
 
          fixture.whenStable().then(() => {  // wait for async getQuote
            fixture.detectChanges();         // update view with quote
            expect(quoteEl.textContent).toBe(testQuote);
-           expect(errorMessage()).withContext('should not show error').toBeNull();
+           expect(errorMessage())
+            .withContext('should not show error')
+            .toBeNull();
          });
        }));
     // #enddocregion waitForAsync-test
@@ -143,7 +174,9 @@ describe('TwainComponent', () => {
       component.quote.pipe(last()).subscribe(() => {
         fixture.detectChanges();  // update view with quote
         expect(quoteEl.textContent).toBe(testQuote);
-        expect(errorMessage()).withContext('should not show error').toBeNull();
+        expect(errorMessage())
+          .withContext('should not show error')
+          .toBeNull();
         done();
       });
     });
@@ -157,7 +190,9 @@ describe('TwainComponent', () => {
       getQuoteSpy.calls.mostRecent().returnValue.subscribe(() => {
         fixture.detectChanges();  // update view with quote
         expect(quoteEl.textContent).toBe(testQuote);
-        expect(errorMessage()).withContext('should not show error').toBeNull();
+        expect(errorMessage())
+          .withContext('should not show error')
+          .toBeNull();
         done();
       });
     });
@@ -171,8 +206,12 @@ describe('TwainComponent', () => {
          tick();                   // component shows error after a setTimeout()
          fixture.detectChanges();  // update error message
 
-         expect(errorMessage()).withContext('should display error').toMatch(/test failure/);
-         expect(quoteEl.textContent).withContext('should show placeholder').toBe('...');
+         expect(errorMessage())
+          .withContext('should display error')
+          .toMatch(/test failure/);
+         expect(quoteEl.textContent)
+          .withContext('should show placeholder')
+          .toBe('...');
        }));
   });
 });

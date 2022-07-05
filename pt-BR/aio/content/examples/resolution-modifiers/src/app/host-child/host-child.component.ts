@@ -1,6 +1,5 @@
-import {Component} from '@angular/core';
-
-import {FlowerService} from '../flower.service';
+import { Component } from '@angular/core';
+import { FlowerService } from '../flower.service';
 
 @Component({
   selector: 'app-host-child',
@@ -8,5 +7,5 @@ import {FlowerService} from '../flower.service';
   styleUrls: ['./host-child.component.css']
 })
 export class HostChildComponent {
-  constructor(public flower: FlowerService) {}
+  constructor(public flower: FlowerService) { }
 }

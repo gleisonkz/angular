@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-status-slider-page',
@@ -9,5 +9,4 @@ import {Component} from '@angular/core';
     </section>
   `
 })
-export class StatusSliderPageComponent {
-}
+export class StatusSliderPageComponent {}

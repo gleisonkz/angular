@@ -1,12 +1,13 @@
 // #docregion
 /* avoid */
 
-import {HttpClient} from '@angular/common/http';
-import {OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {catchError, finalize} from 'rxjs/operators';
+import { OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import {Hero} from '../shared/hero.model';
+import { Observable } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
+
+import { Hero } from '../shared/hero.model';
 
 const heroesUrl = 'http://angular.io';
 
@@ -15,9 +16,10 @@ export class HeroListComponent implements OnInit {
   constructor(private http: HttpClient) {}
   getHeroes() {
     this.heroes = [];
-    this.http.get(heroesUrl)
-        .pipe(catchError(this.catchBadResponse), finalize(() => this.hideSpinner()))
-        .subscribe((heroes: Hero[]) => this.heroes = heroes);
+    this.http.get(heroesUrl).pipe(
+      catchError(this.catchBadResponse),
+      finalize(() => this.hideSpinner())
+    ).subscribe((heroes: Hero[]) => this.heroes = heroes);
   }
   ngOnInit() {
     this.getHeroes();

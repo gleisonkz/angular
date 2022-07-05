@@ -1,8 +1,7 @@
-import {Component, Injector} from '@angular/core';
-import {createCustomElement} from '@angular/elements';
-
-import {PopupComponent} from './popup.component';
-import {PopupService} from './popup.service';
+import { Component, Injector } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
+import { PopupService } from './popup.service';
+import { PopupComponent } from './popup.component';
 
 @Component({
   selector: 'app-root',

@@ -1,14 +1,13 @@
-import {TestBed} from '@angular/core/testing';
-
-import {AppComponent} from './app.component';
+import { TestBed } from '@angular/core/testing';
+import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
-    await TestBed
-        .configureTestingModule({
-          declarations: [AppComponent],
-        })
-        .compileComponents();
+    await TestBed.configureTestingModule({
+      declarations: [
+        AppComponent
+      ],
+    }).compileComponents();
   });
 
   it('should create the app', () => {
@@ -17,7 +16,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should have as title \'component-overview\'', () => {
+  it("should have as title 'component-overview'", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('component-overview');
@@ -27,7 +26,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent)
-        .toContain('component-overview app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('component-overview app is running!');
   });
 });

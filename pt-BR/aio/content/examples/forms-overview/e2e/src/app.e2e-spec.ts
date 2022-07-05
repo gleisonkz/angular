@@ -1,4 +1,4 @@
-import {AppPage} from './app.po';
+import { AppPage } from './app.po';
 
 describe('forms-overvoew App', () => {
   let page: AppPage;

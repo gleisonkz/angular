@@ -1,5 +1,5 @@
-import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { trigger, transition, state, animate, style, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-status-slider',
@@ -40,7 +40,7 @@ import {Component} from '@angular/core';
   ]
 })
 export class StatusSliderComponent {
-  status: 'active'|'inactive' = 'inactive';
+  status: 'active' | 'inactive' = 'inactive';
 
   toggle() {
     if (this.status === 'active') {

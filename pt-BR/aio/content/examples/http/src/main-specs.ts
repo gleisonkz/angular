@@ -7,8 +7,11 @@ import './polyfills';
 
 import 'zone.js/testing';
 
-import {getTestBed} from '@angular/core/testing';
-import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from '@angular/platform-browser-dynamic/testing';
+import { getTestBed } from '@angular/core/testing';
+import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting
+} from '@angular/platform-browser-dynamic/testing';
 
 // Import spec files individually for Stackblitz
 import './app/heroes/heroes.service.spec.ts';
@@ -28,5 +31,8 @@ function bootstrap() {
   }
 
   // First, initialize the Angular testing environment.
-  getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
+  getTestBed().initTestEnvironment(
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting()
+  );
 }

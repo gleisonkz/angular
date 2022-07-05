@@ -2,11 +2,14 @@
 // #docregion directive
 
 
-import {Directive} from '@angular/core';
+import { Directive } from '@angular/core';
 
-@Directive({selector: '[appItem]'})
+@Directive({
+  selector: '[appItem]'
+})
 export class ItemDirective {
-  // code goes here
-  constructor() {}
+// code goes here
+  constructor() { }
+
 }
 // #enddocregion directive

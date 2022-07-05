@@ -1,14 +1,14 @@
 // #docplaster
 // #docregion
-import {Component, OnInit} from '@angular/core';
+import { switchMap } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 // #docregion imports-route-info
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 // #enddocregion imports-route-info
-import {Observable} from 'rxjs';
-import {switchMap} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
-import {Hero} from '../hero';
-import {HeroService} from '../hero.service';
+import { HeroService } from '../hero.service';
+import { Hero } from '../hero';
 
 @Component({
   selector: 'app-hero-detail',
@@ -20,17 +20,20 @@ export class HeroDetailComponent implements OnInit {
 
   // #docregion activated-route
   constructor(
-      private route: ActivatedRoute,
-      // #enddocregion activated-route
-      private router: Router, private service: HeroService
-      // #docregion activated-route
+    private route: ActivatedRoute,
+  // #enddocregion activated-route
+    private router: Router,
+    private service: HeroService
+  // #docregion activated-route
   ) {}
   // #enddocregion activated-route
 
 
   ngOnInit() {
     this.hero$ = this.route.paramMap.pipe(
-        switchMap((params: ParamMap) => this.service.getHero(params.get('id')!)));
+      switchMap((params: ParamMap) =>
+        this.service.getHero(params.get('id')!))
+    );
   }
 
   // #docregion redirect
@@ -39,7 +42,7 @@ export class HeroDetailComponent implements OnInit {
     // Pass along the hero id if available
     // so that the HeroList component can select that hero.
     // Include a junk 'foo' property for fun.
-    this.router.navigate(['/superheroes', {id: heroId, foo: 'foo'}]);
+    this.router.navigate(['/superheroes', { id: heroId, foo: 'foo' }]);
   }
   // #enddocregion redirect
 }

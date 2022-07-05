@@ -1,5 +1,5 @@
 // #docregion import
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 // #enddocregion import
 
 @Component({
@@ -10,5 +10,4 @@ import {Component} from '@angular/core';
     <app-sales-tax></app-sales-tax>
   `
 })
-export class AppComponent {
-}
+export class AppComponent { }

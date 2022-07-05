@@ -1,4 +1,4 @@
-import {docRegionError, docRegionPromise} from './promises';
+import { docRegionError, docRegionPromise } from './promises';
 
 describe('promises', () => {
   it('should print 2', (doneFn: DoneFn) => {
@@ -14,8 +14,10 @@ describe('promises', () => {
 
   it('should throw an error', (doneFn: DoneFn) => {
     const promise = docRegionError();
-    promise.then(() => {
-      throw new Error('Promise should be rejected.');
-    }, () => doneFn());
+    promise
+      .then(() => {
+        throw new Error('Promise should be rejected.');
+      },
+        () => doneFn());
   });
 });

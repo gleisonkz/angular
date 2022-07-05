@@ -1,4 +1,4 @@
-import {browser, by, element, ExpectedConditions as EC, logging} from 'protractor';
+import { browser, element, by, ExpectedConditions as EC, logging } from 'protractor';
 
 describe('Getting Started', () => {
   const pageElements = {
@@ -79,6 +79,7 @@ describe('Getting Started', () => {
   });
 
   describe('Cart', () => {
+
     beforeEach(async () => {
       await browser.get('/');
     });
@@ -107,8 +108,7 @@ describe('Getting Started', () => {
       await purchaseButton.click();
 
       const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-      const cartMessages =
-          logs.filter(({message}) => message.includes('Your order has been submitted'));
+      const cartMessages = logs.filter(({ message }) => message.includes('Your order has been submitted'));
 
       expect(cartMessages.length).toBe(1);
     });

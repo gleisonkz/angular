@@ -12,19 +12,19 @@ export function docRegionPromise(console: Console, inputValue: number) {
   });
   // #enddocregion promise
   promise =
-      // #docregion promise
-      promise.then(value => {
-        // handle result here
-        // #enddocregion promise
-        // The below is used in the unit tests.
-        console.log(value);
-        return value;
-        // #docregion promise
-      });
+  // #docregion promise
+  promise.then(value => {
+    // handle result here
+    // #enddocregion promise
+    // The below is used in the unit tests.
+    console.log(value);
+    return value;
+    // #docregion promise
+  });
   // #enddocregion promise
   promise =
-      // #docregion chain
-      promise.then(v => 2 * v);
+  // #docregion chain
+  promise.then(v => 2 * v);
   // #enddocregion chain
 
   return promise;
@@ -33,11 +33,11 @@ export function docRegionPromise(console: Console, inputValue: number) {
 export function docRegionError() {
   let promise = Promise.resolve();
   promise =
-      // #docregion error
+  // #docregion error
 
-      promise.then(() => {
-        throw new Error('my error');
-      });
+  promise.then(() => {
+    throw new Error('my error');
+  });
 
   // #enddocregion error
   return promise;

@@ -1,17 +1,22 @@
 // #docregion
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot} from '@angular/router';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CanDeactivate,
+         ActivatedRouteSnapshot,
+         RouterStateSnapshot } from '@angular/router';
 
-import {CrisisDetailComponent} from './crisis-center/crisis-detail/crisis-detail.component';
+import { CrisisDetailComponent } from './crisis-center/crisis-detail/crisis-detail.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CanDeactivateGuard implements CanDeactivate<CrisisDetailComponent> {
+
   canDeactivate(
-      component: CrisisDetailComponent, route: ActivatedRouteSnapshot,
-      state: RouterStateSnapshot): Observable<boolean>|boolean {
+    component: CrisisDetailComponent,
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | boolean {
     // Get the Crisis Center ID
     console.log(route.paramMap.get('id'));
 

@@ -1,5 +1,5 @@
 // #docregion
-import {Car, Engine, Tires} from './car';
+import { Engine, Tires, Car } from './car';
 
 // BAD pattern!
 export class CarFactory {

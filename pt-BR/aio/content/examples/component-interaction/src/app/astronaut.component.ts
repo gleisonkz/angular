@@ -1,8 +1,8 @@
 // #docregion
-import {Component, Input, OnDestroy} from '@angular/core';
-import {Subscription} from 'rxjs';
+import { Component, Input, OnDestroy } from '@angular/core';
 
-import {MissionService} from './mission.service';
+import { MissionService } from './mission.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-astronaut',
@@ -26,10 +26,11 @@ export class AstronautComponent implements OnDestroy {
   subscription: Subscription;
 
   constructor(private missionService: MissionService) {
-    this.subscription = missionService.missionAnnounced$.subscribe(mission => {
-      this.mission = mission;
-      this.announced = true;
-      this.confirmed = false;
+    this.subscription = missionService.missionAnnounced$.subscribe(
+      mission => {
+        this.mission = mission;
+        this.announced = true;
+        this.confirmed = false;
     });
   }
 

@@ -1,11 +1,12 @@
 // #docregion
-import {Directive, HostBinding, HostListener} from '@angular/core';
+import { Directive, HostBinding, HostListener } from '@angular/core';
 
-@Directive({selector: '[tohValidator]'})
+@Directive({
+  selector: '[tohValidator]'
+})
 export class ValidatorDirective {
   @HostBinding('attr.role') role = 'button';
-  @HostListener('mouseenter')
-  onMouseEnter() {
+  @HostListener('mouseenter') onMouseEnter() {
     // do work
   }
 }

@@ -1,12 +1,13 @@
-import {Directive, HostListener, Input} from '@angular/core';
+import { Directive, Input, HostListener } from '@angular/core';
 
 // export for convenience.
-export {RouterLink} from '@angular/router';
-
+export { RouterLink} from '@angular/router';
 
 /* eslint-disable @angular-eslint/directive-class-suffix, @angular-eslint/directive-selector */
 // #docregion router-link
-@Directive({selector: '[routerLink]'})
+@Directive({
+  selector: '[routerLink]'
+})
 export class RouterLinkDirectiveStub {
   @Input('routerLink') linkParams: any;
   navigatedTo: any = null;
@@ -19,8 +20,11 @@ export class RouterLinkDirectiveStub {
 // #enddocregion router-link
 
 /// Dummy module to satisfy Angular Language service. Never used.
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 
-@NgModule({declarations: [RouterLinkDirectiveStub]})
-export class RouterStubsModule {
-}
+@NgModule({
+  declarations: [
+    RouterLinkDirectiveStub
+  ]
+})
+export class RouterStubsModule {}

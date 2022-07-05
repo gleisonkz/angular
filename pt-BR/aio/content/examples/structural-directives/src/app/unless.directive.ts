@@ -1,7 +1,7 @@
 // #docplaster
 // #docregion
 // #docregion no-docs, skeleton
-import {Directive, Input, TemplateRef, ViewContainerRef} from '@angular/core';
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 // #enddocregion skeleton
 /**
@@ -24,18 +24,19 @@ import {Directive, Input, TemplateRef, ViewContainerRef} from '@angular/core';
 // #docregion no-docs
  */
 // #docregion skeleton
-@Directive({selector: '[appUnless]'})
+@Directive({ selector: '[appUnless]'})
 export class UnlessDirective {
   // #enddocregion skeleton
   private hasView = false;
 
   // #docregion ctor
-  constructor(private templateRef: TemplateRef<any>, private viewContainer: ViewContainerRef) {}
+  constructor(
+    private templateRef: TemplateRef<any>,
+    private viewContainer: ViewContainerRef) { }
   // #enddocregion ctor
 
   // #docregion set
-  @Input()
-  set appUnless(condition: boolean) {
+  @Input() set appUnless(condition: boolean) {
     if (!condition && !this.hasView) {
       this.viewContainer.createEmbeddedView(this.templateRef);
       this.hasView = true;

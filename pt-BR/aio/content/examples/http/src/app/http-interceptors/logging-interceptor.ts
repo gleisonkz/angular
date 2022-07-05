@@ -1,9 +1,12 @@
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-// #docregion excerpt
-import {finalize, tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import {
+  HttpEvent, HttpInterceptor, HttpHandler,
+  HttpRequest, HttpResponse
+} from '@angular/common/http';
 
-import {MessageService} from '../message.service';
+// #docregion excerpt
+import { finalize, tap } from 'rxjs/operators';
+import { MessageService } from '../message.service';
 
 @Injectable()
 export class LoggingInterceptor implements HttpInterceptor {
@@ -14,7 +17,8 @@ export class LoggingInterceptor implements HttpInterceptor {
     let ok: string;
 
     // extend server response observable with logging
-    return next.handle(req).pipe(
+    return next.handle(req)
+      .pipe(
         tap({
           // Succeeds when there is a response; ignore other events
           next: (event) => (ok = event instanceof HttpResponse ? 'succeeded' : ''),
@@ -27,7 +31,8 @@ export class LoggingInterceptor implements HttpInterceptor {
           const msg = `${req.method} "${req.urlWithParams}"
              ${ok} in ${elapsed} ms.`;
           this.messenger.add(msg);
-        }));
+        })
+      );
   }
 }
 // #enddocregion excerpt

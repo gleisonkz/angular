@@ -1,10 +1,9 @@
 // #docregion
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
-import {LoggerService} from '../logger.service';
-
-import {SpinnerService, SpinnerState} from './spinner.service';
+import { LoggerService } from '../logger.service';
+import { SpinnerState, SpinnerService } from './spinner.service';
 
 @Component({
   selector: 'toh-spinner',
@@ -16,14 +15,18 @@ export class SpinnerComponent implements OnDestroy, OnInit {
 
   private spinnerStateChanged!: Subscription;
 
-  constructor(private loggerService: LoggerService, private spinnerService: SpinnerService) {}
+  constructor(
+    private loggerService: LoggerService,
+    private spinnerService: SpinnerService
+  ) { }
 
   ngOnInit() {
     console.log(this.visible);
-    this.spinnerStateChanged = this.spinnerService.spinnerState.subscribe((state: SpinnerState) => {
-      this.visible = state.show;
-      this.loggerService.log(`visible=${this.visible}`);
-    });
+    this.spinnerStateChanged = this.spinnerService.spinnerState
+      .subscribe((state: SpinnerState) => {
+        this.visible = state.show;
+        this.loggerService.log(`visible=${this.visible}`);
+      });
   }
 
   ngOnDestroy() {

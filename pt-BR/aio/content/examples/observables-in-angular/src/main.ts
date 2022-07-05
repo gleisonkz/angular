@@ -1,9 +1,9 @@
 // TODO: Add unit tests for this file.
 /* eslint-disable @angular-eslint/no-output-native */
 // #docregion
-import {CommonModule} from '@angular/common';
-import {Component, EventEmitter, NgModule, OnInit, Output} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Component, Output, OnInit, EventEmitter, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 // #docregion eventemitter
 
@@ -52,17 +52,22 @@ export class AsyncObservablePipeComponent {
 
 // #docregion router
 
-import {Router, NavigationStart} from '@angular/router';
-import {filter} from 'rxjs/operators';
+import { Router, NavigationStart } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
-@Component({selector: 'app-routable', template: 'Routable1Component template'})
+@Component({
+  selector: 'app-routable',
+  template: 'Routable1Component template'
+})
 export class Routable1Component implements OnInit {
+
   navStart: Observable<NavigationStart>;
 
   constructor(router: Router) {
     // Create a new Observable that publishes only the NavigationStart event
-    this.navStart = router.events.pipe(filter(evt => evt instanceof NavigationStart)) as
-        Observable<NavigationStart>;
+    this.navStart = router.events.pipe(
+      filter(evt => evt instanceof NavigationStart)
+    ) as Observable<NavigationStart>;
   }
 
   ngOnInit() {
@@ -75,14 +80,18 @@ export class Routable1Component implements OnInit {
 
 // #docregion activated_route
 
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
-@Component({selector: 'app-routable', template: 'Routable2Component template'})
+@Component({
+  selector: 'app-routable',
+  template: 'Routable2Component template'
+})
 export class Routable2Component implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.activatedRoute.url.subscribe(url => console.log('The URL changed to: ' + url));
+    this.activatedRoute.url
+      .subscribe(url => console.log('The URL changed to: ' + url));
   }
 }
 
@@ -91,9 +100,12 @@ export class Routable2Component implements OnInit {
 
 // #docregion forms
 
-import {FormGroup} from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
-@Component({selector: 'my-component', template: 'MyComponent Template'})
+@Component({
+  selector: 'my-component',
+  template: 'MyComponent Template'
+})
 export class MyComponent implements OnInit {
   nameChangeLog: string[] = [];
   heroForm!: FormGroup;
@@ -103,7 +115,9 @@ export class MyComponent implements OnInit {
   }
   logNameChange() {
     const nameControl = this.heroForm.get('name');
-    nameControl?.valueChanges.forEach((value: string) => this.nameChangeLog.push(value));
+    nameControl?.valueChanges.forEach(
+      (value: string) => this.nameChangeLog.push(value)
+    );
   }
 }
 
@@ -113,10 +127,8 @@ export class MyComponent implements OnInit {
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [
-    ZippyComponent, AsyncObservablePipeComponent, Routable1Component, Routable2Component,
-    MyComponent
-  ]
+  declarations:
+      [ZippyComponent, AsyncObservablePipeComponent, Routable1Component, Routable2Component, MyComponent]
 })
 export class AppModule {
 }

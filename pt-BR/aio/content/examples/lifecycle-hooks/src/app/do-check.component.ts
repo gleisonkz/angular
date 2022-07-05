@@ -1,7 +1,7 @@
 // #docregion
-import {Component, DoCheck, Input} from '@angular/core';
+import { Component, DoCheck, Input } from '@angular/core';
 
-import {Hero} from './hero';
+import { Hero } from './hero';
 
 @Component({
   selector: 'do-check',
@@ -27,10 +27,10 @@ export class DoCheckComponent implements DoCheck {
 
   // #docregion ng-do-check
   ngDoCheck() {
+
     if (this.hero.name !== this.oldHeroName) {
       this.changeDetected = true;
-      this.changeLog.push(
-          `DoCheck: Hero name changed to "${this.hero.name}" from "${this.oldHeroName}"`);
+      this.changeLog.push(`DoCheck: Hero name changed to "${this.hero.name}" from "${this.oldHeroName}"`);
       this.oldHeroName = this.hero.name;
     }
 
@@ -41,18 +41,18 @@ export class DoCheckComponent implements DoCheck {
     }
 
     if (this.changeDetected) {
-      this.noChangeCount = 0;
+        this.noChangeCount = 0;
     } else {
-      // log that hook was called when there was no relevant change.
-      const count = this.noChangeCount += 1;
-      const noChangeMsg = `DoCheck called ${count}x when no change to hero or power`;
-      if (count === 1) {
-        // add new "no change" message
-        this.changeLog.push(noChangeMsg);
-      } else {
-        // update last "no change" message
-        this.changeLog[this.changeLog.length - 1] = noChangeMsg;
-      }
+        // log that hook was called when there was no relevant change.
+        const count = this.noChangeCount += 1;
+        const noChangeMsg = `DoCheck called ${count}x when no change to hero or power`;
+        if (count === 1) {
+          // add new "no change" message
+          this.changeLog.push(noChangeMsg);
+        } else {
+          // update last "no change" message
+          this.changeLog[this.changeLog.length - 1] = noChangeMsg;
+        }
     }
 
     this.changeDetected = false;

@@ -1,7 +1,7 @@
 // #docplaster
 
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export function docRegionObservable(console: Console) {
   // #docregion observable
@@ -29,16 +29,14 @@ export function docRegionObservable(console: Console) {
 }
 
 export function docRegionUnsubscribe() {
-  const observable = new Observable<number>(
-      () => {
-          // Subscriber fn...
-      });
+  const observable = new Observable<number>(() => {
+    // Subscriber fn...
+  });
   // #docregion unsubscribe
 
-  const subscription = observable.subscribe(
-      () => {
-          // observer handles notifications
-      });
+  const subscription = observable.subscribe(() => {
+    // observer handles notifications
+  });
 
   subscription.unsubscribe();
 
@@ -47,10 +45,9 @@ export function docRegionUnsubscribe() {
 }
 
 export function docRegionError() {
-  const observable = new Observable<number>(
-      () => {
-          // Subscriber fn...
-      });
+  const observable = new Observable<number>(() => {
+    // Subscriber fn...
+  });
 
   // #docregion error
   observable.subscribe(() => {
@@ -66,9 +63,9 @@ export function docRegionChain() {
   });
 
   observable =
-      // #docregion chain
+  // #docregion chain
 
-      observable.pipe(map(v => 2 * v));
+  observable.pipe(map(v => 2 * v));
 
   // #enddocregion chain
   return observable;

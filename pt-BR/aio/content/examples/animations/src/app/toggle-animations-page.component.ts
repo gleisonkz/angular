@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-toggle-animations-child-page',
@@ -10,5 +10,4 @@ import {Component} from '@angular/core';
     </section>
   `
 })
-export class ToggleAnimationsPageComponent {
-}
+export class ToggleAnimationsPageComponent {}

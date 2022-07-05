@@ -1,7 +1,7 @@
 // #docregion
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {Hero} from '../shared/hero.model';
+import { Hero } from '../shared/hero.model';
 // #docregion example
 /* avoid */
 

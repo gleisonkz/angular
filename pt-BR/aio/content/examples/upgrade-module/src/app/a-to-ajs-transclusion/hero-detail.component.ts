@@ -1,6 +1,8 @@
 // #docregion
 export const heroDetail = {
-  bindings: {hero: '='},
+  bindings: {
+    hero: '='
+  },
   template: `
     <h2>{{$ctrl.hero.name}}</h2>
     <div>
@@ -11,9 +13,9 @@ export const heroDetail = {
 };
 // #enddocregion
 
-import {Directive, ElementRef, Injector, Input} from '@angular/core';
-import {UpgradeComponent} from '@angular/upgrade/static';
-import {Hero} from '../hero';
+import { Directive, ElementRef, Injector, Input } from '@angular/core';
+import { UpgradeComponent } from '@angular/upgrade/static';
+import { Hero } from '../hero';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector

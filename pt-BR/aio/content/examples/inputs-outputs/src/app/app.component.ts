@@ -1,22 +1,25 @@
 
 // #docplaster
 
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-@Component(
-    {selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
 
 // #docregion parent-property
 // #docregion add-new-item
 export class AppComponent {
-  // #enddocregion add-new-item
+// #enddocregion add-new-item
   currentItem = 'Television';
   // #enddocregion parent-property
 
   lastChanceItem = 'Beanbag';
-  // #docregion add-new-item
+// #docregion add-new-item
   items = ['item1', 'item2', 'item3', 'item4'];
-  // #enddocregion add-new-item
+// #enddocregion add-new-item
   wishlist = ['Drone', 'Computer'];
 
   // #docregion add-new-item
@@ -44,8 +47,9 @@ export class AppComponent {
     this.wishlist.push(wish);
     console.warn(this.wishlist);
   }
-  // #docregion add-new-item
-  // #docregion parent-property
+// #docregion add-new-item
+// #docregion parent-property
 }
 // #enddocregion add-new-item
 // #enddocregion parent-property
+

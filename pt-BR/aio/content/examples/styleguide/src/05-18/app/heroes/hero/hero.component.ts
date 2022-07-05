@@ -1,7 +1,10 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 // #docregion example
-@Component({selector: 'toh-hero', template: `...`})
+@Component({
+  selector: 'toh-hero',
+  template: `...`
+})
 export class HeroComponent {
   @Input() id = 'default_id';
 }

@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import {Customer, CustomersService} from './customers.service';
+import { Customer,
+         CustomersService } from './customers.service';
 
 @Component({
   template: `
@@ -18,3 +19,4 @@ export class CustomersListComponent {
     this.customers = this.customersService.getCustomers();
   }
 }
+

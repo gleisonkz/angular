@@ -1,6 +1,6 @@
 /* eslint-disable @angular-eslint/no-host-metadata-property */
 // #docregion progressbar-component
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /**
  * Example progressbar component.
@@ -21,7 +21,7 @@ import {Component, Input} from '@angular/core';
     '[attr.aria-valuenow]': 'value',
   }
 })
-export class ExampleProgressbarComponent {
+export class ExampleProgressbarComponent  {
   /** Current value of the progressbar. */
   @Input() value = 0;
 }

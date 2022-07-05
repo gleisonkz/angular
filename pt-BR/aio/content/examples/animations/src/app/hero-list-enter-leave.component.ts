@@ -1,7 +1,18 @@
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
-import {Hero} from './hero';
+import { Hero } from './hero';
 
 @Component({
   selector: 'app-hero-list-enter-leave',
@@ -18,13 +29,18 @@ import {Hero} from './hero';
   `,
   styleUrls: ['./hero-list-page.component.css'],
   // #docregion animationdef
-  animations: [trigger(
-      'flyInOut',
-      [
-        state('in', style({transform: 'translateX(0)'})),
-        transition('void => *', [style({transform: 'translateX(-100%)'}), animate(100)]),
-        transition('* => void', [animate(100, style({transform: 'translateX(100%)'}))])
-      ])]
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({ transform: 'translateX(0)' })),
+      transition('void => *', [
+        style({ transform: 'translateX(-100%)' }),
+        animate(100)
+      ]),
+      transition('* => void', [
+        animate(100, style({ transform: 'translateX(100%)' }))
+      ])
+    ])
+  ]
   // #enddocregion animationdef
 })
 export class HeroListEnterLeaveComponent {

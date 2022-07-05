@@ -1,9 +1,11 @@
 // #docplaster
 // #docregion form-builder
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 // #docregion form-builder-imports
-import {FormArray, FormBuilder} from '@angular/forms';
-
+import { FormBuilder } from '@angular/forms';
+// #enddocregion form-builder-imports, form-builder
+// #docregion form-array-imports
+import { FormArray } from '@angular/forms';
 // #docregion form-builder-imports, form-builder
 // #enddocregion form-builder-imports, form-array-imports
 
@@ -13,32 +15,44 @@ import {FormArray, FormBuilder} from '@angular/forms';
   styleUrls: ['./profile-editor.component.css']
 })
 export class ProfileEditorComponent {
-  // #docregion formgroup-compare
+// #docregion formgroup-compare
   profileForm = this.fb.group({
     firstName: [''],
     lastName: [''],
-    address: this.fb.group({street: [''], city: [''], state: [''], zip: ['']}),
-    // #enddocregion form-builder, formgroup-compare
-    aliases: this.fb.array([this.fb.control('')])
-    // #docregion form-builder, formgroup-compare
+    address: this.fb.group({
+      street: [''],
+      city: [''],
+      state: [''],
+      zip: ['']
+    }),
+// #enddocregion form-builder, formgroup-compare
+    aliases: this.fb.array([
+      this.fb.control('')
+    ])
+// #docregion form-builder, formgroup-compare
   });
-  // #enddocregion form-builder, formgroup-compare
+// #enddocregion form-builder, formgroup-compare
   get aliases() {
     return this.profileForm.get('aliases') as FormArray;
   }
 
-  // #docregion inject-form-builder, form-builder
+// #docregion inject-form-builder, form-builder
 
-  constructor(private fb: FormBuilder) {}
-  // #enddocregion inject-form-builder, form-builder
+  constructor(private fb: FormBuilder) { }
+// #enddocregion inject-form-builder, form-builder
 
   updateProfile() {
-    this.profileForm.patchValue({firstName: 'Nancy', address: {street: '123 Drew Street'}});
+    this.profileForm.patchValue({
+      firstName: 'Nancy',
+      address: {
+        street: '123 Drew Street'
+      }
+    });
   }
 
   addAlias() {
     this.aliases.push(this.fb.control(''));
   }
-  // #docregion form-builder
+// #docregion form-builder
 }
 // #enddocregion form-builder

@@ -1,9 +1,9 @@
 // #docplaster
 // #docregion imports
-import {Component} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
-import {CartService} from '../cart.service';
+import { CartService } from '../cart.service';
 // #enddocregion imports
 
 @Component({
@@ -13,17 +13,21 @@ import {CartService} from '../cart.service';
 })
 // #docregion inject-form-builder, checkout-form-group
 export class CartComponent {
+
   // #enddocregion inject-form-builder
   items = this.cartService.getItems();
 
-  checkoutForm = this.formBuilder.group({name: '', address: ''});
+  checkoutForm = this.formBuilder.group({
+    name: '',
+    address: ''
+  });
 
-  // #docregion inject-form-builder
+// #docregion inject-form-builder
   constructor(
-      private cartService: CartService,
-      private formBuilder: FormBuilder,
+    private cartService: CartService,
+    private formBuilder: FormBuilder,
   ) {}
-  // #enddocregion inject-form-builder, checkout-form-group
+// #enddocregion inject-form-builder, checkout-form-group
 
   onSubmit(): void {
     // Process checkout data here
@@ -31,5 +35,5 @@ export class CartComponent {
     console.warn('Your order has been submitted', this.checkoutForm.value);
     this.checkoutForm.reset();
   }
-  // #docregion inject-form-builder, checkout-form-group
+// #docregion inject-form-builder, checkout-form-group
 }

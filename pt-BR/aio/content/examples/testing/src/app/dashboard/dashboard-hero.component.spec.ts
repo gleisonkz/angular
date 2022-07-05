@@ -1,14 +1,14 @@
 
 // #docplaster
-import {DebugElement} from '@angular/core';
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {By} from '@angular/platform-browser';
-import {first} from 'rxjs/operators';
+import { DebugElement } from '@angular/core';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { first } from 'rxjs/operators';
 
-import {addMatchers, click} from '../../testing';
-import {Hero} from '../model/hero';
+import { addMatchers, click } from '../../testing';
+import { Hero } from '../model/hero';
 
-import {DashboardHeroComponent} from './dashboard-hero.component';
+import { DashboardHeroComponent } from './dashboard-hero.component';
 
 beforeEach(addMatchers);
 
@@ -69,7 +69,7 @@ describe('DashboardHeroComponent when tested directly', () => {
 
   // #docregion click-test
   it('should raise selected event when clicked (triggerEventHandler)', () => {
-    let selectedHero: Hero|undefined;
+    let selectedHero: Hero | undefined;
     comp.selected.pipe(first()).subscribe((hero: Hero) => selectedHero = hero);
 
     // #docregion trigger-event-handler
@@ -81,7 +81,7 @@ describe('DashboardHeroComponent when tested directly', () => {
 
   // #docregion click-test-2
   it('should raise selected event when clicked (element.click)', () => {
-    let selectedHero: Hero|undefined;
+    let selectedHero: Hero | undefined;
     comp.selected.pipe(first()).subscribe((hero: Hero) => selectedHero = hero);
 
     heroEl.click();
@@ -91,7 +91,7 @@ describe('DashboardHeroComponent when tested directly', () => {
 
   // #docregion click-test-3
   it('should raise selected event when clicked (click helper with DebugElement)', () => {
-    let selectedHero: Hero|undefined;
+    let selectedHero: Hero | undefined;
     comp.selected.pipe(first()).subscribe((hero: Hero) => selectedHero = hero);
 
     click(heroDe);  // click helper with DebugElement
@@ -101,7 +101,7 @@ describe('DashboardHeroComponent when tested directly', () => {
   // #enddocregion click-test-3
 
   it('should raise selected event when clicked (click helper with native element)', () => {
-    let selectedHero: Hero|undefined;
+    let selectedHero: Hero | undefined;
     comp.selected.pipe(first()).subscribe((hero: Hero) => selectedHero = hero);
 
     click(heroEl);  // click helper with native element
@@ -150,7 +150,7 @@ describe('DashboardHeroComponent when inside a test host', () => {
 });
 
 ////// Test Host Component //////
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 // #docregion test-host
 @Component({
@@ -161,7 +161,7 @@ import {Component} from '@angular/core';
 })
 class TestHostComponent {
   hero: Hero = {id: 42, name: 'Test Name'};
-  selectedHero: Hero|undefined;
+  selectedHero: Hero | undefined;
   onSelected(hero: Hero) {
     this.selectedHero = hero;
   }

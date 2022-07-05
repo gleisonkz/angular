@@ -1,14 +1,15 @@
 // #docplaster
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {By} from '@angular/platform-browser';
-import {Router} from '@angular/router';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {addMatchers, asyncData, click} from '../../testing';
-import {HeroService} from '../model/hero.service';
-import {getTestHeroes} from '../model/testing/test-heroes';
+import { addMatchers, asyncData, click } from '../../testing';
+import { HeroService } from '../model/hero.service';
+import { getTestHeroes } from '../model/testing/test-heroes';
 
-import {DashboardComponent} from './dashboard.component';
-import {DashboardModule} from './dashboard.module';
+import { By } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+
+import { DashboardComponent } from './dashboard.component';
+import { DashboardModule } from './dashboard.module';
 
 beforeEach(addMatchers);
 
@@ -35,7 +36,7 @@ describe('DashboardComponent (deep)', () => {
 
 ////////  Shallow ////////////////
 
-import {NO_ERRORS_SCHEMA} from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('DashboardComponent (shallow)', () => {
   beforeEach(() => {
@@ -84,41 +85,45 @@ function compileAndCreate() {
  * Only change: the way that the first hero is clicked
  */
 function tests(heroClick: () => void) {
+
   it('should NOT have heroes before ngOnInit', () => {
-    expect(comp.heroes.length).withContext('should not have heroes before ngOnInit').toBe(0);
+    expect(comp.heroes.length)
+      .withContext('should not have heroes before ngOnInit')
+      .toBe(0);
   });
 
   it('should NOT have heroes immediately after ngOnInit', () => {
     fixture.detectChanges();  // runs initial lifecycle hooks
 
     expect(comp.heroes.length)
-        .withContext('should not have heroes until service promise resolves')
-        .toBe(0);
+      .withContext('should not have heroes until service promise resolves')
+      .toBe(0);
   });
 
   describe('after get dashboard heroes', () => {
     let router: Router;
 
-    // Trigger component so it gets heroes and binds to them
+     // Trigger component so it gets heroes and binds to them
     beforeEach(waitForAsync(() => {
       router = fixture.debugElement.injector.get(Router);
-      fixture.detectChanges();  // runs ngOnInit -> getHeroes
-      fixture
-          .whenStable()                          // No need for the `lastPromise` hack!
-          .then(() => fixture.detectChanges());  // bind to heroes
+      fixture.detectChanges(); // runs ngOnInit -> getHeroes
+      fixture.whenStable() // No need for the `lastPromise` hack!
+        .then(() => fixture.detectChanges()); // bind to heroes
     }));
 
     it('should HAVE heroes', () => {
       expect(comp.heroes.length)
-          .withContext('should have heroes after service promise resolves')
-          .toBeGreaterThan(0);
+        .withContext('should have heroes after service promise resolves')
+        .toBeGreaterThan(0);
     });
 
     it('should DISPLAY heroes', () => {
       // Find and examine the displayed heroes
       // Look for them in the DOM by css class
       const heroes = fixture.nativeElement.querySelectorAll('dashboard-hero');
-      expect(heroes.length).withContext('should display 4 heroes').toBe(4);
+      expect(heroes.length)
+        .withContext('should display 4 heroes')
+        .toBe(4);
     });
 
     // #docregion navigate-test
@@ -131,7 +136,9 @@ function tests(heroClick: () => void) {
 
       // expecting to navigate to id of the component's first hero
       const id = comp.heroes[0].id;
-      expect(navArgs).withContext('should nav to HeroDetail for first hero').toBe('/heroes/' + id);
+      expect(navArgs)
+        .withContext('should nav to HeroDetail for first hero')
+        .toBe('/heroes/' + id);
     });
     // #enddocregion navigate-test
   });
