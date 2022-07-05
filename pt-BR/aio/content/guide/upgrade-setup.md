@@ -1,14 +1,14 @@
-# Setup for upgrading from AngularJS
+# Configuração para atualização do AngularJS
 
 <!--todo: Question: Can we remove this file and instead direct readers to https://github.com/angular/quickstart/blob/master/README.md -->
 
 <div class="alert is-critical">
 
-**AUDIENCE**: <br />
-Use this guide **only** in the context of  [Upgrading from AngularJS](guide/upgrade "Upgrading from AngularJS to Angular") or [Upgrading for Performance](guide/upgrade-performance "Upgrading for Performance").
-Those Upgrade guides refer to this Setup guide for information about using the [deprecated QuickStart GitHub repository](https://github.com/angular/quickstart "Deprecated Angular QuickStart GitHub repository"), which was created prior to the current Angular [CLI](cli "CLI Overview").
+**PÚBLICO**: <br />
+Use este guia **apenas** no contexto de [Atualização do AngularJS](guide/upgrade "Atualizando do AngularJS para Angular 2+") ou [Atualização para Desempenho](guide/upgrade-performance "Atualização para Desempenho").
+Estes guias de atualização referem-se a este guia de configuração para informações sobre o uso do [repositório obsoleto QuickStart GitHub](https://github. om/angular/quickstart "Repositório QuickStart do GitHub obsoleto "), criado antes do atual Angular [CLI](cli "CLI Overview").
 
-**For all other scenarios**, see the current instructions in [Setting up the Local Environment and Workspace](guide/setup-local "Setting up for Local Development").
+**Para todos os outros cenários**, consulte as instruções atuais em [Configurar ambiente local e workspace](guide/setup-local "Configuração para desenvolvimento local").
 
 </div>
 
@@ -18,17 +18,17 @@ There are also some differences from a local app, to simplify that live-coding e
 In particular, the QuickStart live-coding example shows just the AppComponent file; it creates the equivalent of app.module.ts and main.ts internally for the playground only.
 -->
 
-This guide describes how to develop locally on your own machine. Setting up a new project on your machine is quick and easy with the [QuickStart seed on github](https://github.com/angular/quickstart "Install the github QuickStart repo").
+Este guia descreve como desenvolver localmente na sua própria máquina. Configurar um novo projeto em sua máquina é rápido e fácil com [QuickStart Seed no github](https://github.com/angular/quickstart "Install the github QuickStart repo").
 
-## Prerequisites
+## Pré-requisitos
 
-Make sure you have [Node.js&reg; and npm installed](guide/setup-local#prerequisites "Angular prerequisites").
+Certifique-se de que você tenha [Node.js&reg; e npm instalado](guide/setup-local#prerequisites "Angular prerequisites").
 
 <a id="clone"></a>
 
 ## Clone
 
-Perform the *clone-to-launch* steps with these terminal commands.
+Execute as etapas do *clone-to-launch* com esses comandos no terminal.
 
 <code-example format="shell" language="shell">
 
