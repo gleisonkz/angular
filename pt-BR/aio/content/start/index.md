@@ -84,9 +84,9 @@ Para obter mais informações sobre como usar o StackBlitz, consulte a [document
 
 Nesta seção, você irá atualizar a aplicação para exibir uma lista de produtos. Você usará dados de produto predefinidos do arquivo de `produtos` e métodos do arquivo `product-list.component.ts`. Esta seção guia você através da edição do HTML, também conhecido como o modelo.
 
-1.  In the `product-list` folder, open the template file `product-list.component.html`.
+1.  Na pasta `lista de produtos`, abra o arquivo de modelo `product-list.component.html`.
 
-1.  Add an `*ngFor` structural directive on a `<div>`, as follows.
+1.  Adicione uma diretiva estrutural `*ngFor` a uma `<div>`, da seguinte forma.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html" region="ngfor"></code-example>
 
