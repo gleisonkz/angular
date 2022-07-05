@@ -1,14 +1,14 @@
-# Getting started with Angular
+# Começando com Angular
 
-Welcome to Angular!
+Bem-vindo ao Angular!
 
-This tutorial introduces you to the essentials of Angular by walking you through building an e-commerce site with a catalog, shopping cart, and check-out form.
+Este tutorial lhe apresenta o essencial do Angular ao caminhar por meio da construção de um site de e-commerce com um catálogo, carrinho de compras e formulário de check-out.
 
-To help you get started right away, this tutorial uses a ready-made application that you can examine and modify interactively on [StackBlitz](https://stackblitz.com) &mdash;without having to [set up a local work environment](guide/setup-local "Setup guide"). StackBlitz is a browser-based development environment where you can create, save, and share projects using a variety of technologies.
+Para ajudá-lo a começar logo, este tutorial usa um aplicativo pronto, que você pode examinar e modificar interativamente no [StackBlitz](https://stackblitz.com) &mdash; sem precisar [configurar um ambiente de trabalho local](guide/setup-local "Setup guide"). StackBlitz é um ambiente de desenvolvimento baseado no navegador onde você pode criar, salvar e compartilhar projetos usando uma variedade de tecnologias.
 
-## Prerequisites
+## Pré-requisitos
 
-To get the most out of this tutorial you should already have a basic understanding of the following.
+Para tirar o máximo proveito deste tutorial, você já deve ter um entendimento básico sobre o seguinte.
 
 *   [HTML](https://developer.mozilla.org/docs/Learn/HTML "Learning HTML: Guides and tutorials")
 *   [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript "JavaScript")
@@ -16,26 +16,26 @@ To get the most out of this tutorial you should already have a basic understandi
 
 <a id="components"></a>
 
-## Take a tour of the example application
+## Faça um tour pela aplicação de exemplo
 
-You build Angular applications with components. Components define areas of responsibility in the UI that let you reuse sets of UI functionality.
+Você constrói aplicativos angular com componentes. Componentes definem áreas de responsabilidade na interface do usuário que permitem reutilizar conjuntos de funcionalidades da UI.
 
-A component consists of three things:
+Um componente consiste em três coisas:
 
-|                           | Details                         |
-|:------------------------- |:------------------------------- |
-| A component class         | Handles data and functionality. |
-| An HTML template          | Determines the UI.              |
-| Component-specific styles | Define the look and feel.       |
+|                                    | Detalhes                             |
+|:---------------------------------- |:------------------------------------ |
+| Uma classe de componente           | Gerencia os dados e funcionalidades. |
+| Um template HTML                   | Determina a UI.                      |
+| Estilos específicos de componentes | Define a aparência e a sensação.     |
 
-This guide demonstrates building an application with the following components.
+Este guia demonstra a construção de uma aplicação com os seguintes componentes.
 
-| Components                   | Details                                                                 |
-|:---------------------------- |:----------------------------------------------------------------------- |
-| `<app-root>`           | The first component to load and the container for the other components. |
-| `<app-top-bar>`        | The store name and checkout button.                                     |
-| `<app-product-list>`   | The product list.                                                       |
-| `<app-product-alerts>` | A component that contains the application's alerts.                     |
+| Componentes                  | Detalhes                                                                   |
+|:---------------------------- |:-------------------------------------------------------------------------- |
+| `<app-root>`           | O primeiro componente a carregar e o contêiner para os outros componentes. |
+| `<app-top-bar>`        | O nome da loja e botão de check-out.                                       |
+| `<app-product-list>`   | A lista de produtos.                                                       |
+| `<app-product-alerts>` | Um componente que contém os alertas do aplicativo.                         |
 
 <div class="lightbox">
 
@@ -43,17 +43,17 @@ This guide demonstrates building an application with the following components.
 
 </div>
 
-For more information about components, see [Introduction to Components](guide/architecture-components "Introduction to Components and Templates").
+Para obter mais informações sobre componentes, consulte a [Introdução aos Componentes](guide/architecture-components "Introduction to Components and Templates").
 
 <a id="new-project"></a>
 
-## Create the sample project
+## Criar projeto de exemplo
 
-To create the sample project, generate the <live-example name="getting-started-v0" noDownload>ready-made sample project in StackBlitz</live-example>. To save your work:
+Para criar o projeto de exemplo, gere o <live-example name="getting-started-v0" noDownload>projeto de exemplo pronto no StackBlitz</live-example>. Para salvar seu trabalho:
 
-1.  Log into StackBlitz.
-1.  Fork the project you generated.
-1.  Save periodically.
+1.  Entre no StackBlitz.
+1.  Faça um fork do projeto que você gerou.
+1.  Salve periodicamente.
 
 <div class="lightbox">
 
@@ -61,10 +61,10 @@ To create the sample project, generate the <live-example name="getting-started-v
 
 </div>
 
-In StackBlitz, the preview pane on the right shows the starting state of the example application. The preview features two areas:
+No StackBlitz, o painel de pré-visualização à direita mostra o estado inicial do aplicativo de exemplo. A pré-visualização apresenta duas áreas:
 
-*   A top bar with the store name, `My Store`, and a checkout button
-*   A header for a product list, `Products`
+*   Uma barra superior com o nome da loja, `Minha Loja`, e um botão de pagamento
+*   Um cabeçalho para uma lista de produtos, `Produtos`
 
 <div class="lightbox">
 
@@ -72,17 +72,17 @@ In StackBlitz, the preview pane on the right shows the starting state of the exa
 
 </div>
 
-The project section on the left shows the source files that make up the application, including the infrastructure and configuration files.
+A seção de projetos à esquerda mostra os arquivos de origem que compõem o aplicativo, incluindo os arquivos de infraestrutura e configuração.
 
-When you generate the StackBlitz example applications that accompany the tutorials, StackBlitz creates the starter files and mock data for you. The files you use throughout the tutorial are in the `src` folder.
+Quando você gera as aplicações de exemplo do StackBlitz que acompanham os tutoriais, o StackBlitz cria os arquivos iniciais e os dados simulados para você. Os arquivos que você usa ao longo do tutorial estão na pasta `src`.
 
-For more information on how to use StackBlitz, see the [StackBlitz documentation](https://developer.stackblitz.com/docs/platform).
+Para obter mais informações sobre como usar o StackBlitz, consulte a [documentação do StackBlitz](https://developer.stackblitz.com/docs/platform).
 
 <a id="product-list"></a>
 
-## Create the product list
+## Crie a lista de produtos
 
-In this section, you'll update the application to display a list of products. You'll use predefined product data from the `products.ts` file and methods from the `product-list.component.ts` file. This section guides you through editing the HTML, also known as the template.
+Nesta seção, você irá atualizar a aplicação para exibir uma lista de produtos. You'll use predefined product data from the `products.ts` file and methods from the `product-list.component.ts` file. This section guides you through editing the HTML, also known as the template.
 
 1.  In the `product-list` folder, open the template file `product-list.component.html`.
 
