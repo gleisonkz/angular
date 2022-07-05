@@ -1,6 +1,6 @@
 # Resumo da CLI e Referência de Comando
 
-O Angular CLI é uma ferramenta de interface de linha de comando que você usa para inicializar, desenvolver, moldar e manter aplicativos Angular diretamente de um terminal de comando.
+O Angular CLI é uma ferramenta de interface de linha de comando que você usa para inicializar, desenvolver, moldar e manter aplicações Angular diretamente de um terminal de linha de comando.
 
 ## Instalando Angular CLI
 
