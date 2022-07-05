@@ -42,7 +42,7 @@ npm install
 
 ## Download
 
-[Download the QuickStart seed](https://github.com/angular/quickstart/archive/master.zip "Download the QuickStart seed repository") and unzip it into your project folder. Then perform the remaining steps with these terminal commands.
+[Baixe o QuickStart seed](https://github.com/angular/quickstart/archive/master.zip "Download the QuickStart seed repository") e descompacte-o na sua pasta do projeto. Em seguida, execute as etapas restantes com esses comandos no terminal.
 
 <code-example format="shell" language="shell">
 
@@ -53,17 +53,17 @@ npm install
 
 <a id="non-essential"></a>
 
-## Delete *non-essential* files (optional)
+## Excluir arquivos *não essenciais* (opcional)
 
-You can quickly delete the *non-essential* files that concern testing and QuickStart repository maintenance \(***including all git-related artifacts*** such as the `.git` folder and `.gitignore`\).
+Você pode excluir rapidamente os arquivos *não essenciais* relacionados a testes e manutenção do repositório QuickStart \(***incluindo todos os artefatos relacionados ao git***, como a pasta `.git` e `.gitignore`\).
 
 <div class="alert is-important">
 
-Do this only in the beginning to avoid accidentally deleting your own tests and git setup.
+Faça isso apenas no início para evitar apagar acidentalmente seus próprios testes e configurações do git.
 
 </div>
 
-Open a terminal window in the project folder and enter the following commands for your environment:
+Abra uma janela de terminal na pasta do projeto e digite os seguintes comandos para o seu ambiente:
 
 ### macOS / Mac OS X (bash)
 
@@ -85,12 +85,12 @@ rd e2e /s /q
 
 </code-example>
 
-## Update dependency versions
+## Atualização das versões das dependências
 
-Since the quickstart repository is deprecated, it is no longer updated and you need some additional steps to use the latest Angular.
+Como o repositório quickstart está obsoleto, ele não é mais atualizado e você precisa de algumas etapas adicionais para usar o Angular mais recente.
 
-1.  Remove the obsolete `@angular/http` package \(both from `package.json > dependencies` and `src/systemjs.config.js > SystemJS.config() > map`\).
-1.  Install the latest versions of the Angular framework packages by running:
+1.  Remova o pacote `@angular/http` que está obsoleto \(ambos do `package.json > dependencies` e do arquivo `src/systemjs.config.js > SystemJS.config() > map`\).
+1.  Instale as últimas versões dos pacotes de framework Angular executando:
 
     <code-example format="shell" language="shell">
 
@@ -98,16 +98,15 @@ Since the quickstart repository is deprecated, it is no longer updated and you n
 
     </code-example>
 
-1.  Install the latest versions of other packages used by Angular \(RxJS, TypeScript, Zone.js\) by running:
+1.  Instale as últimas versões de outros pacotes utilizado pelo Angular (RxJS, TypeScript, Zone.js\) executando:
 
     <code-example format="shell" language="shell">
-
     npm install --save rxjs&commat;latest zone.js&commat;latest
     npm install --save-dev typescript&commat;latest
 
     </code-example>
 
-1.  Install the `systemjs-plugin-babel` package. This will later be used to load the Angular framework files, which are in ES2015 format, using SystemJS.
+1.  Instale o pacote `systemjs-plugin-babel`. Isso será usado mais tarde para carregar os arquivos de framework Angular, que estão no formato ES2015, usando o SystemJS.
 
     <code-example format="shell" language="shell">
 
@@ -115,16 +114,16 @@ Since the quickstart repository is deprecated, it is no longer updated and you n
 
     </code-example>
 
-1.  In order to be able to load the latest Angular framework packages \(in ES2015 format\) correctly, replace the relevant entries in `src/systemjs.config.js`:
+1.  Para poder carregar os pacotes mais recentes do Angular (no formato ES2015) corretamente, substitua as entradas relevantes em `src/systemjs.config.js`:
 
     <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="angular-paths">&lt;/code-example>&lt;/p>&lt;/li>
-&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> In order to be able to load the latest RxJS package correctly, replace the relevant entries in &lt;code>src/systemjs.config.js</code>:
+&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> Para carregar o pacote mais atualizado do RxJS corretamente, substitua as entradas relevantes em &lt;code>src/systemjs.config.js</code>:
 
     <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="rxjs-paths">&lt;/code-example>&lt;/p>&lt;/li>
-&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> In order to be able to load the &lt;code>tslib</code> package \(which is required for files transpiled by TypeScript\), add the following entry to `src/systemjs.config.js`:
+&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> Para poder carregar o pacote &lt;code>tslib</code> (que é necessário para arquivos transpilados por TypeScript\), adicione a seguinte entrada em `src/systemjs.config.js`:
 
     <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="tslib-paths">&lt;/code-example>&lt;/p>&lt;/li>
-&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> In order for SystemJS to be able to load the ES2015 Angular files correctly, add the following entries to &lt;code>src/systemjs.config.js</code>:
+&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> Para que o SystemJS possa carregar corretamente os arquivos ES2015 do Angular, adicione as seguintes entradas ao &lt;code>src/systemjs.config.js</code>:
 
     <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="plugin-babel">&lt;/code-example>&lt;/p>&lt;/li>
 &lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> Finally, in order to prevent TypeScript typecheck errors for dependencies, add the following entry to &lt;code>src/tsconfig.json</code>:
