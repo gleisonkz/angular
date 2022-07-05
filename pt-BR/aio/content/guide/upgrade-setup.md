@@ -90,7 +90,7 @@ rd e2e /s /q
 Como o repositório quickstart está obsoleto, ele não é mais atualizado e você precisa de algumas etapas adicionais para usar o Angular mais recente.
 
 1.  Remova o pacote `@angular/http` que está obsoleto \(ambos do `package.json > dependencies` e do arquivo `src/systemjs.config.js > SystemJS.config() > map`\).
-1.  Instale as últimas versões dos pacotes de framework Angular executando:
+1.  Instale as versões mais recentes dos pacotes do Angular executando:
 
     <code-example format="shell" language="shell">
 
@@ -120,13 +120,13 @@ Como o repositório quickstart está obsoleto, ele não é mais atualizado e voc
 &lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> Para carregar o pacote mais atualizado do RxJS corretamente, substitua as entradas relevantes em &lt;code>src/systemjs.config.js</code>:
 
     <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="rxjs-paths">&lt;/code-example>&lt;/p>&lt;/li>
-&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> Para poder carregar o pacote &lt;code>tslib</code> (que é necessário para arquivos transpilados por TypeScript\), adicione a seguinte entrada em `src/systemjs.config.js`:
+&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> Para poder carregar o pacote &lt;code>tslib</code> (necessário para arquivos transpilados por TypeScript\), adicione a seguinte entrada em `src/systemjs.config.js`:
 
     <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="tslib-paths">&lt;/code-example>&lt;/p>&lt;/li>
 &lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> Para que o SystemJS possa carregar corretamente os arquivos ES2015 do Angular, adicione as seguintes entradas ao &lt;code>src/systemjs.config.js</code>:
 
     <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="plugin-babel">&lt;/code-example>&lt;/p>&lt;/li>
-&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> Finally, in order to prevent TypeScript typecheck errors for dependencies, add the following entry to &lt;code>src/tsconfig.json</code>:
+&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> Finalmente, de modo a evitar erros de checagem de tipos do TypeScript para dependências, adicione a seguinte entrada ao arquivo &lt;code>src/tsconfig.json</code>:
 
     <code-example format="json" language="json">
 
@@ -139,11 +139,11 @@ Como o repositório quickstart está obsoleto, ele não é mais atualizado e voc
 
     </code-example>
 
-With that, you can now run `npm start` and have the application built and served. Once built, the application will be automatically opened in a new browser tab and it will be automatically reloaded when you make changes to the source code.
+Com isso, agora você pode executar `npm start` e ter a aplicação compilada e rodando. Uma vez construído, a aplicação será aberta automaticamente em uma nova aba do navegador e será recarregada automaticamente quando você fizer alterações no código-fonte.
 
 <a id="seed"></a>
 
-## What's in the QuickStart seed?
+## O que há no QuickStart seed?
 
 The **QuickStart seed** provides a basic QuickStart playground application and other files necessary for local development. Consequently, there are many files in the project folder on your machine, most of which you can [learn about later](guide/file-structure).
 
