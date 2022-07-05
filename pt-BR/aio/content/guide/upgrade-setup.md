@@ -5,10 +5,10 @@
 <div class="alert is-critical">
 
 **AUDIENCE**: <br />
-Use this guide **only** in the context of  [Upgrading from AngularJS](guide/upgrade "Upgrading from AngularJS to Angular") or [Upgrading for Performance](guide/upgrade-performance "Upgrading for Performance").
-Those Upgrade guides refer to this Setup guide for information about using the [deprecated QuickStart GitHub repository](https://github.com/angular/quickstart "Deprecated Angular QuickStart GitHub repository"), which was created prior to the current Angular [CLI](cli "CLI Overview").
+Use this guide **only** in the context of [Upgrading from AngularJS](guide/upgrade 'Upgrading from AngularJS to Angular') or [Upgrading for Performance](guide/upgrade-performance 'Upgrading for Performance').
+Those Upgrade guides refer to this Setup guide for information about using the [deprecated QuickStart GitHub repository](https://github.com/angular/quickstart 'Deprecated Angular QuickStart GitHub repository'), which was created prior to the current Angular [CLI](cli 'CLI Overview').
 
-**For all other scenarios**, see the current instructions in [Setting up the Local Environment and Workspace](guide/setup-local "Setting up for Local Development").
+**For all other scenarios**, see the current instructions in [Setting up the Local Environment and Workspace](guide/setup-local 'Setting up for Local Development').
 
 </div>
 
@@ -18,17 +18,18 @@ There are also some differences from a local app, to simplify that live-coding e
 In particular, the QuickStart live-coding example shows just the AppComponent file; it creates the equivalent of app.module.ts and main.ts internally for the playground only.
 -->
 
-This guide describes how to develop locally on your own machine. Setting up a new project on your machine is quick and easy with the [QuickStart seed on github](https://github.com/angular/quickstart "Install the github QuickStart repo").
+This guide describes how to develop locally on your own machine.
+Setting up a new project on your machine is quick and easy with the [QuickStart seed on github](https://github.com/angular/quickstart 'Install the github QuickStart repo').
 
 ## Prerequisites
 
-Make sure you have [Node.js&reg; and npm installed](guide/setup-local#prerequisites "Angular prerequisites").
+Make sure you have [Node.js&reg; and npm installed](guide/setup-local#prerequisites 'Angular prerequisites').
 
 <a id="clone"></a>
 
 ## Clone
 
-Perform the *clone-to-launch* steps with these terminal commands.
+Perform the _clone-to-launch_ steps with these terminal commands.
 
 <code-example format="shell" language="shell">
 
@@ -42,7 +43,8 @@ npm install
 
 ## Download
 
-[Download the QuickStart seed](https://github.com/angular/quickstart/archive/master.zip "Download the QuickStart seed repository") and unzip it into your project folder. Then perform the remaining steps with these terminal commands.
+[Download the QuickStart seed](https://github.com/angular/quickstart/archive/master.zip 'Download the QuickStart seed repository') and unzip it into your project folder.
+Then perform the remaining steps with these terminal commands.
 
 <code-example format="shell" language="shell">
 
@@ -53,9 +55,9 @@ npm install
 
 <a id="non-essential"></a>
 
-## Delete *non-essential* files (optional)
+## Delete _non-essential_ files (optional)
 
-You can quickly delete the *non-essential* files that concern testing and QuickStart repository maintenance \(***including all git-related artifacts*** such as the `.git` folder and `.gitignore`\).
+You can quickly delete the _non-essential_ files that concern testing and QuickStart repository maintenance \(**_including all git-related artifacts_** such as the `.git` folder and `.gitignore`\).
 
 <div class="alert is-important">
 
@@ -70,7 +72,7 @@ Open a terminal window in the project folder and enter the following commands fo
 <code-example format="shell" language="shell">
 
 xargs rm -rf &lt; non-essential-files.osx.txt
-rm src/app/*.spec*.ts
+rm src/app/_.spec_.ts
 rm non-essential-files.osx.txt
 
 </code-example>
@@ -107,7 +109,8 @@ Since the quickstart repository is deprecated, it is no longer updated and you n
 
     </code-example>
 
-1.  Install the `systemjs-plugin-babel` package. This will later be used to load the Angular framework files, which are in ES2015 format, using SystemJS.
+1.  Install the `systemjs-plugin-babel` package.
+    This will later be used to load the Angular framework files, which are in ES2015 format, using SystemJS.
 
     <code-example format="shell" language="shell">
 
@@ -117,36 +120,42 @@ Since the quickstart repository is deprecated, it is no longer updated and you n
 
 1.  In order to be able to load the latest Angular framework packages \(in ES2015 format\) correctly, replace the relevant entries in `src/systemjs.config.js`:
 
-    <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="angular-paths">&lt;/code-example>&lt;/p>&lt;/li>
-&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> In order to be able to load the latest RxJS package correctly, replace the relevant entries in &lt;code>src/systemjs.config.js</code>:
+    <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="angular-paths"></code-example>
 
-    <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="rxjs-paths">&lt;/code-example>&lt;/p>&lt;/li>
-&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> In order to be able to load the &lt;code>tslib</code> package \(which is required for files transpiled by TypeScript\), add the following entry to `src/systemjs.config.js`:
+1.  In order to be able to load the latest RxJS package correctly, replace the relevant entries in `src/systemjs.config.js`:
 
-    <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="tslib-paths">&lt;/code-example>&lt;/p>&lt;/li>
-&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> In order for SystemJS to be able to load the ES2015 Angular files correctly, add the following entries to &lt;code>src/systemjs.config.js</code>:
+    <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="rxjs-paths"></code-example>
 
-    <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="plugin-babel">&lt;/code-example>&lt;/p>&lt;/li>
-&lt;li marker="1" level="0" spaces="0" spaces-after-marker="1">&lt;p spaces-before="0"> Finally, in order to prevent TypeScript typecheck errors for dependencies, add the following entry to &lt;code>src/tsconfig.json</code>:
+1.  In order to be able to load the `tslib` package \(which is required for files transpiled by TypeScript\), add the following entry to `src/systemjs.config.js`:
+
+    <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="tslib-paths"></code-example>
+
+1.  In order for SystemJS to be able to load the ES2015 Angular files correctly, add the following entries to `src/systemjs.config.js`:
+
+    <code-examples format="javascript" language="javascript" path="upgrade-phonecat-2-hybrid/systemjs.config.1.js" region="plugin-babel"></code-example>
+
+1.  Finally, in order to prevent TypeScript typecheck errors for dependencies, add the following entry to `src/tsconfig.json`:
 
     <code-example format="json" language="json">
 
     {
-      "compilerOptions": {
-        "skipLibCheck": true,
-        // &hellip;
-      }
+    "compilerOptions": {
+    "skipLibCheck": true,
+    // &hellip;
+    }
     }
 
     </code-example>
 
-With that, you can now run `npm start` and have the application built and served. Once built, the application will be automatically opened in a new browser tab and it will be automatically reloaded when you make changes to the source code.
+With that, you can now run `npm start` and have the application built and served.
+Once built, the application will be automatically opened in a new browser tab and it will be automatically reloaded when you make changes to the source code.
 
 <a id="seed"></a>
 
 ## What's in the QuickStart seed?
 
-The **QuickStart seed** provides a basic QuickStart playground application and other files necessary for local development. Consequently, there are many files in the project folder on your machine, most of which you can [learn about later](guide/file-structure).
+The **QuickStart seed** provides a basic QuickStart playground application and other files necessary for local development.
+Consequently, there are many files in the project folder on your machine, most of which you can [learn about later](guide/file-structure).
 
 <div class="alert is-helpful">
 
@@ -186,19 +195,22 @@ Focus on the following three TypeScript \(`.ts`\) files in the `/src` folder.
     <code-pane header="src/main.ts" path="setup/src/main.ts"></code-pane>
 </code-tabs>
 
-All guides and cookbooks have *at least these core files*. Each file has a distinct purpose and evolves independently as the application grows.
+All guides and cookbooks have _at least these core files_.
+Each file has a distinct purpose and evolves independently as the application grows.
 
-Files outside `src/` concern building, deploying, and testing your application. They include configuration files and external dependencies.
+Files outside `src/` concern building, deploying, and testing your application.
+They include configuration files and external dependencies.
 
-Files inside `src/` "belong" to your application. Add new Typescript, HTML and CSS files inside the `src/` directory, most of them inside `src/app`, unless told to do otherwise.
+Files inside `src/` "belong" to your application.
+Add new Typescript, HTML and CSS files inside the `src/` directory, most of them inside `src/app`, unless told to do otherwise.
 
 The following are all in `src/`
 
-| File                 | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|:-------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| app/app.component.ts | Defines the same `AppComponent` as the one in the QuickStart playground. It is the **root** component of what will become a tree of nested components as the application evolves.                                                                                                                                                                                                                                                                                                                        |
-| app/app.module.ts    | Defines `AppModule`, the  [root module](guide/bootstrapping "AppModule: the root module") that tells Angular how to assemble the application. When initially created, it declares only the `AppComponent`. Over time, you add more components to declare.                                                                                                                                                                                                                                                |
-| main.ts              | Compiles the application with the [JIT compiler](guide/glossary#jit) and [bootstraps](guide/bootstrapping) the application's main module \(`AppModule`\) to run in the browser. The JIT compiler is a reasonable choice during the development of most projects and it's the only viable choice for a sample running in a *live-coding* environment such as Stackblitz. Alternative [compilation](guide/aot-compiler), [build](guide/build), and [deployment](guide/deployment) options are available. |
+| File                 | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| :------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| app/app.component.ts | Defines the same `AppComponent` as the one in the QuickStart playground. It is the **root** component of what will become a tree of nested components as the application evolves.                                                                                                                                                                                                                                                                                                                      |
+| app/app.module.ts    | Defines `AppModule`, the [root module](guide/bootstrapping 'AppModule: the root module') that tells Angular how to assemble the application. When initially created, it declares only the `AppComponent`. Over time, you add more components to declare.                                                                                                                                                                                                                                               |
+| main.ts              | Compiles the application with the [JIT compiler](guide/glossary#jit) and [bootstraps](guide/bootstrapping) the application's main module \(`AppModule`\) to run in the browser. The JIT compiler is a reasonable choice during the development of most projects and it's the only viable choice for a sample running in a _live-coding_ environment such as Stackblitz. Alternative [compilation](guide/aot-compiler), [build](guide/build), and [deployment](guide/deployment) options are available. |
 
 ## Appendix: Test using `fakeAsync()/waitForAsync()`
 
@@ -223,7 +235,8 @@ import 'zone.js/plugins/fake-async-test';
 
 </code-example>
 
-You can still load those files separately, but the order is important, you must import `proxy` before `sync-test`, `async-test`, `fake-async-test` and `jasmine-patch`. And you also need to import `sync-test` before `jasmine-patch`, so it is recommended to just import `zone-testing` instead of loading those separated files.
+You can still load those files separately, but the order is important, you must import `proxy` before `sync-test`, `async-test`, `fake-async-test` and `jasmine-patch`.
+And you also need to import `sync-test` before `jasmine-patch`, so it is recommended to just import `zone-testing` instead of loading those separated files.
 
 <!-- links -->
 
