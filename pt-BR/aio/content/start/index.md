@@ -82,7 +82,7 @@ Para obter mais informações sobre como usar o StackBlitz, consulte a [document
 
 ## Crie a lista de produtos
 
-Nesta seção, você irá atualizar a aplicação para exibir uma lista de produtos. You'll use predefined product data from the `products.ts` file and methods from the `product-list.component.ts` file. This section guides you through editing the HTML, also known as the template.
+Nesta seção, você irá atualizar a aplicação para exibir uma lista de produtos. Você usará dados de produto predefinidos do arquivo de `produtos` e métodos do arquivo `product-list.component.ts`. Esta seção guia você através da edição do HTML, também conhecido como o modelo.
 
 1.  In the `product-list` folder, open the template file `product-list.component.html`.
 
