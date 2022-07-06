@@ -18,7 +18,7 @@ Para tirar o máximo proveito deste tutorial, você já deve ter um entendimento
 
 ## Faça um tour pela aplicação de exemplo
 
-Você constrói aplicativos angular com componentes. Componentes definem áreas de responsabilidade na interface do usuário que permitem reutilizar conjuntos de funcionalidades da UI.
+Você constrói aplicações Angular com componentes. Componentes definem áreas de responsabilidade na interface do usuário que permitem reutilizar conjuntos de funcionalidades da UI.
 
 Um componente consiste em três coisas:
 
@@ -82,7 +82,7 @@ Para obter mais informações sobre como usar o StackBlitz, consulte a [document
 
 ## Crie a lista de produtos
 
-Nesta seção, você irá atualizar a aplicação para exibir uma lista de produtos. Você usará dados de produto predefinidos do arquivo de `produtos` e métodos do arquivo `product-list.component.ts`. Esta seção guia você através da edição do HTML, também conhecido como o modelo.
+Nesta seção, você irá atualizar a aplicação para exibir uma lista de produtos. Você usará dados de produto predefinidos do arquivo de `produtos` e métodos do arquivo `product-list.component.ts`. Esta seção guia você através da edição do HTML, também conhecido como o template.
 
 1.  Na pasta `lista de produtos`, abra o arquivo de modelo `product-list.component.html`.
 
