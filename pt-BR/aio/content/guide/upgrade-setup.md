@@ -145,17 +145,17 @@ Com isso, agora você pode executar `npm start` e ter a aplicação compilada e 
 
 ## O que há no QuickStart seed?
 
-The **QuickStart seed** provides a basic QuickStart playground application and other files necessary for local development. Consequently, there are many files in the project folder on your machine, most of which you can [learn about later](guide/file-structure).
+O **QuickStart Seed ** fornece uma aplicação Quick Start básica e outros arquivos necessários para o desenvolvimento local. Consequentemente, há muitos arquivos na pasta de projeto em sua máquina, a maioria dos quais você pode [aprender mais tarde](guide/file-structure).
 
 <div class="alert is-helpful">
 
-**Reminder:** The "QuickStart seed" example was created prior to the Angular CLI, so there are some differences between what is described here and an Angular CLI application.
+**Lembrete:** O exemplo "QuickStart seed" foi criado antes da CLI Angular, então há algumas diferenças entre o que é descrito aqui e uma aplicação criada com a CLI do angular.
 
 </div>
 
 <a id="app-files"></a>
 
-Focus on the following three TypeScript \(`.ts`\) files in the `/src` folder.
+Foco nos três arquivos TypeScript seguintes (`.ts`) na pasta `/src`.
 
 <div class="filetree">
   <div class="file">
