@@ -152,7 +152,7 @@
               "tooltip": "Carregue componentes dinamicamente."
             },
             {
-              "url": "uide/elements",
+              "url": "guide/elements",
               "title": "Angular Elements",
               "tooltip": "Converta componentes para Custom Elements."
             }
