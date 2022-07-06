@@ -134,7 +134,7 @@
             {
               "url": "guide/component-styles",
               "title": "Estilos de um Componente",
-              "tooltip": "Adicione estilos CSS que são específicos para um componente."
+              "tooltip": "Adicione estilos CSS específicos para um componente."
             },
             {
               "url": "guide/inputs-outputs",
@@ -160,7 +160,7 @@
         },
         {
           "title": "Templates",
-          "tooltip": "Sintaxe utilizada em templates para binding, expressões e directivas.",
+          "tooltip": "Sintaxe utilizada em templates para binding, expressões e diretivas.",
           "children": [
             {
               "url": "guide/template-overview",

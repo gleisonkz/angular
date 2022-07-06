@@ -27,8 +27,8 @@ Esta documentação irá ajudar você a aprender e usar o Angular e sua platafor
   </a>
   <a href="tutorial" class="docs-card" title="Work through a full tutorial">
     <section>Olá Mundo</section>
-    <p>Siga um tutorial completo para criar sua aplicação. Tutorial sobre</p>
-    <p class="card-footer">Tour de Heróis</p>
+    <p>Siga um tutorial completo para criar sua aplicação.</p>
+    <p class="card-footer">Tutorial sobre Tour de Heróis</p>
   </a>
 </div>
 
