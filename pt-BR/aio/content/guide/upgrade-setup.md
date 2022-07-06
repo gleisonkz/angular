@@ -185,31 +185,31 @@ Foco nos três arquivos TypeScript seguintes (`.ts`) na pasta `/src`.
     <code-pane header="src/main.ts" path="setup/src/main.ts"></code-pane>
 </code-tabs>
 
-All guides and cookbooks have *at least these core files*. Each file has a distinct purpose and evolves independently as the application grows.
+todos os guias e livro de receitas têm *pelo menos esses arquivos de núcleo*. Cada arquivo tem um propósito distinto e evolui de forma independente à medida que a aplicação cresce.
 
-Files outside `src/` concern building, deploying, and testing your application. They include configuration files and external dependencies.
+Arquivos fora de `src/` dizem respeito a compilação, implantação e teste de sua aplicação. Eles incluem arquivos de configuração e dependências externas.
 
-Files inside `src/` "belong" to your application. Add new Typescript, HTML and CSS files inside the `src/` directory, most of them inside `src/app`, unless told to do otherwise.
+Arquivos na pasta `src/` "pertencem" a sua aplicação. Adicione novos arquivos Typescript, HTML e CSS no diretório `src/`, a maioria deles dentro de `src/app`, a menos que precise fazer o contrário.
 
-The following are all in `src/`
+Todas as alternativas a seguir estão localizadas em `src/`
 
-| File                 | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|:-------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| app/app.component.ts | Defines the same `AppComponent` as the one in the QuickStart playground. It is the **root** component of what will become a tree of nested components as the application evolves.                                                                                                                                                                                                                                                                                                                        |
-| app/app.module.ts    | Defines `AppModule`, the  [root module](guide/bootstrapping "AppModule: the root module") that tells Angular how to assemble the application. When initially created, it declares only the `AppComponent`. Over time, you add more components to declare.                                                                                                                                                                                                                                                |
-| main.ts              | Compiles the application with the [JIT compiler](guide/glossary#jit) and [bootstraps](guide/bootstrapping) the application's main module \(`AppModule`\) to run in the browser. The JIT compiler is a reasonable choice during the development of most projects and it's the only viable choice for a sample running in a *live-coding* environment such as Stackblitz. Alternative [compilation](guide/aot-compiler), [build](guide/build), and [deployment](guide/deployment) options are available. |
+| Arquivo              | Objetivo                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|:-------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| app/app.component.ts | Define o mesmo `AppComponent` que o que está no QuickStart playground. É o componente raiz **** do que se tornará uma árvore de componentes aninhados à medida que a aplicação evolui.                                                                                                                                                                                                                                                                                                                             |
+| app/app.module.ts    | Define o `AppModule`, o  [módulo raiz](guide/bootstrapping "AppModule: the root module") que diz para Angular como montar a aplicação. Quando inicialmente criado, ele declara somente o `AppComponent`. Com o tempo, você adicionara mais componentes a este modulo.                                                                                                                                                                                                                                              |
+| main.ts              | Compila o aplicativo com [o compilador JIT](guide/glossary#jit) e [bootstraps](guide/bootstrapping) o módulo principal do aplicativo \(`AppModule`\) para ser executado no navegador. O compilador JIT é uma escolha razoável durante o desenvolvimento da maioria dos projetos e é a única escolha viável para uma amostra rodando em um ambiente de *live-coding* como Stackblitz. As opções de [compilation](guide/aot-compiler), [build](guide/build), and [deployment](guide/deployment) estão disponíveis. |
 
-## Appendix: Test using `fakeAsync()/waitForAsync()`
+## Apêndice: Testes usando `fakeAsync()/waitForAsync()`
 
-If you use the `fakeAsync()` or `waitForAsync()` helper functions to run unit tests \(for details, read the [Testing guide](guide/testing-components-scenarios#fake-async)\), you need to import `zone.js/testing` in your test setup file.
+Se você usar as funções `fakeAsync()` ou `waitForAsync()` para executar testes unitários (para detalhes, leia o [Guia sobre testes](guide/testing-components-scenarios#fake-async)), será necessário importar o arquivo `zona.js/testing` em seu arquivo de configuração de teste.
 
 <div class="alert is-important">
 
-If you create project with `Angular/CLI`, it is already imported in `src/test.ts`.
+Se você criar um projeto com `Angular/CLI`, ele já está importado em `src/test.ts`.
 
 </div>
 
-And in the earlier versions of `Angular`, the following files were imported or added in your html file:
+E nas versões anteriores do `Angular`, os seguintes arquivos foram importados ou adicionados no seu arquivo html:
 
 <code-example format="html" language="html">
 
@@ -218,11 +218,11 @@ import 'zone.js/plugins/proxy';
 import 'zone.js/plugins/sync-test';
 import 'zone.js/plugins/jasmine-patch';
 import 'zone.js/plugins/async-test';
-import 'zone.js/plugins/fake-async-test';
+import 'zona. s/plugins/fake-async-test';
 
 </code-example>
 
-You can still load those files separately, but the order is important, you must import `proxy` before `sync-test`, `async-test`, `fake-async-test` and `jasmine-patch`. And you also need to import `sync-test` before `jasmine-patch`, so it is recommended to just import `zone-testing` instead of loading those separated files.
+Você ainda pode carregar esses arquivos separadamente, mas a ordem é importante, você precisa importar o `proxy ` antes de `sync-test`, `async-test`, `fake-async-test` e `jasmine-patch`. E você também precisa importar a `sync-test` antes de `jasmine-patch`, portanto, é recomendável apenas importar `zona-testing` em vez de carregar esses arquivos separados.
 
 <!-- links -->
 
