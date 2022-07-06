@@ -103,83 +103,83 @@
       "tooltip": "Aprenda os conceitos essenciais para se tornar um desenvolvedor Angular proficiente.",
       "children": [
         {
-          "title": "Overview",
+          "title": "Visão geral",
           "url": "guide/understanding-angular-overview",
-          "tooltip": "Learn about the most common parts of an Angular application."
+          "tooltip": "Aprenda sobre as partes mais comuns de uma aplicação Angular."
         },
         {
-          "title": "Components",
-          "tooltip": "Learn more about how to use data binding to build dynamic views",
+          "title": "Componentes",
+          "tooltip": "Saiba mais sobre como usar data binding para construir visualizações dinâmicas",
           "children": [
             {
               "url": "guide/component-overview",
-              "title": "Overview",
-              "tooltip": "Overview of how to create Angular components."
+              "title": "Visão geral",
+              "tooltip": "Visão geral de como criar componentes Angular."
             },
             {
               "url": "guide/lifecycle-hooks",
-              "title": "Component Lifecycle",
-              "tooltip": "Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them."
+              "title": "Ciclo de vida de um Componente",
+              "tooltip": "Angular chama métodos de ciclo de vida em diretivas e componentes à medida que os cria, altera e destrói."
             },
             {
               "url": "guide/view-encapsulation",
               "title": "View Encapsulation",
-              "tooltip": "Describes how component CSS styles are encapsulated into a component's view."
+              "tooltip": "Descreve como os estilos CSS do componente são encapsulados na view de um componente."
             },
             {
               "url": "guide/component-interaction",
-              "title": "Component Interaction",
-              "tooltip": "Share information between different directives and components."
+              "title": "Interação com um Componente",
+              "tooltip": "Compartilhe informações entre diferentes diretivas e componentes."
             },
             {
               "url": "guide/component-styles",
-              "title": "Component Styles",
-              "tooltip": "Add CSS styles that are specific to a component."
+              "title": "Estilos de um Componente",
+              "tooltip": "Adicione estilos CSS que são específicos para um componente."
             },
             {
               "url": "guide/inputs-outputs",
-              "title": "Sharing data between child and parent directives and components",
-              "tooltip": "Introductory guide to sharing data between parent and child directives or components."
+              "title": "Compartilhando dados entre diretivas e componentes filhos e pai",
+              "tooltip": "Guia introdutório para o compartilhamento de dados entre diretivas ou componentes pais e filhos."
             },
             {
               "url": "guide/content-projection",
-              "title": "Content Projection",
-              "tooltip": "Learn how to create reusable components using Angular's content projection feature."
+              "title": "Projeção de conteúdo",
+              "tooltip": "Aprenda a criar componentes reutilizáveis usando o recurso de projeção de conteúdo do Angular."
             },
             {
               "url": "guide/dynamic-component-loader",
-              "title": "Dynamic Components",
-              "tooltip": "Load components dynamically."
+              "title": "Componentes Dinâmicos",
+              "tooltip": "Carregue componentes dinamicamente."
             },
             {
-              "url": "guide/elements",
+              "url": "uide/elements",
               "title": "Angular Elements",
-              "tooltip": "Convert components to Custom Elements."
+              "tooltip": "Converta componentes para Custom Elements."
             }
           ]
         },
         {
           "title": "Templates",
-          "tooltip": "Syntax to use in templates for binding, expressions, and directives.",
+          "tooltip": "Sintaxe utilizada em templates para binding, expressões e directivas.",
           "children": [
             {
               "url": "guide/template-overview",
-              "title": "Overview",
-              "tooltip": "Introduction to templates."
+              "title": "Visão geral",
+              "tooltip": "Introdução aos templates."
             },
             {
               "url": "guide/template-syntax",
-              "title": "Introduction",
-              "tooltip": "Introduction to writing templates that display data and consume user events with the help of data binding."
+              "title": "Introdução",
+              "tooltip": "Introdução à escrita de templates que exibem dados e consome eventos do usuário com a ajuda de data binding."
             },
             {
               "url": "guide/interpolation",
-              "title": "Text interpolation",
-              "tooltip": "An introduction to interpolation and expressions in HTML."
+              "title": "Interpolação de texto",
+              "tooltip": "Introdução à interpolação e às expressões em HTML."
             },
             {
               "url": "guide/template-statements",
-              "title": "Template statements",
+              "title": "Declarações de template",
               "tooltip": "Introductory guide to statements in templates that respond to events that components, directives, or elements raise."
             },
             {
