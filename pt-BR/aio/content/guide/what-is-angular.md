@@ -129,13 +129,13 @@ Para obter mais informações sobre a injeção de dependências e Angular, cons
 
 O Angular CLI é a maneira mais rápida, direta e recomendada de desenvolver aplicações Angular. A CLI do Angular faz com que inúmeras tarefas sejam menos problemáticas. Aqui estão alguns exemplos:
 
-| Comando                    | Detalhes                                                                                |
-|:-------------------------- |:--------------------------------------------------------------------------------------- |
-| [ng build](cli/build)      | Compila uma aplicação Angular para um diretório de saída específico.                    |
-| [ng serve](cli/serve)      | Compila e executa sua aplicação, reconstruindo-a a cada alteração de algum arquivo.     |
-| [ng generate](li/generate) | Generates or modifies files based on a schematic.                                       |
-| [ng test](cli/test)        | Executa testes de unidade em um determinado projeto.                                    |
-| [ng e2e](cli/e2e)          | Compila e executa uma aplicação Angular e, em seguida, executa testes de ponta a ponta. |
+| Comando                     | Detalhes                                                                                |
+|:--------------------------- |:--------------------------------------------------------------------------------------- |
+| [ng build](cli/build)       | Compila uma aplicação Angular para um diretório de saída específico.                    |
+| [ng serve](cli/serve)       | Compila e executa sua aplicação, reconstruindo-a a cada alteração de algum arquivo.     |
+| [ng generate](cli/generate) | Generates or modifies files based on a schematic.                                       |
+| [ng test](cli/test)         | Executa testes de unidade em um determinado projeto.                                    |
+| [ng e2e](cli/e2e)           | Compila e executa uma aplicação Angular e, em seguida, executa testes de ponta a ponta. |
 
 Você vai achar a CLI do Angular uma ferramenta valiosa para construir suas aplicações.
 
