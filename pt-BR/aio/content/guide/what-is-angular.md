@@ -1,39 +1,39 @@
-# What is Angular?
+# O que é Angular?
 
-This topic can help you understand Angular: what Angular is, what advantages it provides, and what you might expect as you start to build your applications.
+Este tópico pode ajudá-lo a entender Angular: o que é Angular, quais vantagens ele oferece, e o que você pode esperar ao começar a construir suas aplicações.
 
-Angular is a development platform, built on [TypeScript](https://www.typescriptlang.org). As a platform, Angular includes:
+Angular é uma plataforma de desenvolvimento, construída em [TypeScript](https://www.typescriptlang.org). Como uma plataforma, inclui:
 
-*   A component-based framework for building scalable web applications
-*   A collection of well-integrated libraries that cover a wide variety of features, including routing, forms management, client-server communication, and more
-*   A suite of developer tools to help you develop, build, test, and update your code
+*   Uma estrutura baseada em componentes para construir aplicações web escaláveis
+*   Uma coleção de bibliotecas bem integradas que cobrem uma ampla variedade de recursos, incluindo roteamento, gerenciamento de formulários, comunicação cliente-servidor e muito mais
+*   Um conjunto de ferramentas de desenvolvedor para ajudá-lo a desenvolver, compilar, testar e atualizar seu código
 
-With Angular, you're taking advantage of a platform that can scale from single-developer projects to enterprise-level applications. Angular is designed to make updating as straightforward as possible, so take advantage of the latest developments with a minimum of effort. Best of all, the Angular ecosystem consists of a diverse group of over 1.7 million developers, library authors, and content creators.
+Com Angular, você está aproveitando uma plataforma que pode escalar de projetos de um único desenvolvedor para aplicações de nível empresarial. Angular é projetado para tornar a atualização o mais simples possível, por isso aproveite os últimos desenvolvimentos com um mínimo de esforço. O melhor de tudo, o ecossistema Angular consiste em um grupo diversificado de mais de 1,7 milhões de desenvolvedores, autores de bibliotecas e criadores de conteúdo.
 
 <div class="alert is-helpful">
 
-See the <live-example name="what-is-angular"></live-example> for a working example containing the code snippets in this guide.
+Consulte o <live-example name="what-is-angular"></live-example> para encontrar um exemplo funcional contendo os trechos de código deste guia.
 
 </div>
 
 <a id="essentials"></a>
 
-## Angular applications: The essentials
+## Aplicações Angular: Os fundamentos
 
-This section explains the core ideas behind Angular. Understanding these ideas can help you design and build your applications more effectively.
+Esta seção explica as ideias centrais por trás do Angular. Entendendo essas ideias pode ajudá-lo a projetar e construir suas aplicações de uma maneira mais eficaz.
 
 <a id="components"></a>
 
-### Components
+### Componentes
 
-Components are the building blocks that compose an application. A component includes a TypeScript class with a `@Component()` decorator, an HTML template, and styles. The `@Component()` decorator specifies the following Angular-specific information:
+Componentes são os blocos de construção que compõem uma aplicação. Um componente inclui uma classe TypeScript com um decorador `@Component()`, um template HTML e estilos. O decorador `@Component()` especifica algumas informações específicas do Angular:
 
-*   A CSS selector that defines how the component is used in a template. HTML elements in your template that match this selector become instances of the component.
+*   Um seletor CSS que define como o componente é usado em um template. Elementos HTML no seu template que correspondem a este seletor se tornam instâncias do componente.
 
-*   An HTML template that instructs Angular how to render the component
-*   An optional set of CSS styles that define the appearance of the template's HTML elements
+*   Um template HTML que instrui como renderizar o componente
+*   Um conjunto opcional de estilos CSS que definem a aparência dos elementos HTML do template
 
-The following is a minimal Angular component.
+A seguir o mínimo de um componente Angular.
 
 <code-example format="typescript" language="typescript" path="what-is-angular/src/app/hello-world/hello-world.component.ts"></code-example>
 
