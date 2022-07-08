@@ -208,7 +208,7 @@ export enum ErrorCode {
   DUPLICATE_VARIABLE_DECLARATION = 8006,
 
   /**
-   * A template has a two way binding (two bindings created by a single syntactial element)
+   * A template has a two way binding (two bindings created by a single syntactical element)
    * in which the input and output are going to different places.
    */
   SPLIT_TWO_WAY_BINDING = 8007,
@@ -255,6 +255,28 @@ export enum ErrorCode {
    * bindings by the compiler.
    */
   TEXT_ATTRIBUTE_NOT_BINDING = 8104,
+
+  /**
+   * NgForOf is used in a template, but the user forgot to include let
+   * in their statement.
+   *
+   * For example:
+   * ```
+   * <ul><li *ngFor="item of items">{{item["name"]}};</li></ul>
+   * ```
+   */
+  MISSING_NGFOROF_LET = 8105,
+  /**
+   * Indicates that the binding suffix is not supported
+   *
+   * Style bindings support suffixes like `stlye.width.px`, `.em`, and `.%`.
+   * These suffixes are _not_ supported for attribute bindings.
+   *
+   * For example `[attr.width.px]="5"` becomes `width.px="5"` when bound.
+   * This is almost certainly unintentional and this error is meant to
+   * surface this mistake to the developer.
+   */
+  SUFFIX_NOT_SUPPORTED = 8106,
 
   /**
    * The template type-checking engine would need to generate an inline type check block for a

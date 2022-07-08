@@ -341,7 +341,9 @@ export function getPlatform(): PlatformRef|null {
 }
 
 /**
- * Provides additional options to the bootstraping process.
+ * Provides additional options to the bootstrapping process.
+ *
+ * @publicApi
  */
 export interface BootstrapOptions {
   /**
@@ -363,7 +365,7 @@ export interface BootstrapOptions {
    *
    * When button is clicked, because of the event bubbling, both
    * event handlers will be called and 2 change detections will be
-   * triggered. We can colesce such kind of events to only trigger
+   * triggered. We can coalesce such kind of events to only trigger
    * change detection only once.
    *
    * By default, this option will be false. So the events will not be
@@ -740,15 +742,17 @@ export class ApplicationRef {
   // TODO(issue/24571): remove '!'.
   public readonly isStable!: Observable<boolean>;
 
-  /** @internal */
-  get injector(): Injector {
+  /**
+   * The `EnvironmentInjector` used to create this application.
+   */
+  get injector(): EnvironmentInjector {
     return this._injector;
   }
 
   /** @internal */
   constructor(
       private _zone: NgZone,
-      private _injector: Injector,
+      private _injector: EnvironmentInjector,
       private _exceptionHandler: ErrorHandler,
   ) {
     this._onMicrotaskEmptySubscription = this._zone.onMicrotaskEmpty.subscribe({
@@ -1082,7 +1086,7 @@ export class ApplicationRef {
 
   /**
    * Destroys an Angular application represented by this `ApplicationRef`. Calling this function
-   * will destroy the associated environnement injectors as well as all the bootstrapped components
+   * will destroy the associated environment injectors as well as all the bootstrapped components
    * with their views.
    */
   destroy(): void {

@@ -84,6 +84,7 @@ export class ApplicationRef {
     destroy(): void;
     get destroyed(): boolean;
     detachView(viewRef: ViewRef): void;
+    get injector(): EnvironmentInjector;
     readonly isStable: Observable<boolean>;
     tick(): void;
     get viewCount(): number;
@@ -112,6 +113,13 @@ export interface AttributeDecorator {
     (name: string): any;
     // (undocumented)
     new (name: string): Attribute;
+}
+
+// @public
+export interface BootstrapOptions {
+    ngZone?: NgZone | 'zone.js' | 'noop';
+    ngZoneEventCoalescing?: boolean;
+    ngZoneRunCoalescing?: boolean;
 }
 
 // @public

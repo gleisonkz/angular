@@ -388,9 +388,11 @@ export class NavigationError extends RouterEvent {
     constructor(
     id: number,
     url: string,
-    error: any);
+    error: any,
+    target?: RouterStateSnapshot | undefined);
     // (undocumented)
     error: any;
+    readonly target?: RouterStateSnapshot | undefined;
     // (undocumented)
     toString(): string;
     // (undocumented)
@@ -780,7 +782,7 @@ export interface RouterOutletContract {
     activatedRoute: ActivatedRoute | null;
     activatedRouteData: Data;
     activateEvents?: EventEmitter<unknown>;
-    activateWith(activatedRoute: ActivatedRoute, environmnetInjector: EnvironmentInjector | null): void;
+    activateWith(activatedRoute: ActivatedRoute, environmentInjector: EnvironmentInjector | null): void;
     // @deprecated
     activateWith(activatedRoute: ActivatedRoute, resolver: ComponentFactoryResolver | null): void;
     attach(ref: ComponentRef<unknown>, activatedRoute: ActivatedRoute): void;
