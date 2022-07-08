@@ -1,15 +1,15 @@
-<h1 align="center">Angular - The modern web developer's platform.</h1>
+<h1 align="center">Angular - A plataforma moderna do desenvolvedor web.</h1>
 
 <p align="center">
   <img src="aio/src/assets/images/logos/angular/angular.png" alt="angular-logo" width="120px" height="120px"/>
   <br>
-  <i>Angular is a development platform for building mobile and desktop web applications
-    <br> using Typescript/JavaScript and other languages.</i>
+  <i>Angular é uma plataforma de desenvolvimento para a construção de aplicações web, mobile e desktop
+    <br>usando Typescript/JavaScript e outras linguagens.</i>
   <br>
 </p>
 
 <p align="center">
-  <a href="https://www.angular.io"><strong>www.angular.io</strong></a>
+  <a href="https://angular-pt-br.netlify.app/"><strong>www.angular-pt-br.netlify.app</strong></a>
   <br>
 </p>
 
@@ -23,78 +23,64 @@
   <br>
 </p>
 
-<p align="center">
-  <a href="https://circleci.com/gh/angular/workflows/angular/tree/main">
-    <img src="https://img.shields.io/circleci/build/github/angular/angular/main.svg?logo=circleci&logoColor=fff&label=CircleCI" alt="CI status" />
-  </a>&nbsp;
-  <a href="https://www.npmjs.com/@angular/core">
-    <img src="https://img.shields.io/npm/v/@angular/core.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="Angular on npm" />
-  </a>&nbsp;
-  <a href="https://discord.gg/angular">
-    <img src="https://img.shields.io/discord/463752820026376202.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8" alt="Discord conversation" />
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://app.circleci.com/insights/github/angular/angular/workflows/default_workflow?branch=main">
-    <img src="https://dl.circleci.com/insights-snapshot/gh/angular/angular/main/default_workflow/badge.svg" alt="InsightsSnapshot" />
-  </a>
-</p>
-
 <hr>
 
-## Documentation
+## Sobre
 
-Get started with Angular, learn the fundamentals and explore advanced topics on our documentation website.
+Este repositório é apenas um fork feito para se trabalhar na tradução da documentação do Angular para o Português.
 
-- [Getting Started][quickstart]
-- [Architecture][architecture]
-- [Components and Templates][componentstemplates]
-- [Forms][forms]
+## Documentação
+
+Comece a usar o Angular, aprenda os fundamentos e explore tópicos avançados em nossa documentação.
+
+- [Primeiros Passos][quickstart]
+- [Arquitetura][architecture]
+- [Componentes e Templates][componentstemplates]
+- [Formulários][forms]
 - [API][api]
 
-### Advanced
+### Avançado
 
 - [Angular Elements][angularelements]
 - [Server Side Rendering][ssr]
 - [Schematics][schematics]
 - [Lazy Loading][lazyloading]
-- [Animations][animations]
+- [Animações][animations]
 
-## Development Setup
+## Configuração de desenvolvimento
 
-### Prerequisites
+### Pré-requisitos
 
-- Install [Node.js] which includes [Node Package Manager][npm]
+- Instale o [Node.js] que já possui embutido o [Node Package Manager][npm]
 
-### Setting Up a Project
+### Configurando um projeto
 
-Install the Angular CLI globally:
+Instale o Angular CLI globalmente:
 
 ```
 npm install -g @angular/cli
 ```
 
-Create workspace:
+Cria um projeto Angular:
 
 ```
 ng new [PROJECT NAME]
 ```
 
-Run the application:
+Executa a aplicação:
 
 ```
 cd [PROJECT NAME]
 ng serve
 ```
 
-Angular is cross-platform, fast, scalable, has incredible tooling, and is loved by millions.
+Angular é multiplataforma, rápido, escalável, possui ferramentas incríveis e é amado por milhões.
 
-## Quickstart
+## Começo rápido
 
-[Get started in 5 minutes][quickstart].
+[Comece em 5 minutos][quickstart].
 
-## Ecosystem
+## Ecossistema
 
 <p>
   <img src="/docs/images/angular-ecosystem-logos.png" alt="angular ecosystem logos" width="500px" height="auto">
@@ -105,29 +91,29 @@ Angular is cross-platform, fast, scalable, has incredible tooling, and is loved 
 
 ## Changelog
 
-[Learn about the latest improvements][changelog].
+[Saiba mais sobre as melhorias mais recentes][changelog].
 
-## Upgrading
+## Atualização
 
-Check out our [upgrade guide](https://update.angular.io/) to find out the best way to upgrade your project.
+Confira nosso [guia de atualização](https://update.angular.io/) para descobrir a melhor maneira de atualizar seu projeto.
 
-## Contributing
+## Contribuição
 
-### Contributing Guidelines
+### Diretrizes de Contribuição
 
-Read through our [contributing guidelines][contributing] to learn about our submission process, coding rules and more.
+Leia nossas [diretrizes de contribuição][contributing] para saber mais sobre nosso processo de pull requests, regras de codificação e muito mais.
 
-### Want to Help?
+### Quer ajudar?
 
-Want to report a bug, contribute some code, or improve documentation? Excellent! Read up on our guidelines for [contributing][contributing] and then check out one of our issues labeled as <kbd>[help wanted](https://github.com/angular/angular/labels/help%20wanted)</kbd> or <kbd>[good first issue](https://github.com/angular/angular/labels/good%20first%20issue)</kbd>.
+Quer relatar um bug, contribuir com algum código ou melhorar a documentação? Excelente! Leia nossas diretrizes para [contribuir][contributing] e resolva uma de nossas issues rotuladas como <kbd>[help wanted](https://github.com/angular/angular/labels/help%20wanted)</kbd> ou <kbd>[good first issue](https://github.com/angular/angular/labels/good%20first%20issue)</kbd>.
 
-### Code of Conduct
+### Código de Conduta
 
-Help us keep Angular open and inclusive. Please read and follow our [Code of Conduct][codeofconduct].
+Ajude-nos a manter o Angular aberto e inclusivo. Por favor, leia e siga nosso [Código de Conduta][codeofconduct]
 
-## Community
+## Comunidade
 
-Join the conversation and help the community.
+Participe da conversa e ajude a comunidade.
 
 - [Twitter][twitter]
 - [Discord][discord]
@@ -141,7 +127,7 @@ Join the conversation and help the community.
 **Love Angular? Give our repo a star :star: :arrow_up:.**
 
 [contributing]: CONTRIBUTING.md
-[quickstart]: https://angular.io/start
+[quickstart]: https://angular-pt-br.netlify.app/start
 [changelog]: CHANGELOG.md
 [ng]: https://angular.io
 [documentation]: https://angular.io/docs
