@@ -1781,7 +1781,7 @@ This guard returns a synchronous boolean result. If the user is logged in, it re
 
 The `ActivatedRouteSnapshot` contains the *future* route that will be activated and the `RouterStateSnapshot` contains the *future* `RouterState` of the application, should you pass through the guard check.
 
-If the user is not logged in, you store the attempted URL the user came from using the `RouterStateSnapshot.url` and tell the router to redirect to a login page &mdash;a page you haven't created yet. Returning a `UrlTree` tells the `Router` to cancel the current navigation and schedule a new one to redirect the user.
+If the user is not logged in, you store the attempted URL the user came from using the `RouterStateSnapshot.url` and tell the router to redirect to a login page &mdash; a page you haven't created yet. Returning a `UrlTree` tells the `Router` to cancel the current navigation and schedule a new one to redirect the user.
 
 <a id="add-login-component"></a>
 
@@ -1808,7 +1808,7 @@ Register a `/login` route in the `auth/auth-routing.module.ts`. In `app.module.t
 
 ### `CanMatch`: Controlling `Route` matching based on application conditions
 
-As an alternative to using a `CanActivate` guard which redirects the user to a new page if they do not have access, you can instead use a `CanMatch` guard to control whether the `Router` even attempts to activate a `Route`. This allows you to have multiple `Route` configurations which share the same `path` but are match based on different conditions. In addition, this approach can allow the `Router` to match the wildcard `Route` instead.
+As an alternative to using a `CanActivate` guard which redirects the user to a new page if they do not have access, you can instead use a `CanMatch` guard to control whether the `Router` even attempts to activate a `Route`. This allows you to have multiple `Route` configurations which share the same `path` but are matched based on different conditions. In addition, this approach can allow the `Router` to match the wildcard `Route` instead.
 
 <code-example path="router/src/app/auth/auth.guard.2.ts" header="src/app/auth/auth.guard.ts (excerpt)" region="can-match"></code-example>
 
