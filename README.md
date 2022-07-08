@@ -29,6 +29,8 @@
 
 Este repositório é apenas um fork feito para se trabalhar na tradução da documentação do Angular para o Português.
 
+Atualmente, utilizamos a plataforma da [crowdin](https://crowdin.com/) para traduzir a documentação, caso queira contribuir com a tradução, [acesse aqui](https://crowdin.com/project/angulario/pt-BR)
+
 ## Documentação
 
 Comece a usar o Angular, aprenda os fundamentos e explore tópicos avançados em nossa documentação.
