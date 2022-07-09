@@ -47,7 +47,7 @@ Para obter mais informações sobre componentes, consulte a [Introdução aos Co
 
 <a id="new-project"></a>
 
-## Criar projeto de exemplo
+## Create the sample project
 
 Para criar o projeto de exemplo, gere o <live-example name="getting-started-v0" noDownload>projeto de exemplo pronto no StackBlitz</live-example>. Para salvar seu trabalho:
 
@@ -80,13 +80,13 @@ Para obter mais informações sobre como usar o StackBlitz, consulte a [document
 
 <a id="product-list"></a>
 
-## Crie a lista de produtos
+## Create the product list
 
 Nesta seção, você irá atualizar a aplicação para exibir uma lista de produtos. Você usará dados de produto predefinidos do arquivo de `produtos` e métodos do arquivo `product-list.component.ts`. Esta seção guia você através da edição do HTML, também conhecido como o template.
 
 1.  Na pasta `lista de produtos`, abra o arquivo de modelo `product-list.component.html`.
 
-1.  Adicione uma diretiva estrutural `*ngFor` a uma `<div>`, da seguinte forma.
+1.  Add an `*ngFor` structural directive on a `<div>`, as follows.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html" region="ngfor"></code-example>
 
