@@ -24,7 +24,7 @@ Um componente consiste em três coisas:
 
 |                                    | Detalhes                             |
 |:---------------------------------- |:------------------------------------ |
-| Uma classe de componente           | Gerencia os dados e funcionalidades. |
+| A component class                  | Gerencia os dados e funcionalidades. |
 | Um template HTML                   | Determina a UI.                      |
 | Estilos específicos de componentes | Define a aparência e a sensação.     |
 
