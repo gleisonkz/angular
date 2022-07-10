@@ -24,7 +24,7 @@ Um componente consiste em três coisas:
 
 |                                    | Detalhes                             |
 |:---------------------------------- |:------------------------------------ |
-| A component class                  | Gerencia os dados e funcionalidades. |
+| Uma classe                         | Gerencia os dados e funcionalidades. |
 | Um template HTML                   | Determina a UI.                      |
 | Estilos específicos de componentes | Define a aparência e a sensação.     |
 
@@ -47,7 +47,7 @@ Para obter mais informações sobre componentes, consulte a [Introdução aos Co
 
 <a id="new-project"></a>
 
-## Create the sample project
+## Criando o projeto de exemplo
 
 Para criar o projeto de exemplo, gere o <live-example name="getting-started-v0" noDownload>projeto de exemplo pronto no StackBlitz</live-example>. Para salvar seu trabalho:
 
@@ -80,21 +80,21 @@ Para obter mais informações sobre como usar o StackBlitz, consulte a [document
 
 <a id="product-list"></a>
 
-## Create the product list
+## Criando a lista de produtos
 
 Nesta seção, você irá atualizar a aplicação para exibir uma lista de produtos. Você usará dados de produto predefinidos do arquivo de `produtos` e métodos do arquivo `product-list.component.ts`. Esta seção guia você através da edição do HTML, também conhecido como o template.
 
 1.  Na pasta `lista de produtos`, abra o arquivo de modelo `product-list.component.html`.
 
-1.  Add an `*ngFor` structural directive on a `<div>`, as follows.
+1.  Adicione a diretiva estrutural `*ngFor` a uma `<div>`, da seguinte forma.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html" region="ngfor"></code-example>
 
-    With `*ngFor`, the `<div>` repeats for each product in the list.
+    Com `*ngFor`, a `<div>` irá se repetir para cada produto da lista.
 
-    Structural directives shape or reshape the DOM's structure, by adding, removing, and manipulating elements. For more information about structural directives, see [Structural directives](guide/structural-directives).
+    As diretivas estruturais podem alterar a estrutura do DOM, acrescentando, removendo e manipulando elementos. For more information about structural directives, see [Structural directives](guide/structural-directives).
 
-1.  Inside the `<div>`, add an `<h3>` and `{{ product.name }}`. The `{{ product.name }}` statement is an example of Angular's interpolation syntax. Interpolation `{{ }}` lets you render the property value as text.
+1.  Inside the `<div>`, add an `<h3>` and `{{ product.name }}`. The `{{ product.name }}` statement is an example of Angular's interpolation syntax. A Interpolação `{{ }}` permite você renderizar o valor da propriedade como texto.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html" region="interpolation"></code-example>
 
@@ -108,7 +108,7 @@ Nesta seção, você irá atualizar a aplicação para exibir uma lista de produ
 
 1.  To make each product name a link to product details, add the `<a>` element around `{{ product.name }}`.
 
-1.  Set the title to be the product's name by using the property binding `[ ]` syntax, as follows:
+1.  Defina o título do link para ser o nome do produto usando a sintaxe de property binding `[ ]` da seguinte forma:
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html"></code-example>
 
