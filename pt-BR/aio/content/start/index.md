@@ -92,13 +92,13 @@ Nesta seção, você irá atualizar a aplicação para exibir uma lista de produ
 
     Com `*ngFor`, a `<div>` irá se repetir para cada produto da lista.
 
-    As diretivas estruturais podem alterar a estrutura do DOM, acrescentando, removendo e manipulando elementos. For more information about structural directives, see [Structural directives](guide/structural-directives).
+    As diretivas estruturais podem alterar a estrutura do DOM, acrescentando, removendo e manipulando elementos. Para obter mais informações sobre diretivas estruturais, consulte [Diretivas Estruturais](guide/structural-directives).
 
-1.  Inside the `<div>`, add an `<h3>` and `{{ product.name }}`. The `{{ product.name }}` statement is an example of Angular's interpolation syntax. A Interpolação `{{ }}` permite você renderizar o valor da propriedade como texto.
+1.  Dentro da `<div>`, adicione um `<h3>` e `{{ product.name }}`. A instrução `{{ product.name }}` é um exemplo da sintaxe de interpolação do Angular. A Interpolação `{{ }}` é responsável pela renderização do valor da propriedade como texto.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html" region="interpolation"></code-example>
 
-    The preview pane updates to display the name of each product in the list.
+    O painel de pré-visualização é atualizado e então é exibido o nome de cada produto da lista.
 
     <div class="lightbox">
 
@@ -106,13 +106,13 @@ Nesta seção, você irá atualizar a aplicação para exibir uma lista de produ
 
     </div>
 
-1.  To make each product name a link to product details, add the `<a>` element around `{{ product.name }}`.
+1.  Para fazer com que cada nome de um produto seja um link para os detalhes do produto, adicione o elemento `<a>` em torno de `{{ product.name }}`.
 
-1.  Defina o título do link para ser o nome do produto usando a sintaxe de property binding `[ ]` da seguinte forma:
+1.  Defina o título do link com o nome do produto usando a sintaxe de property binding `[ ]` da seguinte forma:
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html"></code-example>
 
-    In the preview pane, hover over a product name to see the bound name property value, which is the product name plus the word "details". Property binding `[ ]` lets you use the property value in a template expression.
+    In the preview pane, hover over a product name to see the bound name property value, which is the product name plus the word "details". O Property binding `[ ]` permite usar o valor da propriedade em um template.
 
     <div class="lightbox">
 
@@ -120,11 +120,11 @@ Nesta seção, você irá atualizar a aplicação para exibir uma lista de produ
 
     </div>
 
-1.  Add the product descriptions. On a `<p>` element, use an `*ngIf` directive so that Angular only creates the `<p>` element if the current product has a description.
+1.  Adicione as descrições do produto. Em um elemento `<p>`, use uma diretiva `*ngIf` para que o Angular apenas crie o elemento `<p>` se o produto atual tiver uma descrição.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.3.html"></code-example>
 
-    The application now displays the name and description of each product in the list. Notice that the final product does not have a description paragraph. Angular doesn't create the `<p>` element because the product's description property is empty.
+    A aplicação agora exibe o nome e a descrição de cada produto da lista. Observe que o produto final não tem um parágrafo de descrição. O Angular não cria o elemento `<p>` porque a propriedade descrição do produto está vazia.
 
     <div class="lightbox">
 
@@ -132,11 +132,11 @@ Nesta seção, você irá atualizar a aplicação para exibir uma lista de produ
 
     </div>
 
-1.  Add a button so users can share a product. Bind the button's `click` event to the `share()` method in `product-list.component.ts`. Event binding uses a set of parentheses, `( )`, around the event, as in the `(click)` event on the  `<button>` element.
+1.  Adicione um botão para que os usuários possam compartilhar um produto. Vincule o evento `clique` do botão para o método `share()` declarado no `product-list.component.ts`. O Event binding usa parênteses ao redor do evento, como pode ser visto no `(click)` do elemento `<button>`.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.4.html"></code-example>
 
-    Each product now has a **Share** button.
+    Cada produto agora tem um botão **Share**.
 
     <div class="lightbox">
 
@@ -144,7 +144,7 @@ Nesta seção, você irá atualizar a aplicação para exibir uma lista de produ
 
     </div>
 
-    Clicking the **Share** button triggers an alert that states, "The product has been shared!".
+    Clicando no botão **Share** será exibido um alerta com a mensagem "O produto foi compartilhado!".
 
     <div class="lightbox">
 
@@ -152,13 +152,13 @@ Nesta seção, você irá atualizar a aplicação para exibir uma lista de produ
 
     </div>
 
-In editing the template, you have explored some of the most popular features of Angular templates. For more information, see [Introduction to components and templates](guide/architecture-components#template-syntax "Template Syntax").
+Ao editar o template, você explorou algumas das funcionalidades mais populares fornecidas pelo Angular. Para obter mais informações, consulte a seção [Introdução aos componentes e templates](guide/architecture-components#template-syntax "Template Syntax").
 
 <a id="passing-data-in"></a>
 
-## Pass data to a child component
+## Passando dados para um componente filho
 
-Currently, the product list displays the name and description of each product. The `ProductListComponent` also defines a `products` property that contains imported data for each product from the `products` array in `products.ts`.
+Neste momento, a lista de produtos exibe o nome e a descrição de cada produto. The `ProductListComponent` also defines a `products` property that contains imported data for each product from the `products` array in `products.ts`.
 
 The next step is to create a new alert feature that uses product data from the `ProductListComponent`. The alert checks the product's price, and, if the price is greater than &dollar;700, displays a **Notify Me** button that lets users sign up for notifications when the product goes on sale.
 
