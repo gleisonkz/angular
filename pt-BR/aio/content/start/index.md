@@ -1,4 +1,4 @@
-# Começando com Angular
+# Primeiros passos com Angular
 
 Bem-vindo ao Angular!
 
