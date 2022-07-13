@@ -12,11 +12,11 @@ In the following sections, you'll add the following features to the application:
 
 <a id="define-routes"></a>
 
-## Associate a URL path with a component
+## Associe um caminho de URL com um componente
 
-The application already uses the Angular `Router` to navigate to the `ProductListComponent`. This section shows you how to define a route to show individual product details.
+O aplicativo já utiliza o Angular `Router` para navegar para o `ProductListComponent`. Esta seção mostra como definir uma rota para mostrar detalhes de produtos individuais.
 
-1.  Generate a new component for product details. In the terminal generate a new `product-details` component by running the following command:
+1. Gerar um novo componente para detalhes do produto. No terminal gera um novo componente  `product-details` executando o seguinte comando:
 
     <code-example format="shell" language="shell">
 
@@ -24,21 +24,21 @@ The application already uses the Angular `Router` to navigate to the `ProductLis
 
     </code-example>
 
-1.  In `app.module.ts`, add a route for product details, with a `path` of `products/:productId` and `ProductDetailsComponent` for the `component`.
+1.  Em `app.module.ts`, adicionar uma rota para detalhes do produto, com o `caminho(path)` de `products/:productId` e `ProductDetailsComponent` para o `componente``.
 
     <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="product-details-route"></code-example>
 
-1.  Open `product-list.component.html`.
+1.  Abrir `product-list.component.html`.
 
-1.  Modify the product name anchor to include a `routerLink` with the `product.id` as a parameter.
+1.  Modifique o nome do produto para incluir um  `routerLink` com o `product.id` como parâmetro..
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.html" region="router-link"></code-example>
 
-    The `RouterLink` directive helps you customize the anchor element. In this case, the route, or URL, contains one fixed segment, `/products`. The final segment is variable, inserting the `id` property of the current product. For example, the URL for a product with an `id` of 1 would be similar to `https://getting-started-myfork.stackblitz.io/products/1`.
+    A diretiva `RouterLink` ajuda você a personalizar o elemento âncora. Neste caso, a rota ou a URL contém um segmento fixo, `/products`. O segmento final é variável, inserindo a propriedade `id` do produto atual. Por exemplo, a URL de um produto com `id` de 1 seria semelhante a `https://getting-started-myfork.stackblitz.io/products/1`.
 
-1.  Verify that the router works as intended by clicking the product name. The application should display the `ProductDetailsComponent`, which currently says "product-details works!"
+1.  Verifique se o roteador funciona conforme o esperado clicando no nome do produto. A aplicação deve exibir o `ProductDetailsComponent`, que atualmente diz "product-details works!"
 
-    Notice that the URL in the preview window changes. The final segment is `products/#` where `#` is the number of the route you clicked.
+    Observe que a URL na janela de visualização muda.O segmento final é `products/#` onde `#`  é o número da rota em que você clicou.
 
     <div class="lightbox">
 
@@ -46,11 +46,11 @@ The application already uses the Angular `Router` to navigate to the `ProductLis
 
     </div>
 
-## View product details
+## Ver detalhes do produto
 
-The `ProductDetailsComponent` handles the display of each product. The Angular Router displays components based on the browser's URL and [your defined routes](#define-routes).
+O `ProductDetailsComponent` trata da exibição de cada produto. O Angular Router exibe componentes com base na URL do navegador e [suas rotas definidas.](#define-routes).
 
-In this section, you'll use the Angular Router to combine the `products` data and route information to display the specific details for each product.
+Nesta seção, você usará o Angular Router para combinar os dados dos `products` e as informações de rota para exibir os detalhes específicos de cada produto.
 
 1.  In `product-details.component.ts`, import `ActivatedRoute` from `@angular/router`, and the `products` array from `../products`.
 
