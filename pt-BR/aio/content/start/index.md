@@ -10,9 +10,9 @@ Para ajudá-lo a começar logo, este tutorial usa um aplicativo pronto, que voc�
 
 Para tirar o máximo proveito deste tutorial, você já deve ter um entendimento básico sobre o seguinte.
 
-*   [HTML](https://developer.mozilla.org/docs/Learn/HTML "Learning HTML: Guides and tutorials")
+*   [HTML](https://developer.mozilla.org/docs/Learn/HTML "Aprendendo HTML: Guias e Tutoriais")
 *   [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript "JavaScript")
-*   [TypeScript](https://www.typescriptlang.org/ "The TypeScript language")
+*   [TypeScript](https://www.typescriptlang.org/ "A linguagem TypeScript")
 
 <a id="components"></a>
 
@@ -57,7 +57,7 @@ Para criar o projeto de exemplo, gere o <live-example name="getting-started-v0" 
 
 <div class="lightbox">
 
-<img alt="Fork the project" src="generated/images/guide/start/fork-the-project.png">
+<img alt="Fork do projeto" src="generated/images/guide/start/fork-the-project.png">
 
 </div>
 
@@ -112,7 +112,7 @@ Nesta seção, você irá atualizar a aplicação para exibir uma lista de produ
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html"></code-example>
 
-    In the preview pane, hover over a product name to see the bound name property value, which is the product name plus the word "details". O Property binding `[ ]` permite usar o valor da propriedade em um template.
+    No painel de pré-visualização, passe o mouse sobre o nome de um produto para ver o valor da propriedade vinculada, concatenado com a palavra "details". O Property binding `[ ]` permite usar o valor da propriedade em um template.
 
     <div class="lightbox">
 
@@ -128,7 +128,7 @@ Nesta seção, você irá atualizar a aplicação para exibir uma lista de produ
 
     <div class="lightbox">
 
-    <img alt="Product descriptions added to list" src="generated/images/guide/start/template-syntax-product-description.png">
+    <img alt="Descrições do produto adicionadas à lista" src="generated/images/guide/start/template-syntax-product-description.png">
 
     </div>
 
