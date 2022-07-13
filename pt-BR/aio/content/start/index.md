@@ -39,7 +39,7 @@ Este guia demonstra a construção de uma aplicação com os seguintes component
 
 <div class="lightbox">
 
-<img alt="Online store with three components" src="generated/images/guide/start/app-components.png">
+<img alt="Loja virtual com três componentes" src="generated/images/guide/start/app-components.png">
 
 </div>
 
@@ -68,7 +68,7 @@ No StackBlitz, o painel de pré-visualização à direita mostra o estado inicia
 
 <div class="lightbox">
 
-<img alt="Starter online store application" src="generated/images/guide/start/new-app-all.gif">
+<img alt="Aplicação inicial de uma loja virtual" src="generated/images/guide/start/new-app-all.gif">
 
 </div>
 
