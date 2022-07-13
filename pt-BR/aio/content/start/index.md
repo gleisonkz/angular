@@ -201,7 +201,7 @@ This section walks you through creating a child component, `ProductAlertsCompone
 
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="imports"></code-example>
 
-1.  In the `ProductAlertsComponent` class definition, define a property named `product` with an `@Input()` decorator. The `@Input()` decorator indicates that the property value passes in from the component's parent, `ProductListComponent`.
+1.  In the `ProductAlertsComponent` class definition, define a property named `product` with an `@Input()` decorator. O decorator `@Input()` indica que o valor da propriedade será passada por um componente pai.
 
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="input-decorator"></code-example>
 
