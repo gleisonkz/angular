@@ -192,16 +192,16 @@ Nesta seção você aprenderá a criar de um componente filho, chamado `ProductA
 
     Key features in the `@Component()` are as follows:
 
-    *   The `selector`, `app-product-alerts`, identifies the component. By convention, Angular component selectors begin with the prefix `app-`, followed by the component name.
+    *   O `seletor`, `app-product-alerts`, que identifica o componente. Por convenção, os seletores de componente angular começam com o prefixo `app-`, seguido do nome do componente.
 
-    *   The template and style filenames reference the component's HTML and CSS
-    *   The `@Component()` definition also exports the class, `ProductAlertsComponent`, which handles functionality for the component
+    *   Os nomes no template e o estilo fazem referência aos arquivos HTML e CSS do componente
+    *   Na definição do decorator `@Component()`, a classe `ProductAlertsComponent` também é exportada
 
-1.  To set up `ProductAlertsComponent` to receive product data, first import `Input` from `@angular/core`.
+1.  Para configurar o `ProductAlertsComponent` para receber dados do produto, primeiro importe o decorator `Input` de `@angular/core`.
 
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="imports"></code-example>
 
-1.  In the `ProductAlertsComponent` class definition, define a property named `product` with an `@Input()` decorator. O decorator `@Input()` indica que o valor da propriedade será passada por um componente pai.
+1.  Na definição da classe `ProductAlertsComponent`, crie uma propriedade chamada `product` com um decorator `@Input()`. O decorator `@Input()` indica que o valor da propriedade será passada por um componente pai.
 
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="input-decorator"></code-example>
 
@@ -209,15 +209,15 @@ Nesta seção você aprenderá a criar de um componente filho, chamado `ProductA
 
     <code-example header="src/app/product-alerts/product-alerts.component.html" path="getting-started/src/app/product-alerts/product-alerts.component.1.html"></code-example>
 
-1.  The generator automatically added the `ProductAlertsComponent` to the `AppModule` to make it available to other components in the application.
+1.  A CLI adicionou automaticamente o `ProductAlertsComponent` ao `AppModule`, tornando-o acessível por outros componentes na aplicação.
 
     <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="declare-product-alerts"></code-example>
 
-1.  Finally, to display `ProductAlertsComponent` as a child of `ProductListComponent`, add the `<app-product-alerts>` element to `product-list.component.html`. Pass the current product as input to the component using property binding.
+1.  Por fim, para exibir `ProductAlertsComponent` como filho de `ProductListComponent`, adicione o elemento `<app-product-alerts>` ao arquivo `product-list.component.html`. Insira o valor do produto atual para o componente usando property binding.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.5.html" region="app-product-alerts"></code-example>
 
-The new product alert component takes a product as input from the product list. With that input, it shows or hides the **Notify Me** button, based on the price of the product. The Phone XL price is over &dollar;700, so the **Notify Me** button appears on that product.
+O novo componente de alerta recebe um produto como entrada da lista. Com essa entrada, ela mostra ou oculta o botão **Notify Me** com base no preço do produto. O preço do Phone XL é maior que &dollar;700, por isso, o botão **Notify Me** é exibido.
 
 <div class="lightbox">
 
@@ -227,40 +227,40 @@ The new product alert component takes a product as input from the product list. 
 
 <a id="output"></a>
 
-## Pass data to a parent component
+## Passando dados para um componente pai
 
-To make the **Notify Me** button work, the child component needs to notify and pass the data to the parent component. The `ProductAlertsComponent` needs to emit an event when the user clicks **Notify Me** and the `ProductListComponent` needs to respond to the event.
+Para fazer o botão **Notify Me** funcionar, o componente filho precisa passar os dados para o componente pai. O componente `ProductAlertsComponent` precisa emitir um evento quando o usuário clicar em **Notify Me** e o `ProductListComponent` precisa responder ao evento.
 
 <div class="alert is-helpful">
 
-In new components, the Angular Generator includes an empty `constructor()`, the `OnInit` interface, and the `ngOnInit()` method.
-Since these steps don't use them, the following code examples omit them for brevity.
+Na criação de componentes, a CLI do Angular inclui um `constructor()` vazio, a interface `OnInit` e o método `ngOnInit()`.
+Como nestes passos eles não são necessários, os exemplos de código a seguir irá omiti-los para deixar o código mais curto.
 
 </div>
 
-1.  In `product-alerts.component.ts`, import `Output` and `EventEmitter` from `@angular/core`.
+1.  No arquivo `product-alerts.component.ts`, importe `Output` e `EventEmitter` do pacote `@angular/core`.
 
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.ts" region="imports"></code-example>
 
-1.  In the component class, define a property named `notify` with an `@Output()` decorator and an instance of `EventEmitter()`. Configuring `ProductAlertsComponent` with an `@Output()` allows the `ProductAlertsComponent` to emit an event when the value of the `notify` property changes.
+1.  Na classe do componente, crie uma propriedade chamada `notify` com o decorador `@Output()` e uma instância de `EventEmitter()`. Inserindo o decorator `@Output()` no `ProductAlertsComponent` será possível emitir um evento quando o valor da propriedade `notify` mudar.
 
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.ts" region="input-output"></code-example>
 
-1.  In `product-alerts.component.html`, update the **Notify Me** button with an event binding to call the `notify.emit()` method.
+1.  No arquivo `product-alerts.component.html`, atualize o botão **Notify Me** utilizando event binding para chamar o método `notify.emit()`.
 
     <code-example header="src/app/product-alerts/product-alerts.component.html" path="getting-started/src/app/product-alerts/product-alerts.component.html"></code-example>
 
-1.  Define the behavior that happens when the user clicks the button. The parent, `ProductListComponent` &mdash;not the `ProductAlertsComponent`&mdash; acts when the child raises the event. In  `product-list.component.ts`, define an `onNotify()` method, similar to the `share()` method.
+1.  Defina o comportamento que irá acontecer quando o usuário clicar no botão. O componente pai, `ProductListComponent` &mdash;não o `ProductAlertsComponent`&mdash; atua quando o filho emite o evento. No arquivo `product-list.component.ts`, crie um método `onNotify()`, semelhante ao método `share()`.
 
     <code-example header="src/app/product-list/product-list.component.ts" path="getting-started/src/app/product-list/product-list.component.ts" region="on-notify"></code-example>
 
-1.  Update the `ProductListComponent` to receive data from the `ProductAlertsComponent`.
+1.  Atualize o componente `ProductListComponent` para receber os dados do `ProductAlertsComponent`.
 
-    In `product-list.component.html`, bind `<app-product-alerts>`  to the `onNotify()` method of the product list component. `<app-product-alerts>` is what displays the **Notify Me** button.
+    No arquivo `product-list.component.html`, vincule o evento do componente `<app-product-alerts>`  ao método `onNotify()` do componente de lista de produtos. O componente `<app-product-alerts>` exibe o botão **Notify Me**.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.6.html" region="on-notify"></code-example>
 
-1.  Click the **Notify Me** button to trigger an alert which reads, "You will be notified when the product goes on sale".
+1.  Clique no botão **Notify Me** para exibir um alerta com a seguinte mensagem, "Você será notificado quando o produto estiver em promoção".
 
     <div class="lightbox">
 
@@ -268,17 +268,17 @@ Since these steps don't use them, the following code examples omit them for brev
 
     </div>
 
-For more information on communication between components, see [Component Interaction](guide/component-interaction "Component interaction").
+Para obter mais informações sobre a comunicação entre componentes, consulte a seção de [Interação com um componente](guide/component-interaction "Component interaction").
 
 <a id="whats-next"></a>
 
-## What's next
+## Próximos passos
 
-In this section, you've created an application that iterates through data and features components that communicate with each other.
+Nesta seção, você criou uma aplicação que percorre uma lista de dados e utiliza a comunicação entre componentes.
 
-To continue exploring Angular and developing this application:
+Para continuar explorando o Angular e desenvolvendo esta aplicação:
 
-*   Continue to [In-app navigation](start/start-routing "Getting started: In-app navigation") to create a product details page.
+*   Continue na seção [Aplicação com Navegação](start/start-routing "Getting started: In-app navigation") para criar uma página de detalhes do produto.
 *   Skip ahead to [Deployment](start/start-deployment "Getting started: Deployment") to move to local development, or deploy your application to Firebase or your own server.
 
 @reviewed 2022-02-28
