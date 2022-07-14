@@ -116,7 +116,7 @@ Nesta seção, você irá atualizar a aplicação para exibir uma lista de produ
 
     <div class="lightbox">
 
-    <img alt="Product name anchor text is product name property" src="generated/images/guide/start/template-syntax-product-anchor.png">
+    <img alt="O texto &quot;nome do produto&quot; recebe o valor da propriedade &quot;name&quot;" src="generated/images/guide/start/template-syntax-product-anchor.png">
 
     </div>
 
@@ -158,17 +158,17 @@ Ao editar o template, você explorou algumas das funcionalidades mais populares 
 
 ## Passando dados para um componente filho
 
-Neste momento, a lista de produtos exibe o nome e a descrição de cada produto. The `ProductListComponent` also defines a `products` property that contains imported data for each product from the `products` array in `products.ts`.
+Neste momento, a lista de produtos exibe o nome e a descrição de cada produto. O `ProductListComponent` também conta com a propriedade `products`, que recebe os dados do array `products` declarado no arquivo `products.ts`.
 
-The next step is to create a new alert feature that uses product data from the `ProductListComponent`. The alert checks the product's price, and, if the price is greater than &dollar;700, displays a **Notify Me** button that lets users sign up for notifications when the product goes on sale.
+O próximo passo é criar um alerta que exibe os dados de um produto do `ProductListComponent`. O alerta verifica o preço do produto e, caso seja maior que &dollar;700, exibe um botão **Notify Me**, que permite aos usuários se cadastrarem para receber notificações quando o produto estiver em promoção.
 
-This section walks you through creating a child component, `ProductAlertsComponent` that can receive data from its parent component, `ProductListComponent`.
+Nesta seção você aprenderá a criar de um componente filho, chamado `ProductAlertsComponent`, que pode receber dados de seu componente pai, `ProductListComponent`.
 
-1.  Click on the plus sign above the current terminal to create a new terminal to run the command to generate the component.
+1.  Clique no sinal de mais na parte superior do terminal atual para abrir um novo terminal e executar o comando para gerar o componente.
 
     <div class="lightbox">
 
-    <img alt="StackBlitz command to generate component" src="generated/images/guide/start/create-new-terminal.png">
+    <img alt="Comando do StackBlitz para gerar componente" src="generated/images/guide/start/create-new-terminal.png">
 
     </div>
 
@@ -180,13 +180,13 @@ This section walks you through creating a child component, `ProductAlertsCompone
 
     </code-example>
 
-    The generator creates starter files for the three parts of the component:
+    O gerador criará os arquivos iniciais para as três partes do componente:
 
     *   `product-alerts.component.ts`
     *   `product-alerts.component.html`
     *   `product-alerts.component.css`
 
-1.  Open `product-alerts.component.ts`. The `@Component()` decorator indicates that the following class is a component. `@Component()` also provides metadata about the component, including its selector, templates, and styles.
+1.  Abra o arquivo `product-alerts.component.ts`. The `@Component()` decorator indicates that the following class is a component. `@Component()` also provides metadata about the component, including its selector, templates, and styles.
 
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="as-generated"></code-example>
 
