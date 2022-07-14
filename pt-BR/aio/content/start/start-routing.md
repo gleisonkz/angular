@@ -1,8 +1,8 @@
-# Adding navigation
+# Adicionando navegação
 
-This guide builds on the first step of the Getting Started tutorial, [Get started with a basic Angular app](start "Get started with a basic Angular app").
+Este guia é a continuação da seção [Primeiros passos](start "Get started with a basic Angular app").
 
-At this stage of development, the online store application has a basic product catalog.
+Nesta fase de desenvolvimento, nossa aplicação de loja virtual tem um catálogo básico de produtos.
 
 In the following sections, you'll add the following features to the application:
 
