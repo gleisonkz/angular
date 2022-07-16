@@ -1,6 +1,6 @@
-# Using forms for user input
+# Usando formulários para tratar dados de entrada de usuários
 
-This guide builds on the [Managing Data](start/start-data "Try it: Managing Data") step of the Getting Started tutorial, [Get started with a basic Angular app](start "Get started with a basic Angular app").
+Este guia baseia-se na etapa [Gerenciando Dados](start/start-data "Try it: Managing Data") do tutorial de Introdução, [Primeiros Passos](start "Get started with a basic Angular app").
 
 This section walks you through adding a form-based checkout feature to collect user information as part of checkout.
 
