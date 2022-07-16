@@ -172,7 +172,7 @@ Nesta seção você aprenderá a criar de um componente filho, chamado `ProductA
 
     </div>
 
-1.  In the new terminal, generate a new component named `product-alerts` by running the following command.
+1.  No novo terminal, crie um componente chamado `product-alerts` executando o seguinte comando:
 
     <code-example format="shell" language="shell">
 
@@ -186,11 +186,11 @@ Nesta seção você aprenderá a criar de um componente filho, chamado `ProductA
     *   `product-alerts.component.html`
     *   `product-alerts.component.css`
 
-1.  Abra o arquivo `product-alerts.component.ts`. The `@Component()` decorator indicates that the following class is a component. `@Component()` also provides metadata about the component, including its selector, templates, and styles.
+1.  Abra o arquivo `product-alerts.component.ts`. O decorator `@Component()` indica que a classe é um componente. O decorator `@Component()` também fornece metadados sobre o componente, incluindo seu seletor, template e estilos.
 
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="as-generated"></code-example>
 
-    Key features in the `@Component()` are as follows:
+    As principais propriedades do `@Component()` são:
 
     *   O `seletor`, `app-product-alerts`, que identifica o componente. Por convenção, os seletores de componente angular começam com o prefixo `app-`, seguido do nome do componente.
 
@@ -205,7 +205,7 @@ Nesta seção você aprenderá a criar de um componente filho, chamado `ProductA
 
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="input-decorator"></code-example>
 
-1.  Open `product-alerts.component.html` and replace the placeholder paragraph with a **Notify Me** button that appears if the product price is over &dollar;700.
+1.  Abra o arquivo `product-alerts.component.html` e substitua o conteúdo do parágrafo por um botão com o texto **Notify Me**, que será exibido quando o preço do produto ultrapassar &dollar;700.
 
     <code-example header="src/app/product-alerts/product-alerts.component.html" path="getting-started/src/app/product-alerts/product-alerts.component.1.html"></code-example>
 
@@ -264,7 +264,7 @@ Como nestes passos eles não são necessários, os exemplos de código a seguir 
 
     <div class="lightbox">
 
-    <img alt="Product alert notification confirmation dialog" src="generated/images/guide/start/product-alert-notification.png">
+    <img alt="Notificação de confirmação" src="generated/images/guide/start/product-alert-notification.png">
 
     </div>
 
