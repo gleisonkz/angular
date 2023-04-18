@@ -1,22 +1,22 @@
-# Adding navigation
+# Adicionando navegação
 
-This guide builds on the first step of the Getting Started tutorial, [Get started with a basic Angular app](start "Get started with a basic Angular app").
+Este guia é a continuação da seção [Primeiros passos](start "Get started with a basic Angular app").
 
-At this stage of development, the online store application has a basic product catalog.
+Nesta fase de desenvolvimento, nossa aplicação de loja virtual tem um catálogo básico de produtos.
 
 In the following sections, you'll add the following features to the application:
 
-*   Type a URL in the address bar to navigate to a corresponding product page
-*   Click links on the page to navigate within your single-page application
+*   Digite uma URL na barra de endereços para navegar para a página de produto correspondente
+*   Clique nos links da página para navegar na sua aplicação
 *   Click the browser's back and forward buttons to navigate the browser history intuitively
 
 <a id="define-routes"></a>
 
-## Associate a URL path with a component
+## Associar o caminho de uma URL a um componente
 
 The application already uses the Angular `Router` to navigate to the `ProductListComponent`. This section shows you how to define a route to show individual product details.
 
-1.  Generate a new component for product details. In the terminal generate a new `product-details` component by running the following command:
+1.  Crie um componente para apresentar os detalhes do produto. No terminal, execute o seguinte comando:
 
     <code-example format="shell" language="shell">
 
@@ -28,57 +28,57 @@ The application already uses the Angular `Router` to navigate to the `ProductLis
 
     <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="product-details-route"></code-example>
 
-1.  Open `product-list.component.html`.
+1.  Abra o arquivo `product-list.component.html`.
 
 1.  Modify the product name anchor to include a `routerLink` with the `product.id` as a parameter.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.html" region="router-link"></code-example>
 
-    The `RouterLink` directive helps you customize the anchor element. In this case, the route, or URL, contains one fixed segment, `/products`. The final segment is variable, inserting the `id` property of the current product. For example, the URL for a product with an `id` of 1 would be similar to `https://getting-started-myfork.stackblitz.io/products/1`.
+    A directiva `RouterLink` é útil para personalizar o elemento âncora. Neste caso, a rota ou a URL contém o segmento fixo `/products`. O segmento final é variável, inserindo o valor da propriedade `id` do produto atual. Por exemplo, a URL de um produto com `id` 1 seria similar a `https://getting-started-myfork.stackblitz.io/products/1`.
 
-1.  Verify that the router works as intended by clicking the product name. The application should display the `ProductDetailsComponent`, which currently says "product-details works!"
+1.  Verifique se o router funciona conforme o esperado clicando no nome do produto. A aplicação deve exibir o componente `ProductDetailsComponent`, com o texto "product-details works!"
 
-    Notice that the URL in the preview window changes. The final segment is `products/#` where `#` is the number of the route you clicked.
+    Observe que a URL na janela de pré-visualização muda. O segmento final é `produtos/#` onde `#` é o número da rota em que você clicou.
 
     <div class="lightbox">
 
-    <img alt="Product details view with updated URL" src="generated/images/guide/start/product-details-works.png">
+    <img alt="Exibição de detalhes do produto com URL atualizada" src="generated/images/guide/start/product-details-works.png">
 
     </div>
 
-## View product details
+## Ver detalhes do produto
 
-The `ProductDetailsComponent` handles the display of each product. The Angular Router displays components based on the browser's URL and [your defined routes](#define-routes).
+O componente `ProductDetailsComponent` trata a exibição de cada produto. O Router do Angular exibe os componentes com base na URL do navegador e [suas rotas definidas](#define-routes).
 
 In this section, you'll use the Angular Router to combine the `products` data and route information to display the specific details for each product.
 
-1.  In `product-details.component.ts`, import `ActivatedRoute` from `@angular/router`, and the `products` array from `../products`.
+1.  No arquivo `product-details.component.ts`, importe `ActivatedRoute` do `@angular/router`, e o array de `produtos` de `../products`.
 
     <code-example header="src/app/product-details/product-details.component.ts" path="getting-started/src/app/product-details/product-details.component.1.ts" region="imports"></code-example>
 
-1.  Define the `product` property.
+1.  Crie a propriedade `product`.
 
     <code-example header="src/app/product-details/product-details.component.ts" path="getting-started/src/app/product-details/product-details.component.1.ts" region="product-prop"></code-example>
 
-1.  Inject `ActivatedRoute` into the `constructor()` by adding `private route: ActivatedRoute` as an argument within the constructor's parentheses.
+1.  Injete o `ActivatedRoute` no `constructor()` adicionando `private route: ActivatedRoute` como parâmetro.
 
     <code-example header="src/app/product-details/product-details.component.ts" path="getting-started/src/app/product-details/product-details.component.1.ts" region="props-methods"></code-example>
 
-    `ActivatedRoute` is specific to each component that the Angular Router loads. `ActivatedRoute` contains information about the route and the route's parameters.
+    A classe `ActivatedRoute` é específica para cada componente que o Router do Angular carrega. A classe `ActivatedRoute` contém os dados da rota e seus parâmetros.
 
-    By injecting `ActivatedRoute`, you are configuring the component to use a service. The [Managing Data](start/start-data "Try it: Managing Data") step covers services in more detail.
+    Injetando a classe `ActivatedRoute`, você está configurando o componente para usar um serviço. A seção [Gerenciando Dados](start/start-data "Try it: Managing Data") aborda serviços com mais detalhes.
 
-1.  In the `ngOnInit()` method, extract the `productId` from the route parameters and find the corresponding product in the `products` array.
+1.  No método `ngOnInit()`, extraia o `productId` a partir dos parâmetros de rota e busque o produto correspondente no array `produtos`.
 
     <code-example header="src/app/product-details/product-details.component.ts" path="getting-started/src/app/product-details/product-details.component.1.ts" region="get-product"></code-example>
 
-    The route parameters correspond to the path variables you define in the route. To access the route parameters, we use `route.snapshot`, which is the `ActivatedRouteSnapshot` that contains information about the active route at that particular moment in time. The URL that matches the route provides the `productId` . Angular uses the `productId` to display the details for each unique product.
+    Os parâmetros de rota correspondem às variáveis definidas no path de cada rota. Para acessar os parâmetros de rota, usamos `route.snapshot`, que retorna uma instância da classe `ActivatedRouteSnapshot`. Essa classe contém informações sobre a rota ativa naquele momento. A URL que corresponde à rota fornece o `productId`. Angular uses the `productId` to display the details for each unique product.
 
-1.  Update the `ProductDetailsComponent` template to display product details with an `*ngIf`. If a product exists, the `<div>` renders with a name, price, and description.
+1.  Atualize o template do componente `ProductDetailsComponent` para exibir detalhes do produto com um `*ngIf`. Se um produto existir, será exibido uma `<div>` com um nome, preço e descrição.
 
     <code-example header="src/app/product-details/product-details.component.html" path="getting-started/src/app/product-details/product-details.component.html" region="details"></code-example>
 
-    The line, `<h4>{{ product.price | currency }}</h4>`, uses the `currency` pipe to transform `product.price` from a number to a currency string. A pipe is a way you can transform data in your HTML template. For more information about Angular pipes, see [Pipes](guide/pipes "Pipes").
+    A linha, `<h4>{{ product.price | currency }}</h4>`, usa o pipe `currency` para transformar o número da propriedade `product.price` em uma string com o valor e a respectiva moeda. A pipe is a way you can transform data in your HTML template. For more information about Angular pipes, see [Pipes](guide/pipes "Pipes").
 
 When users click on a name in the product list, the router navigates them to the distinct URL for the product, shows the `ProductDetailsComponent`, and displays the product details.
 
